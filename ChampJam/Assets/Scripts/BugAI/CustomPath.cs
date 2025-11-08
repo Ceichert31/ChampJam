@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CustomPath : MonoBehaviour, IPathfinder
 {
-    public Vector2 Goal => GameManager.Instance.bugGoal.position;
+    public Vector2 Goal => GameManager.Instance.BugGoal.position;
 
     [SerializeField]
     private AnimationCurve agentPattern;
