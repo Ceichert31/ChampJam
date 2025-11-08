@@ -8,6 +8,7 @@ public class FlyMovement : MonoBehaviour, IDirection
     {
         // move towards light
         Vector2 awayFromLightDir = ((Vector2)transform.position - lastLightPos).normalized;
-        return awayFromLightDir * agentInLightMult;
+        Debug.DrawRay(position, awayFromLightDir, Color.yellow);
+        return (awayFromLightDir) * agentInLightMult;
     }
 }

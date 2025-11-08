@@ -158,7 +158,7 @@ MonoBehaviour:
   latestLightPos: {fileID: 0}
   agentSpeed: 1
   targetChangeTimer: 5
-  rotationSpeed: 5
+  rotationSpeed: 1
 --- !u!1001 &7898932433532853292
 PrefabInstance:
   m_ObjectHideFlags: 0

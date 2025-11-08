@@ -74,8 +74,9 @@ public class AIAgent : MonoBehaviour
             return;
         }
 
-        // move towards light
-        rb.linearVelocity = pathfinder.GetPathVelocity(direction.GetTargetDirection(transform.position, latestLightPos.position)) * agentSpeed;
+        // Light movement logic
+        target = direction.GetTargetDirection(transform.position, latestLightPos.position);
+        rb.linearVelocity = pathfinder.GetPathVelocity(target) * agentSpeed;
         transform.up = Vector2.Lerp(transform.up, rb.linearVelocity, Time.fixedDeltaTime * rotationSpeed);
     }
     private void CalculateTarget()
