@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.74, y: 3.9, z: 0}
-  m_LocalScale: {x: 1, y: 0.8824538, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7662003128317041310}
@@ -108,7 +108,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb63af0012011d94ca548380b30eaa4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GoalKillbox
-  goalType: 0
   damageNumber: {fileID: 2970818422258972650, guid: 5a7b52c959d266745bbc5279bae41fe6, type: 3}
 --- !u!114 &-7563018216671845239
 MonoBehaviour:
