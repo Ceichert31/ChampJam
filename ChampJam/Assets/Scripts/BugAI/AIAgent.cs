@@ -25,9 +25,6 @@ public class AIAgent : MonoBehaviour
     [SerializeField]
     private float agentSpeed = 1.0f;
     [SerializeField]
-    private float fleeDistance = 0.5f;
-    [SerializeField]
-
     private float targetChangeTimer = 5f;
     private float changeTimer;
 

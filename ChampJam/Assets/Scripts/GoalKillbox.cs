@@ -39,4 +39,10 @@ public class GoalKillbox : MonoBehaviour, IDestroy
 
         Destroy(bug);
     }
+
+    public bool CheckGoalType(BugType type)
+    {
+        if (goalType == type) return true;
+        return false;
+    }
 }
