@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1825520702172606724}
   - component: {fileID: 4578182774286127600}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle
   m_TagString: Light
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3607636482421048207}
   - component: {fileID: 991387619591516068}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle (2)
   m_TagString: Light
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3849343036006184660}
   - component: {fileID: 6885275218934259375}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle (1)
   m_TagString: Light
   m_Icon: {fileID: 0}
@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 8218658134027763041}
   - component: {fileID: 5469924653341677787}
   - component: {fileID: 794952989230253065}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LanternPrefab
   m_TagString: Light
   m_Icon: {fileID: 0}
@@ -438,7 +438,7 @@ GameObject:
   - component: {fileID: 1585227803772852807}
   - component: {fileID: 824699085875832138}
   - component: {fileID: 2953146590361957963}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DetectionRadius
   m_TagString: Light
   m_Icon: {fileID: 0}
@@ -521,7 +521,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4575329050114169404}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LightParent
   m_TagString: Light
   m_Icon: {fileID: 0}

@@ -1,15 +1,17 @@
 using Unity.VisualScripting;
 using UnityEngine;
+
+[System.Serializable]
+public enum BugType
+{
+    MOTH,
+    FLY,
+    DEFAULT
+}
+
+
 public class FlyAgent : MonoBehaviour
 {
-    [System.Serializable]
-    public enum BugType
-    {
-        MOTH,
-        FLY,
-        DEFAULT
-    }
-
     [Header("Fly Data")]
     // improtant
     public BugType bugType = BugType.DEFAULT;

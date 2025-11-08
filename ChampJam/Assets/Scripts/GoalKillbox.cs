@@ -1,14 +1,42 @@
 using UnityEngine;
 
+
 public class GoalKillbox : MonoBehaviour, IDestroy
 {
+    [SerializeField] public BugType goalType;
+
+    private ObjectShake shake;
+
+    private void Awake()
+    {
+        shake = GetComponent<ObjectShake>();
+
+        // temp for visualizatoin
+        switch (goalType)
+        {
+            case BugType.MOTH:
+                transform.GetChild(0).GetComponent<SpriteRenderer>().color = Color.blue;
+                break;
+
+            case BugType.FLY:
+                transform.GetChild(0).GetComponent<SpriteRenderer>().color = Color.red;
+                break;
+
+            default:
+                break;
+        }
+    }
+
     public void DestroyBug(GameObject bug)
     {
         //Add points
         //Play particles
         //Play sfx
+        shake.StartShake();
+
         GameManager.Instance.AddScore(100);
         GameManager.Instance.RemoveBug(bug);
+
         Destroy(bug);
     }
 }
