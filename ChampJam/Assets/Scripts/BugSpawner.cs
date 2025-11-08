@@ -37,7 +37,7 @@ public class BugSpawner : MonoBehaviour
             //Spawn
             int spawnIndex = Random.Range(0, spawnList.Count - 1);
 
-            Instantiate(spawnList[spawnIndex], bugParent);
+            GameManager.Instance.AddBug(Instantiate(spawnList[spawnIndex], bugParent));
         }
     }
 }

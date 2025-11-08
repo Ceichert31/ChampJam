@@ -9,10 +9,6 @@ public class FlyAgent : MonoBehaviour
     [SerializeField]
     private float fleeDistance = 0.5f;
 
-    [Range(0.0f, 1.0f)]
-    [SerializeField]
-    private float viewRange = 0.7f;
-
     [SerializeField]
     private float targetChangeTimer = 5f;
 
@@ -62,7 +58,7 @@ public class FlyAgent : MonoBehaviour
         //Debug.DrawRay(transform.position, target, Color.blue);
         Debug.DrawLine(transform.position, target, Color.blue);
 
-        if (Vector3.Dot(toSpider, target) > viewRange && Vector3.Distance(transform.position, SpiderPos) < fleeDistance)
+        if (Vector3.Distance(transform.position, SpiderPos) < fleeDistance)
         {
             target = -toSpider;
         }
