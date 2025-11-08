@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Reputation
   reputationScore: 0
+  normalRateOfDecrease: 0.01
   reputationThreshold: 60
   rating: 0
   reputationBars:
@@ -88,7 +89,6 @@ MonoBehaviour:
   - Awesome!
   - Excellent!
   - Fantastic!
-  - Outstanding!
   - Outstanding!
 --- !u!1 &1290869160278494782
 GameObject:
@@ -1055,7 +1055,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -30}
-  m_SizeDelta: {x: 200, y: 30}
+  m_SizeDelta: {x: 300, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7214063578988977959
 CanvasRenderer:
