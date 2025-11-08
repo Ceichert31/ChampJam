@@ -475,8 +475,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca20440de881b4143a8f262f1fff9678, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  BugGoal: {fileID: 0}
+  bugHotels: []
   SpiderPos: {fileID: 919784951}
+  switchBugHotelTime: 15
+  repMeter: {fileID: 0}
+  repGainOnDeath: 12
 --- !u!61 &969350380
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -535,6 +538,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cd2969db0148ec45a0ad8d917dbe463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundManager
+  lampOn: {fileID: 8300000, guid: a43db7521d04d5f4bb4ebf89847e3cc0, type: 3}
+  lampOnVolume: 0.75
+  lampOnRandomPitch: 1
+  lampOnLowerPitch: 0.9
+  lampOnHigherPitch: 1.1
+  lampOff: {fileID: 8300000, guid: 0cf0b32ecdfdae74bb558d6c56298a77, type: 3}
+  lampOffVolume: 0.75
+  lampOffRandomPitch: 1
+  lampOffLowerPitch: 0.9
+  lampOffHigherPitch: 1.1
   spiderMove: {fileID: 0}
   spiderMoveVolume: 0.75
   spiderMoveRandomPitch: 1
@@ -580,11 +593,31 @@ MonoBehaviour:
   fleaFleeRandomPitch2: 1
   fleaFleeLowerPitch2: 0.9
   fleaFleeHigherPitch2: 1.1
+  rhinoHit1: {fileID: 8300000, guid: 7f4c7c04608f8f844bf671fda72a7904, type: 3}
+  rhinoHitVolume1: 0.75
+  rhinoHitRandomPitch1: 1
+  rhinoHitLowerPitch1: 0.9
+  rhinoHitHigherPitch1: 1.1
+  rhinoHit2: {fileID: 8300000, guid: 0f11d170c31bd4c4b86995b4720ccea4, type: 3}
+  rhinoHitVolume2: 0.75
+  rhinoHitRandomPitch2: 1
+  rhinoHitLowerPitch2: 0.9
+  rhinoHitHigherPitch2: 1.1
   weevilSpook: {fileID: 8300000, guid: b24160117aa813541b5290c8c6d67f69, type: 3}
   weevilSpookVolume: 0.75
   weevilSpookRandomPitch: 1
   weevilSpookLowerPitch: 0.9
   weevilSpookHigherPitch: 1.1
+  menuClick: {fileID: 0}
+  menuClickVolume: 0.75
+  menuClickRandomPitch: 1
+  menuClickLowerPitch: 0.9
+  menuClickHigherPitch: 1.1
+  gainScore: {fileID: 0}
+  gainScoreVolume: 0.75
+  gainScoreRandomPitch: 1
+  gainScoreLowerPitch: 0.9
+  gainScoreHigherPitch: 1.1
 --- !u!82 &969350382
 AudioSource:
   m_ObjectHideFlags: 0
