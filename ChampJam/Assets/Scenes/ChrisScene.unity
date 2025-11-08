@@ -923,6 +923,7 @@ GameObject:
   - component: {fileID: 1753074968}
   - component: {fileID: 1753074970}
   - component: {fileID: 1753074969}
+  - component: {fileID: 1753074971}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1048,6 +1049,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1753074967}
   m_CullTransparentMesh: 1
+--- !u!114 &1753074971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1753074967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9840f87219df84505803024c796e739d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: EasyTextEffects::EasyTextEffects.TextEffect
+  text: {fileID: 1753074969}
+  usePreset: 0
+  preset: {fileID: 0}
+  tagEffects:
+  - triggerWhen: 0
+    effect: {fileID: 11400000, guid: f5e04158a3bf69842ae4bc64079346b3, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+  globalEffects: []
+  updatesPerSecond: 30
 --- !u!1 &1756778586
 GameObject:
   m_ObjectHideFlags: 0
