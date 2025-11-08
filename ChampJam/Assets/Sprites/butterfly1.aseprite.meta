@@ -137,8 +137,8 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 13
-      height: 13
+      width: 15
+      height: 15
     spriteID: 3c22ed0909b682143b3698ecca93985a
     spriteBone: []
     spriteOutline: []
@@ -148,6 +148,27 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
+  - name: Frame_1
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 27
+      width: 13
+      height: 15
+    spriteID: 453685f94a7d37b4c9d8c37bdfac5da3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 27}
   spriteSheetImportData: []
   tileSetImportData: []
   asepriteLayers:
@@ -163,15 +184,24 @@ ScriptedImporter:
     layerType: 0
     blendMode: 0
     cells:
-    - name: butterfly1
+    - name: Frame_0
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
-        width: 13
-        height: 13
+        width: 15
+        height: 15
       spriteId: 3c22ed0909b682143b3698ecca93985a
+    - name: Frame_1
+      frameIndex: 1
+      additiveSortOrder: 0
+      cellRect:
+        x: 1
+        y: 0
+        width: 13
+        height: 15
+      spriteId: 453685f94a7d37b4c9d8c37bdfac5da3
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
@@ -181,5 +211,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 13, y: 13}
-  previousTextureSize: {x: 32, y: 32}
+  canvasSize: {x: 15, y: 15}
+  previousTextureSize: {x: 32, y: 64}
