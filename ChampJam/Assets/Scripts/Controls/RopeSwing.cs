@@ -4,39 +4,33 @@ using System.Collections;
 public class RopeSwing : MonoBehaviour
 {
     [Header("Rope Settings")]
-
-    [SerializeField] private int ropeSegments = 15;
-    [SerializeField] private float segmentLength = 0.3f;
+    [SerializeField] private int ropeSegments = 10;
+    [SerializeField] private float segmentLength = 0.5f;
     [SerializeField] private float ropeWidth = 0.1f;
 
     [Header("Physics Settings")]
-
-    [SerializeField] private float segmentMass = 0.2f;
-    [SerializeField] private float linearDamping = 0.01f;
-    [SerializeField] private float angularDamping = 0.01f;
-    [SerializeField] private float gravityScale = 2f;
-
-    [Header("Anchor Settings")]
-
-    [SerializeField] private float maxAnchorSpeed = 15f;
-    [SerializeField] private float anchorDrag = 5f;
+    [SerializeField] private float segmentMass = 0.1f;
+    [SerializeField] private float linearDamping = 0.5f;
+    [SerializeField] private float angularDamping = 0.5f;
 
     [Header("Light Settings")]
-
-    [SerializeField] private Sprite lightSprite;
     [SerializeField] private float lightSize = 0.5f;
-    [SerializeField] private float lightMass = 2f;
-    [SerializeField] private Color lightColor = Color.white;
+    [SerializeField] private float lightMass = 1f;
+    [SerializeField] private Color lightColor = Color.red;
 
     private GameObject[] ropeSegmentObjects;
     private GameObject lantern;
     private Camera mainCamera;
     private Vector2 mouseWorldPos;
-    private Vector2 anchorVelocity;
 
     private void Start()
     {
         mainCamera = Camera.main;
+
+        // much higher iterations for non-stretchy rope
+        Physics2D.velocityIterations = 32;
+        Physics2D.positionIterations = 16;
+
         CreateRope();
     }
 
@@ -44,29 +38,11 @@ public class RopeSwing : MonoBehaviour
     {
         // mouse to world
         mouseWorldPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-    }
 
-    private void FixedUpdate()
-    {
-        // anchor point follows mouse with speed limit
+        // anchor point follow mouse
         if (ropeSegmentObjects.Length > 0 && ropeSegmentObjects[0] != null)
         {
-            Vector2 currentPos = ropeSegmentObjects[0].transform.position;
-            Vector2 targetPos = mouseWorldPos;
-            Vector2 direction = targetPos - currentPos;
-            float distance = direction.magnitude;
-
-            // accelerate towards mouse
-            anchorVelocity += direction.normalized * anchorDrag * Time.fixedDeltaTime * distance;
-
-            // clamp velocity
-            if (anchorVelocity.magnitude > maxAnchorSpeed)
-            {
-                anchorVelocity = anchorVelocity.normalized * maxAnchorSpeed;
-            }
-
-            // apply movement
-            ropeSegmentObjects[0].transform.position = currentPos + anchorVelocity * Time.fixedDeltaTime;
+            ropeSegmentObjects[0].transform.position = mouseWorldPos;
         }
     }
 
@@ -96,22 +72,21 @@ public class RopeSwing : MonoBehaviour
                 rb.mass = segmentMass;
                 rb.linearDamping = linearDamping;
                 rb.angularDamping = angularDamping;
-                rb.gravityScale = gravityScale;
-                rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+                rb.interpolation = RigidbodyInterpolation2D.Interpolate;
 
-                // connecting with hinge
+                // hinge for rotation
                 HingeJoint2D hinge = segment.AddComponent<HingeJoint2D>();
                 hinge.connectedBody = ropeSegmentObjects[i - 1].GetComponent<Rigidbody2D>();
                 hinge.autoConfigureConnectedAnchor = false;
                 hinge.anchor = Vector2.up * (segmentLength / 2);
                 hinge.connectedAnchor = Vector2.down * (segmentLength / 2);
 
-                // distance joint to prevent stretchign
+                // distance to enforce length
                 DistanceJoint2D distJoint = segment.AddComponent<DistanceJoint2D>();
                 distJoint.connectedBody = ropeSegmentObjects[i - 1].GetComponent<Rigidbody2D>();
                 distJoint.autoConfigureDistance = false;
                 distJoint.distance = segmentLength;
-                distJoint.maxDistanceOnly = true;
+                distJoint.maxDistanceOnly = false;
             }
             else
             {
@@ -136,17 +111,7 @@ public class RopeSwing : MonoBehaviour
 
         // spriterender
         SpriteRenderer sr = lantern.AddComponent<SpriteRenderer>();
-
-        // use assigned sprite or fallback to generated square
-        if (lightSprite != null)
-        {
-            sr.sprite = lightSprite;
-        }
-        else
-        {
-            sr.sprite = CreateSquareSprite();
-        }
-
+        sr.sprite = CreateSquareSprite();
         sr.color = lightColor;
         lantern.transform.localScale = Vector3.one * lightSize;
 
@@ -155,23 +120,23 @@ public class RopeSwing : MonoBehaviour
         rb.mass = lightMass;
         rb.linearDamping = linearDamping;
         rb.angularDamping = angularDamping;
-        rb.gravityScale = gravityScale;
+        rb.interpolation = RigidbodyInterpolation2D.Interpolate;
 
         BoxCollider2D collider = lantern.AddComponent<BoxCollider2D>();
 
-        // last segment connection
+        // hinge for rotation
         HingeJoint2D hinge = lantern.AddComponent<HingeJoint2D>();
         hinge.connectedBody = ropeSegmentObjects[ropeSegments - 1].GetComponent<Rigidbody2D>();
         hinge.autoConfigureConnectedAnchor = false;
         hinge.anchor = Vector2.up * (lightSize / 2.0f);
         hinge.connectedAnchor = Vector2.down * (segmentLength / 2.0f);
 
-        // distance joint to prevent stretchign
+        // distance to enforce length
         DistanceJoint2D distJoint = lantern.AddComponent<DistanceJoint2D>();
         distJoint.connectedBody = ropeSegmentObjects[ropeSegments - 1].GetComponent<Rigidbody2D>();
         distJoint.autoConfigureDistance = false;
         distJoint.distance = (segmentLength / 2.0f) + (lightSize / 2.0f);
-        distJoint.maxDistanceOnly = true;
+        distJoint.maxDistanceOnly = false;
     }
 
     private Sprite CreateSquareSprite()

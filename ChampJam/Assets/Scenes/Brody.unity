@@ -1605,10 +1605,8 @@ MonoBehaviour:
   segmentMass: 0.01
   linearDamping: 0.2
   angularDamping: 0.2
-  gravityScale: 2
-  lightSprite: {fileID: 5342801015690890752, guid: 082d788a63f39af43a29c1588db7654a, type: 3}
   lightSize: 0.5
-  lightMass: 1
+  lightMass: 0.5
   lightColor: {r: 1, g: 0.98019964, b: 0.47169816, a: 1}
 --- !u!4 &1831105533
 Transform:
