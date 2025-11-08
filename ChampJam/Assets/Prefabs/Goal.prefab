@@ -108,6 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GoalKillbox
   goalType: 0
+  damageNumber: {fileID: 2970818422258972650, guid: 5a7b52c959d266745bbc5279bae41fe6, type: 3}
 --- !u!114 &-7563018216671845239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,8 +121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a1a504770fbf7542bcc0ae4d172feb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectShake
-  intensity: 0.96
-  speed: 10
+  intensity: 15
+  speed: 40
   duration: 0.25
 --- !u!1001 &504793072114902419
 PrefabInstance:

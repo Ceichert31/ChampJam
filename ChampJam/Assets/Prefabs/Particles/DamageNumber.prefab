@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7755497410129672648}
   - component: {fileID: 2396402829415352712}
   - component: {fileID: 6464836328301442916}
-  - component: {fileID: 7815739776006757796}
+  - component: {fileID: -6400660248496168778}
   m_Layer: 5
   m_Name: DamageNumber
   m_TagString: Untagged
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &7815739776006757796
+--- !u!114 &-6400660248496168778
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,11 +146,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2970818422258972650}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffa5388790081f94ba33aca47dc87c55, type: 3}
+  m_Script: {fileID: 11500000, guid: d07b8057d2477584ab5fa6f0e6572c3e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DamageNumbers
-  popDuration: 0.2
-  riseDuration: 1
-  fadeDuration: 0.5
-  riseSpeed: 2
-  popScale: 1.2
+  m_EditorClassIdentifier: Assembly-CSharp::DamageNumberDisplay

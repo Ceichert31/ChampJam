@@ -3,99 +3,56 @@ using TMPro;
 
 public class DamageNumbers : MonoBehaviour
 {
-    [Header("Animation Settings")]
+    public static DamageNumbers instance;
 
+    [Header("Animation Settings")]
     [SerializeField] private float popDuration = 0.2f;
     [SerializeField] private float riseDuration = 1.0f;
     [SerializeField] private float fadeDuration = 0.5f;
     [SerializeField] private float riseSpeed = 2f;
     [SerializeField] private float popScale = 1.2f;
 
-    [Header("References")]
-
-    private TextMeshProUGUI tmpText;
-    private RectTransform rectTransform;
-    private CanvasGroup canvasGroup;
-
-    private float timer;
-    private Vector3 originalScale;
-    private Vector3 startPosition;
-    private float totalDuration;
+    [Header("Setup")]
+    [SerializeField] private GameObject damageNumberPrefab;
+    [SerializeField] private Transform canvasTransform;
 
     private void Awake()
     {
-        tmpText = GetComponent<TextMeshProUGUI>();
-        rectTransform = GetComponent<RectTransform>();
-
-        canvasGroup = GetComponent<CanvasGroup>();
-        if (canvasGroup == null)
-        {
-            canvasGroup = gameObject.AddComponent<CanvasGroup>();
-        }
-
-        originalScale = transform.localScale;
-        //startPosition = rectTransform.anchoredPosition;
-        totalDuration = popDuration + riseDuration;
-
-        Initialize(100, Color.green);
+        instance = this;
     }
 
-    public void Initialize(int damage, Color color)
+    // call this from any script
+    public static void Create(int damage, Vector3 worldPosition)
     {
-        tmpText.text = damage.ToString();
-        tmpText.color = color;
-        timer = 0f;
+        Create(damage.ToString(), worldPosition, Color.red);
     }
 
-    public void Initialize(string text, Color color)
+    public static void Create(int damage, Vector3 worldPosition, Color color)
     {
-        tmpText.text = text;
-        tmpText.color = color;
-        timer = 0f;
+        Create(damage.ToString(), worldPosition, color);
     }
 
-    private void Update()
+    public static void Create(string text, Vector3 worldPosition, Color color)
     {
-        timer += Time.deltaTime;
+        if (instance == null) return;
 
-        // pop in
-        if (timer < popDuration)
-        {
-            float popProgress = timer / popDuration;
-            float scale = Mathf.Lerp(0f, popScale, EaseOutElastic(popProgress));
-            transform.localScale = originalScale * scale;
-        }
-        // rise up
-        else if (timer < totalDuration)
-        {
-            if (transform.localScale.x > originalScale.x)
-            {
-                transform.localScale = originalScale;
-            }
+        GameObject obj = Instantiate(instance.damageNumberPrefab, instance.canvasTransform);
+        RectTransform rt = obj.GetComponent<RectTransform>();
 
-            float riseProgress = (timer - popDuration) / riseDuration;
-            float yOffset = riseProgress * riseSpeed * 100f;
-            rectTransform.anchoredPosition = (Vector2)startPosition + Vector2.up * yOffset;
+        // world to screen position
+        Vector2 screenPos = Camera.main.WorldToScreenPoint(worldPosition);
 
-            // fade out
-            float fadeStartTime = totalDuration - fadeDuration;
-            if (timer > fadeStartTime)
-            {
-                float fadeProgress = (timer - fadeStartTime) / fadeDuration;
-                canvasGroup.alpha = 1f - fadeProgress;
-            }
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
+        // convert screen position to canvas space
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            instance.canvasTransform.GetComponent<RectTransform>(),
+            screenPos,
+            null,
+            out Vector2 localPoint);
 
-    // elastic bounce
-    private float EaseOutElastic(float t)
-    {
-        float c4 = (2f * Mathf.PI) / 3f;
-        return t == 0f ? 0f : t == 1f ? 1f :
-            Mathf.Pow(2f, -10f * t) * Mathf.Sin((t * 10f - 0.75f) * c4) + 1f;
+        rt.anchoredPosition = localPoint;
+
+        obj.GetComponent<DamageNumberDisplay>().Initialize(text, color,
+            instance.popDuration, instance.riseDuration, instance.fadeDuration,
+            instance.riseSpeed, instance.popScale);
     }
 }
