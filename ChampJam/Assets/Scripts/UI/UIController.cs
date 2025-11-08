@@ -36,8 +36,15 @@ public class UIController : MonoBehaviour
         }
 
         DOTween.CompleteAll();
+        //Spawn spider
 
-        if (index >= tutorialList.Count) return;
+        if (index > tutorialList.Count) return;
+
+        if (index == tutorialList.Count - 1)
+        {
+            //Spawn spider
+
+        }
 
         tutorialList[index].transform.DOScaleY(0, 0.3f).SetEase(Ease.InBounce).OnComplete(() =>
         {
