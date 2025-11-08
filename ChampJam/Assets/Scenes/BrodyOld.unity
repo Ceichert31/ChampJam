@@ -503,6 +503,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cd2969db0148ec45a0ad8d917dbe463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  spiderMove: {fileID: 0}
+  spiderMoveVolume: 0
+  spiderMoveRandomPitch: 0
+  spiderMoveLowerPitch: 0
+  spiderMoveHigherPitch: 0
+  spiderBite: {fileID: 0}
+  spiderBiteVolume: 0
+  spiderBiteRandomPitch: 0
+  spiderBiteLowerPitch: 0
+  spiderBiteHigherPitch: 0
+  spiderEat: {fileID: 0}
+  spiderEatVolume: 0
+  spiderEatRandomPitch: 0
+  spiderEatLowerPitch: 0
+  spiderEatHigherPitch: 0
+  spiderSpit: {fileID: 0}
+  spiderSpitVolume: 0
+  spiderSpitRandomPitch: 0
+  spiderSpitLowerPitch: 0
+  spiderSpitHigherPitch: 0
+  mothFollow: {fileID: 0}
+  mothFollowVolume: 0
+  mothFollowRandomPitch: 0
+  mothFollowLowerPitch: 0
+  mothFollowHigherPitch: 0
+  fleaFlee: {fileID: 0}
+  fleaFleeVolume: 0
+  fleaFleeRandomPitch: 0
+  fleaFleeLowerPitch: 0
+  fleaFleeHigherPitch: 0
+  weevilSpook: {fileID: 0}
+  weevilSpookVolume: 0
+  weevilSpookRandomPitch: 0
+  weevilSpookLowerPitch: 0
+  weevilSpookHigherPitch: 0
 --- !u!1001 &1020933257
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1045,7 +1080,7 @@ GameObject:
   - component: {fileID: 1508937588}
   - component: {fileID: 1508937587}
   m_Layer: 0
-  m_Name: EventSystem (1)
+  m_Name: EventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -901,16 +901,27 @@ MonoBehaviour:
   ratingStarOff: {fileID: -3364155269543512259, guid: 0f04324052bf72b419b5f7943e55344f, type: 3}
   ratingThresholds:
   - 60
+  - 54
   - 48
+  - 42
   - 36
+  - 30
   - 24
+  - 18
   - 12
+  - 6
   ratingTF: {fileID: 1293636791}
   ratingPhrases:
+  - Horrible!
   - Bad!
+  - Decent!
   - Okay!
+  - Nice!
   - Great!
+  - Awesome!
   - Excellent!
+  - Fantastic!
+  - Outstanding!
   - Outstanding!
 --- !u!1 &389607783
 GameObject:
