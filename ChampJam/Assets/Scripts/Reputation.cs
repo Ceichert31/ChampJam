@@ -151,16 +151,15 @@ public class Reputation : MonoBehaviour
 
     private void Update()
     {
-        reputationScore += .05f;
-        setReputation(reputationScore);
+        
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        /*reputationScore -= normalRateOfDecrease;
+        reputationScore -= normalRateOfDecrease;
         if (reputationScore <= 0)
             reputationScore = 0;
-        setReputation(reputationScore);*/
+        setReputation(reputationScore);
     }
 }
