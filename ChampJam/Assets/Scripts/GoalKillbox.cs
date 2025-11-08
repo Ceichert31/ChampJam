@@ -5,6 +5,8 @@ public class GoalKillbox : MonoBehaviour, IDestroy
 {
     [SerializeField] public BugType goalType;
 
+    [SerializeField] private GameObject damageNumber;
+
     private ObjectShake shake;
 
     private void Awake()
@@ -34,9 +36,17 @@ public class GoalKillbox : MonoBehaviour, IDestroy
         //Play sfx
         shake.StartShake();
 
+        Instantiate(damageNumber, transform.position, Quaternion.identity);
+
         GameManager.Instance.AddScore(100);
         GameManager.Instance.RemoveBug(bug);
 
         Destroy(bug);
+    }
+
+    public bool CheckGoalType(BugType type)
+    {
+        if (goalType == type) return true;
+        return false;
     }
 }

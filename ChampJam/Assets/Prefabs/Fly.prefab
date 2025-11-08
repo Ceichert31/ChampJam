@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6810860628366353467}
-  - component: {fileID: 640672079866648551}
   - component: {fileID: 5713019880503133473}
   - component: {fileID: 6057552084806566796}
   - component: {fileID: 7638917857707250558}
   - component: {fileID: 7333653864272480819}
+  - component: {fileID: 9003973331211179583}
   m_Layer: 3
   m_Name: Fly
   m_TagString: Untagged
@@ -37,25 +37,6 @@ Transform:
   - {fileID: 57175623670555425}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &640672079866648551
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2462142886862750413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37b34c120716ce943abdc0ff8993493a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FlyAgent
-  bugType: 1
-  inRadius: 0
-  litWhenInRadius: 0
-  latestLightPos: {fileID: 0}
-  agentSpeed: 1
-  fleeDistance: 2.5
-  targetChangeTimer: 5
 --- !u!50 &5713019880503133473
 Rigidbody2D:
   serializedVersion: 5
@@ -159,6 +140,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LinearPathWithNoise
   intensity: 3
+--- !u!114 &9003973331211179583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2462142886862750413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3087d39e6cb41594c859dcc5310f4580, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AIAgent
+  bugType: 1
+  inRadius: 0
+  litWhenInRadius: 0
+  latestLightPos: {fileID: 0}
+  agentSpeed: 1
+  fleeDistance: 3.5
+  targetChangeTimer: 5
 --- !u!1001 &7898932433532853292
 PrefabInstance:
   m_ObjectHideFlags: 0

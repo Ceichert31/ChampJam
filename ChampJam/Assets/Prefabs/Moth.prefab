@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7198474488672968244}
-  - component: {fileID: 4007848312758782825}
   - component: {fileID: 64328212045469181}
   - component: {fileID: 5096704234842702658}
   - component: {fileID: 2852525532127490985}
   - component: {fileID: 3503677266162604011}
+  - component: {fileID: 521594693465407060}
   m_Layer: 3
   m_Name: Moth
   m_TagString: Untagged
@@ -37,25 +37,6 @@ Transform:
   - {fileID: 1945633418088386582}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4007848312758782825
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3607495408664953213}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37b34c120716ce943abdc0ff8993493a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FlyAgent
-  bugType: 0
-  inRadius: 0
-  litWhenInRadius: 0
-  latestLightPos: {fileID: 0}
-  agentSpeed: 1
-  fleeDistance: 2.5
-  targetChangeTimer: 5
 --- !u!50 &64328212045469181
 Rigidbody2D:
   serializedVersion: 5
@@ -160,6 +141,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MothMovement
   agentInLightMult: 1.5
+--- !u!114 &521594693465407060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3607495408664953213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3087d39e6cb41594c859dcc5310f4580, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AIAgent
+  bugType: 0
+  inRadius: 0
+  litWhenInRadius: 0
+  latestLightPos: {fileID: 0}
+  agentSpeed: 1
+  targetChangeTimer: 5
 --- !u!1001 &8526935422812679963
 PrefabInstance:
   m_ObjectHideFlags: 0

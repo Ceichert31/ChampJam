@@ -10,19 +10,19 @@ public class BugColliderDetector : MonoBehaviour
 
     public EventHandler bugEaten;
 
-    private GoalKillbox goal;
-
     private void Start()
     {
         destroyLogic = GetComponent<IDestroy>();
-        goal = GetComponent<GoalKillbox>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //if bug type add points and destroy bug
-        if ((collision.transform.gameObject.layer == bugLayer) && (collision.transform.gameObject.GetComponent<AIAgent>().bugType == goal.goalType))
+        if ((collision.transform.gameObject.layer == bugLayer) && (collision.transform.gameObject.TryGetComponent(out AIAgent agent)))
         {
+            if (!destroyLogic.CheckGoalType(agent.bugType))
+                return;
+                
             destroyLogic.DestroyBug(collision.gameObject);
             bugEaten?.Invoke(gameObject, null);
         }

@@ -6,6 +6,11 @@ public class SpiderKillbox : MonoBehaviour, IDestroy
     [SerializeField]
     private Transform eatPoint;
 
+    public bool CheckGoalType(BugType type)
+    {
+        return true;
+    }
+
     public void DestroyBug(GameObject bug)
     {
         bug.transform.DOMove(eatPoint.position, 0.3f).OnComplete(() => {  //Add points
@@ -22,4 +27,5 @@ public class SpiderKillbox : MonoBehaviour, IDestroy
 public interface IDestroy
 {
     void DestroyBug(GameObject bug);
+    bool CheckGoalType(BugType type);
 }

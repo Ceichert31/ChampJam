@@ -1,9 +1,12 @@
+using DG.Tweening;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameOverScreen : MonoBehaviour
 {
-    [SerializeField] RectTransform screen;
+    [SerializeField] GameObject screen;
+    [SerializeField] CanvasGroup canvasGroup;
     [SerializeField] TextMeshProUGUI bugsLeadScoreTF;
     public TextMeshProUGUI getBugsLeadTF() { return bugsLeadScoreTF; }
     public void setBugsLeadTF(int value) { bugsLeadScoreTF.text = value.ToString(); }
@@ -18,7 +21,7 @@ public class GameOverScreen : MonoBehaviour
     public void setTotalScoreTF(int value) {  totalScoreTF.text = value.ToString(); }
     void Start()
     {
-        //Make open vertically on the y
+        OpenGameOverMenu();
 
     }
     // Update is called once per frame
@@ -27,6 +30,20 @@ public class GameOverScreen : MonoBehaviour
         
     }
 
+    public void OpenGameOverMenu()
+    {
+        //Opens Vertically on the Y 
+        DG.Tweening.Sequence openSequence = DOTween.Sequence();
+        openSequence.Append(screen.transform.DOScale(new Vector3(1, 1f, 1), 0.7f));
+        openSequence.Append(screen.transform.DOPunchScale(new Vector3(0.0f, 0.05f, 0f), .3f));
+        //openSequence.Insert(0,canvasGroup.DOFade(1f, .75f));
+    }
 
-    
+    public void ShakeInScores()
+    {
+        DG.Tweening.Sequence scoreSequence = DOTween.Sequence();
+    }
+
+
+
 }
