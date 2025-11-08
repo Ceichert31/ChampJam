@@ -9,23 +9,53 @@ public class SpiderAI : MonoBehaviour
 
     private Vector2 target;
 
+    [SerializeField]
+    private float wanderDelay = 5f;
+    private float wanderTimer;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        target = GameManager.Instance.GetRandomPointInBounds();
+        wanderTimer = wanderDelay;
     }
 
-    private void Update()
+    //Spider logic 
+    //Pause after catching bug
+    //Get random target when no bugs 
+
+    private Vector2 CalculateTarget()
     {
-        target = GameManager.Instance.GetNextTarget(transform.position);
+        //If there are valid bugs, get bug target
+        if (GameManager.Instance.HasNextTarget(transform.position))
+        {
+            target = GameManager.Instance.GetNextTarget(transform.position);
+        }
 
-        target = (target - new Vector2(transform.position.x, transform.position.y)).normalized;
+        //If reached destination, get next point
+        if (Vector2.Distance(transform.position, target) < 0.1f)
+        {
+            //get new target
+            target = GameManager.Instance.GetNextTarget(transform.position);
+        }
 
-        Debug.DrawRay(transform.position, target, Color.red);
+        //Count down timer 
+        wanderTimer -= Time.deltaTime;
+        if (wanderTimer <= 0)
+        {
+            wanderTimer = wanderDelay;
+            target = GameManager.Instance.GetNextTarget(transform.position);
+        }
+
+        Debug.DrawLine(transform.position, target, Color.red);
+
+        return (target - new Vector2(transform.position.x, transform.position.y)).normalized;
     }
 
     private void FixedUpdate()
     {
-        rb.linearVelocity = target * agentSpeed;
+        rb.linearVelocity = CalculateTarget() * agentSpeed;
         transform.up = Vector2.Lerp(transform.up, rb.linearVelocity, Time.deltaTime);
     }
 }

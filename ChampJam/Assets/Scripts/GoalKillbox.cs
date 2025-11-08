@@ -9,6 +9,6 @@ public class GoalKillbox : MonoBehaviour, IDestroy
         //Play sfx
         GameManager.Instance.AddScore(100);
         GameManager.Instance.RemoveBug(bug);
-        DestroyBug(bug);
+        Destroy(bug);
     }
 }

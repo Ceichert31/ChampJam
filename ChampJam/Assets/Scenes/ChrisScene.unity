@@ -528,6 +528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpiderAI
   agentSpeed: 1
+  wanderDelay: 5
 --- !u!50 &919784953
 Rigidbody2D:
   serializedVersion: 5
@@ -791,13 +792,13 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 3
-      inSlope: 0.006543556
-      outSlope: 0.006543556
+      value: 10
+      inSlope: 0.007884204
+      outSlope: 0.007884204
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.17362379
+      outWeight: 0.16376649
     - serializedVersion: 3
       time: 300
       value: 3
@@ -815,7 +816,7 @@ MonoBehaviour:
   - {fileID: 3514897782234549092, guid: e5d32e0563e98ac4eb4379dfeba59358, type: 3}
   - {fileID: 3514897782234549092, guid: e5d32e0563e98ac4eb4379dfeba59358, type: 3}
   bugParent: {fileID: 1428880980}
-  maxSpawnAmount: 5
+  maxSpawnAmount: 3
 --- !u!4 &1428880980
 Transform:
   m_ObjectHideFlags: 0

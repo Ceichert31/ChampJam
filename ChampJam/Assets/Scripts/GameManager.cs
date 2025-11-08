@@ -59,6 +59,11 @@ public class GameManager : MonoBehaviour
         bugList.Remove(bug);
     }
 
+    /// <summary>
+    /// Returns the next target for the spider to eat
+    /// </summary>
+    /// <param name="pos"></param>
+    /// <returns></returns>
     public Vector2 GetNextTarget(Vector2 pos)
     {
         //If no bugs are nearby or on-screen, wander
@@ -76,6 +81,9 @@ public class GameManager : MonoBehaviour
                 continue;
             }
 
+            //Calculate value of bug too
+
+            //Check for closest bug
             if (Vector2.Distance(pos, (Vector2)bug.transform.position) < dist)
             {
                 dist = Vector2.Distance(pos, (Vector2)bug.transform.position);
@@ -83,6 +91,51 @@ public class GameManager : MonoBehaviour
             } 
         }
 
+        if (closest == null)
+        {
+            return GetRandomPointInBounds();
+        }
+
         return closest.transform.position;
+    }
+
+    /// <summary>
+    /// Checks if the spider has the next target
+    /// </summary>
+    /// <param name="pos"></param>
+    /// <returns></returns>
+    public bool HasNextTarget(Vector2 pos)
+    {
+        //If no bugs are nearby or on-screen, wander
+        if (bugList.Count <= 0)
+        {
+            return false;
+        }
+
+        float dist = 100;
+        GameObject closest = null;
+        foreach (GameObject bug in bugList)
+        {
+            if (!IsInBounds(bug.transform.position))
+            {
+                continue;
+            }
+
+            //Calculate value of bug too
+
+            //Check for closest bug
+            if (Vector2.Distance(pos, (Vector2)bug.transform.position) < dist)
+            {
+                dist = Vector2.Distance(pos, (Vector2)bug.transform.position);
+                closest = bug;
+            }
+        }
+
+        if (closest == null)
+        {
+            return false;
+        }
+
+        return true;
     }
 }
