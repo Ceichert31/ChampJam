@@ -19,11 +19,6 @@ public class ObjectShake : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            StartShake();
-        }
-
         if (isShaking)
         {
             elapsedTime += Time.deltaTime;
