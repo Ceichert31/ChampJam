@@ -1161,6 +1161,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc42f1925983da84da3e3a2b173012f8, type: 3}
+--- !u!1 &626115492
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 626115493}
+  m_Layer: 0
+  m_Name: SpiderString
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &626115493
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626115492}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 919784951}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &697135091
 GameObject:
   m_ObjectHideFlags: 0
@@ -2025,6 +2056,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cd2969db0148ec45a0ad8d917dbe463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundManager
+  lampOn: {fileID: 0}
+  lampOnVolume: 0.75
+  lampOnRandomPitch: 1
+  lampOnLowerPitch: 0.9
+  lampOnHigherPitch: 1.1
+  lampOff: {fileID: 0}
+  lampOffVolume: 0.75
+  lampOffRandomPitch: 1
+  lampOffLowerPitch: 0.9
+  lampOffHigherPitch: 1.1
   spiderMove: {fileID: 0}
   spiderMoveVolume: 0.75
   spiderMoveRandomPitch: 1
@@ -2070,11 +2111,31 @@ MonoBehaviour:
   fleaFleeRandomPitch2: 1
   fleaFleeLowerPitch2: 0.9
   fleaFleeHigherPitch2: 1.1
+  rhinoHit1: {fileID: 0}
+  rhinoHitVolume1: 0.75
+  rhinoHitRandomPitch1: 1
+  rhinoHitLowerPitch1: 0.9
+  rhinoHitHigherPitch1: 1.1
+  rhinoHit2: {fileID: 0}
+  rhinoHitVolume2: 0.75
+  rhinoHitRandomPitch2: 1
+  rhinoHitLowerPitch2: 0.9
+  rhinoHitHigherPitch2: 1.1
   weevilSpook: {fileID: 0}
   weevilSpookVolume: 0.75
   weevilSpookRandomPitch: 1
   weevilSpookLowerPitch: 0.9
   weevilSpookHigherPitch: 1.1
+  menuClick: {fileID: 0}
+  menuClickVolume: 0.75
+  menuClickRandomPitch: 1
+  menuClickLowerPitch: 0.9
+  menuClickHigherPitch: 1.1
+  gainScore: {fileID: 0}
+  gainScoreVolume: 0.75
+  gainScoreRandomPitch: 1
+  gainScoreLowerPitch: 0.9
+  gainScoreHigherPitch: 1.1
 --- !u!82 &969350382
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2848,6 +2909,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpiderString
   spider: {fileID: 919784951}
+  spiderStringChild: {fileID: 626115493}
 --- !u!1 &1457880218
 GameObject:
   m_ObjectHideFlags: 0
@@ -4007,7 +4069,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5925908170558472184, guid: 912c8b72b3d8d2d468373ea49bbfbdbf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 626115493}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 912c8b72b3d8d2d468373ea49bbfbdbf, type: 3}
 --- !u!1001 &8435447131345881847
