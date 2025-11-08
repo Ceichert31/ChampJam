@@ -5,11 +5,19 @@ using UnityEngine;
 
 public class UIController : MonoBehaviour
 {
+    public static UIController Instance;
+
     [SerializeField]
     List<GameObject> tutorialList;
 
     private int index;
 
+    public bool firstIgnite;
+
+    private void Awake()
+    {
+        Instance = this;    
+    }
     private void Start()
     {
         if (tutorialList.Count <= 0)

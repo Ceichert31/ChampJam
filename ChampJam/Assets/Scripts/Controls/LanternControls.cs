@@ -33,6 +33,11 @@ public class LanternControls : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            if (!UIController.Instance.firstIgnite)
+            {
+                UIController.Instance.AdvanceTutorial();
+            }
+            UIController.Instance.firstIgnite = true;
             isLightOn = !isLightOn;
         }
 
