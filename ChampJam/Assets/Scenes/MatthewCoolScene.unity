@@ -313,9 +313,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 091f71b5371024843935c1b64ba614da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScrollUV
+  scrollTypeX: 1
+  scrollTypeY: 2
   scrollSpeedX: 0.15
   scrollSpeedY: 0.1
-  material: {fileID: 0}
 --- !u!64 &2095995155
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -402,13 +403,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2095995153}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: -0.7071068, w: 0}
   m_LocalPosition: {x: 0, y: -4.375, z: -0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: -180}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
