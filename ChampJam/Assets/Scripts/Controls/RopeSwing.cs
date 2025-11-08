@@ -39,6 +39,7 @@ public class RopeSwing : MonoBehaviour
     private Vector2 targetPosition;
     private Vector2 velocity = Vector2.zero;
     private LanternControls input;
+    private GameObject ropeParent;
 
     private void Awake()
     {
@@ -68,6 +69,9 @@ public class RopeSwing : MonoBehaviour
 
     private void buildRope()
     {
+        ropeParent = new GameObject("RopeSegments");
+        ropeParent.transform.SetParent(transform);
+
         ropeRenderer = gameObject.AddComponent<LineRenderer>();
         ropeRenderer.material = new Material(Shader.Find("Sprites/Default"));
         ropeRenderer.startWidth = ropeWidth;
@@ -84,6 +88,7 @@ public class RopeSwing : MonoBehaviour
         {
             GameObject seg = new GameObject("RopeSeg_" + i);
             seg.transform.position = startPos + Vector2.down * segmentLength * i;
+            seg.transform.SetParent(ropeParent.transform);
 
             Rigidbody2D rb = seg.AddComponent<Rigidbody2D>();
             rb.mass = ropeMass;
