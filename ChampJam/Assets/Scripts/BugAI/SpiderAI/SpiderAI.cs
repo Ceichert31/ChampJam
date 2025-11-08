@@ -82,6 +82,5 @@ public class SpiderAI : MonoBehaviour
         }
 
         rb.linearVelocity = CalculateTarget() * agentSpeed;
-        transform.up = Vector2.Lerp(transform.up, rb.linearVelocity, Time.deltaTime);
     }
 }
