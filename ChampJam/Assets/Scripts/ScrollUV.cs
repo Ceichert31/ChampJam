@@ -9,7 +9,7 @@ public class ScrollUV : MonoBehaviour
 
     void Start()
     {
-        material = GetComponent<MeshRenderer>().material;
+        //material = GetComponent<MeshRenderer>().material;
     }
 
     void Update()
