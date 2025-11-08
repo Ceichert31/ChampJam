@@ -45,7 +45,7 @@ public class MusicManager : MonoBehaviour
             fleaMusic.volume = 0;
         }
 
-        if (GameManager.Instance.HasFlyOnScreen())
+        if (GameManager.Instance.HasBeetleOnScreen())
         {
             beetleMusic.volume = 1;
         }
