@@ -20,7 +20,7 @@ public class BugColliderDetector : MonoBehaviour
         if (collision.transform.gameObject.layer == bugLayer)
         {
             destroyLogic.DestroyBug(collision.gameObject);
-            bugEaten.Invoke(gameObject, null);
+            bugEaten?.Invoke(gameObject, null);
         }
     }
 }
