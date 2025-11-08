@@ -84,6 +84,7 @@ MonoBehaviour:
   spawnList:
   - {fileID: 2462142886862750413, guid: a5a5945ec1693ad4eafcf48ff0d10569, type: 3}
   - {fileID: 3607495408664953213, guid: b3dae4f2277b9214296f2a1814922034, type: 3}
+  - {fileID: 8474211147281564620, guid: cd135894532286545b11e3bf2ace0295, type: 3}
   spawnPointList:
   - {fileID: 7485830775694876729}
   - {fileID: 5707399051797924805}

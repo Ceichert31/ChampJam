@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public Transform BugGoal;
+    List<BugHotel> bugHotels = new();
 
     public Transform SpiderPos;
 
@@ -13,9 +13,13 @@ public class GameManager : MonoBehaviour
 
     private List<GameObject> bugList = new();
 
-    private int score = 0;
+    [SerializeField]
+    private float switchBugHotelTime = 15f;
 
-    private Vector2 noBugsPos = new Vector2(-99, -99);
+    private float switchBugHotelTimer;
+
+
+    private int score = 0;
 
     private LanternControls lantern;
     private void Awake()
@@ -23,6 +27,8 @@ public class GameManager : MonoBehaviour
         Instance = this;
 
         bounds = GetComponent<BoxCollider2D>();
+
+        switchBugHotelTimer = Time.time + switchBugHotelTime;
     }
 
     private void Start()
@@ -33,6 +39,22 @@ public class GameManager : MonoBehaviour
         if (lantern == null)
         {
             Debug.LogError("Bruh moment!");
+        }
+    }
+
+    private void Update()
+    {
+        if (Time.time > switchBugHotelTimer)
+        {
+            //Disable all hotels
+            foreach (var hotel in bugHotels)
+            {
+                hotel.ActivateHotel();
+            }
+            int index = Random.Range(0, bugHotels.Count);
+            //Randomly enable one hotel
+
+            bugHotels[index].DeactivateHotel();
         }
     }
 

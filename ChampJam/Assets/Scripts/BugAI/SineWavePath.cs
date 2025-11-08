@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class SineWavePath : MonoBehaviour, IPathfinder
 {
-    public Vector2 Goal => GameManager.Instance.BugGoal.position;
 
     [SerializeField]
     private float frequency = 2.0f;

@@ -6,7 +6,6 @@ using UnityEngine;
 
 public interface IPathfinder
 {
-    Vector2 Goal { get; }
     Vector2 GetPathVelocity(Vector2 position);
 }
 
