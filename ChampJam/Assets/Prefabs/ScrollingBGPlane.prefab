@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 091f71b5371024843935c1b64ba614da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScrollUV
-  scrollTypeX: 1
+  scrollTypeX: 0
   scrollTypeY: 0
-  scrollSpeedX: 0.075
-  scrollSpeedY: 0.05
+  scrollSpeedX: 0
+  scrollSpeedY: 0
