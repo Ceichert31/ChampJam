@@ -6,9 +6,54 @@ public class SoundManager : MonoBehaviour
 
     [Header("References")]
 
-    public AudioClip jumpSound;
-    public AudioClip hitSound;
-    public AudioClip collectSound;
+    [Header("Spider Move")]
+    [SerializeField] private AudioClip spiderMove;
+    [SerializeField] private float spiderMoveVolume = 0.75f;
+    [SerializeField] private bool spiderMoveRandomPitch = true;
+    [SerializeField] private float spiderMoveLowerPitch = 0.9f;
+    [SerializeField] private float spiderMoveHigherPitch = 1.1f;
+
+    [Header("Spider Bite")]
+    [SerializeField] private AudioClip spiderBite;
+    [SerializeField] private float spiderBiteVolume = 0.75f;
+    [SerializeField] private bool spiderBiteRandomPitch = true;
+    [SerializeField] private float spiderBiteLowerPitch = 0.9f;
+    [SerializeField] private float spiderBiteHigherPitch = 1.1f;
+
+    [Header("Spider Eat")]
+    [SerializeField] private AudioClip spiderEat;
+    [SerializeField] private float spiderEatVolume = 0.75f;
+    [SerializeField] private bool spiderEatRandomPitch = true;
+    [SerializeField] private float spiderEatLowerPitch = 0.9f;
+    [SerializeField] private float spiderEatHigherPitch = 1.1f;
+
+    [Header("Spider Spit")]
+    [SerializeField] private AudioClip spiderSpit;
+    [SerializeField] private float spiderSpitVolume = 0.75f;
+    [SerializeField] private bool spiderSpitRandomPitch = true;
+    [SerializeField] private float spiderSpitLowerPitch = 0.9f;
+    [SerializeField] private float spiderSpitHigherPitch = 1.1f;
+
+    [Header("Moth Follow")]
+    [SerializeField] private AudioClip mothFollow;
+    [SerializeField] private float mothFollowVolume = 0.75f;
+    [SerializeField] private bool mothFollowRandomPitch = true;
+    [SerializeField] private float mothFollowLowerPitch = 0.9f;
+    [SerializeField] private float mothFollowHigherPitch = 1.1f;
+
+    [Header("Flea Flee")]
+    [SerializeField] private AudioClip fleaFlee;
+    [SerializeField] private float fleaFleeVolume = 0.75f;
+    [SerializeField] private bool fleaFleeRandomPitch = true;
+    [SerializeField] private float fleaFleeLowerPitch = 0.9f;
+    [SerializeField] private float fleaFleeHigherPitch = 1.1f;
+
+    [Header("Weevil Spook")]
+    [SerializeField] private AudioClip weevilSpook;
+    [SerializeField] private float weevilSpookVolume = 0.75f;
+    [SerializeField] private bool weevilSpookRandomPitch = true;
+    [SerializeField] private float weevilSpookLowerPitch = 0.9f;
+    [SerializeField] private float weevilSpookHigherPitch = 1.1f;
 
     private AudioSource audioSource;
 
@@ -45,9 +90,11 @@ public class SoundManager : MonoBehaviour
     }
 
     // temp usage functions
-    public void PlayJump() => PlaySound(jumpSound, 0.8f, true, 0.95f, 1.05f);
-
-    public void PlayHit() => PlaySound(hitSound, 1f, true, 0.8f, 1.2f);
-
-    public void PlayCollect() => PlaySound(collectSound, 0.6f, false);
+    public void PlaySpiderMove() => PlaySound(spiderMove, spiderMoveVolume, spiderMoveRandomPitch, spiderMoveLowerPitch, spiderMoveHigherPitch);
+    public void PlaySpiderBite() => PlaySound(spiderBite, spiderBiteVolume, spiderBiteRandomPitch, spiderBiteLowerPitch, spiderBiteHigherPitch);
+    public void PlaySpiderEat() => PlaySound(spiderEat, spiderEatVolume, spiderEatRandomPitch, spiderEatLowerPitch, spiderEatHigherPitch);
+    public void PlaySpiderSpit() => PlaySound(spiderSpit, spiderSpitVolume, spiderSpitRandomPitch, spiderSpitLowerPitch, spiderSpitHigherPitch);
+    public void PlayMothFollow() => PlaySound(mothFollow, mothFollowVolume, mothFollowRandomPitch, mothFollowLowerPitch, mothFollowHigherPitch);
+    public void PlayFleaFlee() => PlaySound(fleaFlee, fleaFleeVolume, fleaFleeRandomPitch, fleaFleeLowerPitch, fleaFleeHigherPitch);
+    public void PlayWeevilSpook() => PlaySound(weevilSpook, weevilSpookVolume, weevilSpookRandomPitch, weevilSpookLowerPitch, weevilSpookHigherPitch);
 }
