@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b4bd3792212ab041aa9171efa659411, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlyMovement
-  agentInLightMult: 5
+  agentInLightMult: 1
 --- !u!114 &7333653864272480819
 MonoBehaviour:
   m_ObjectHideFlags: 0
