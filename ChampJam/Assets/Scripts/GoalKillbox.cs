@@ -37,8 +37,10 @@ public class GoalKillbox : MonoBehaviour, IDestroy
         shake.StartShake();
 
         Instantiate(damageNumber, transform.position, Quaternion.identity);
+        shake.StartShake();
+        DamageNumbers.Create(100, transform.position, Color.yellow);
 
-        GameManager.Instance.AddScore(100);
+    GameManager.Instance.AddScore(100);
         GameManager.Instance.RemoveBug(bug);
 
         Destroy(bug);
