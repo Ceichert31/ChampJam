@@ -107,6 +107,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlyAgent
   agentSpeed: 1
+  fleeDistance: 2.5
+  viewRange: 0.7
 --- !u!50 &1723631577924641326
 Rigidbody2D:
   serializedVersion: 5
