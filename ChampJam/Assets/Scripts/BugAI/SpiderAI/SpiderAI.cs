@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class SpiderAI : MonoBehaviour
@@ -13,12 +14,19 @@ public class SpiderAI : MonoBehaviour
     private float wanderDelay = 5f;
     private float wanderTimer;
 
+    [SerializeField]
+    private float eatDelay = 5f;
+
+    private bool canMove = true;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
 
         target = GameManager.Instance.GetRandomPointInBounds();
         wanderTimer = wanderDelay;
+
+        GetComponent<BugColliderDetector>().bugEaten += FreezeMovement;
     }
 
     //Spider logic 
@@ -53,8 +61,26 @@ public class SpiderAI : MonoBehaviour
         return (target - new Vector2(transform.position.x, transform.position.y)).normalized;
     }
 
+    /// <summary>
+    /// Pauses spider movement for a certain time duration
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void FreezeMovement(object sender, EventArgs e)
+    {
+        canMove = false;
+        Invoke(nameof(ResetMovement), eatDelay);
+    }
+    private void ResetMovement() => canMove = true;
+
     private void FixedUpdate()
     {
+        if (!canMove)
+        {
+            rb.linearVelocity = Vector2.zero;
+            return;
+        }
+
         rb.linearVelocity = CalculateTarget() * agentSpeed;
         transform.up = Vector2.Lerp(transform.up, rb.linearVelocity, Time.deltaTime);
     }
