@@ -1,142 +1,158 @@
 using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 public class RopeSwing : MonoBehaviour
 {
     [Header("Rope Settings")]
-    [SerializeField] private int ropeSegments = 10;
-    [SerializeField] private float segmentLength = 0.5f;
-    [SerializeField] private float ropeWidth = 0.1f;
+
+    [SerializeField] private int ropeSegments = 5;
+    [SerializeField] private float segmentLength = 0.15f;
+    [SerializeField] private float ropeWidth = 0.05f;
+    [SerializeField] private Color ropeColor = Color.white;
+
+    [Header("Lantern Settings")]
+
+    [SerializeField] private Sprite lanternSprite;
+    [SerializeField] private float lanternSize = 0.5f;
+    [SerializeField] private float lanternMass = 2f;
+    [SerializeField] private Color lanternColor = Color.white;
 
     [Header("Physics Settings")]
-    [SerializeField] private float segmentMass = 0.1f;
-    [SerializeField] private float linearDamping = 0.5f;
-    [SerializeField] private float angularDamping = 0.5f;
 
-    [Header("Light Settings")]
-    [SerializeField] private float lightSize = 0.5f;
-    [SerializeField] private float lightMass = 1f;
-    [SerializeField] private Color lightColor = Color.red;
+    [SerializeField] private float ropeMass = 0.05f;
+    [SerializeField] private float drag = 0.1f;
+    [SerializeField] private float angularDrag = 0.05f;
+    [SerializeField] private float solverMultiplier = 2f;
 
-    private GameObject[] ropeSegmentObjects;
+    [Header("Movement Settings")]
+
+    [SerializeField] private float maxMoveSpeed = 10f;
+    [SerializeField] private float moveSmoothing = 0.1f;
+
+    private List<Rigidbody2D> segments = new List<Rigidbody2D>();
     private GameObject lantern;
-    private Camera mainCamera;
-    private Vector2 mouseWorldPos;
+    private LineRenderer ropeRenderer;
+    private Camera mainCam;
+    private Vector2 targetPosition;
+    private Vector2 velocity = Vector2.zero;
 
     private void Start()
     {
-        mainCamera = Camera.main;
-
-        // much higher iterations for non-stretchy rope
-        Physics2D.velocityIterations = 32;
-        Physics2D.positionIterations = 16;
-
-        CreateRope();
+        mainCam = Camera.main;
+        Physics2D.velocityIterations = Mathf.RoundToInt(60 * solverMultiplier);
+        Physics2D.positionIterations = Mathf.RoundToInt(30 * solverMultiplier);
+        targetPosition = transform.position;
+        buildRope();
     }
 
     private void Update()
     {
-        // mouse to world
-        mouseWorldPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-
-        // anchor point follow mouse
-        if (ropeSegmentObjects.Length > 0 && ropeSegmentObjects[0] != null)
-        {
-            ropeSegmentObjects[0].transform.position = mouseWorldPos;
-        }
+        Vector2 mouseWorld = mainCam.ScreenToWorldPoint(Input.mousePosition);
+        targetPosition = mouseWorld;
     }
 
-    private void CreateRope()
+    private void FixedUpdate()
     {
-        ropeSegmentObjects = new GameObject[ropeSegments];
+        if (segments.Count > 0)
+        {
+            Vector2 currentPos = segments[0].position;
 
-        // rope creation
+            // move towards target with velocity cap
+            Vector2 newPos = Vector2.SmoothDamp(currentPos, targetPosition, ref velocity, moveSmoothing, maxMoveSpeed);
+
+            segments[0].MovePosition(newPos);
+        }
+        DrawRope();
+    }
+
+    private void buildRope()
+    {
+        ropeRenderer = gameObject.AddComponent<LineRenderer>();
+        ropeRenderer.material = new Material(Shader.Find("Sprites/Default"));
+        ropeRenderer.startWidth = ropeWidth;
+        ropeRenderer.endWidth = ropeWidth;
+        ropeRenderer.startColor = ropeColor;
+        ropeRenderer.endColor = ropeColor;
+        ropeRenderer.positionCount = ropeSegments + 2;
+        ropeRenderer.sortingOrder = 0;
+
+        Vector2 startPos = transform.position;
+        Rigidbody2D prevBody = null;
+
         for (int i = 0; i < ropeSegments; i++)
         {
-            GameObject segment = new GameObject($"RopeSegment_{i}");
-            segment.transform.position = transform.position + Vector3.down * segmentLength * i;
+            GameObject seg = new GameObject("RopeSeg_" + i);
+            seg.transform.position = startPos + Vector2.down * segmentLength * i;
 
-            // line renderer visual init
-            LineRenderer lr = segment.AddComponent<LineRenderer>();
-            lr.startWidth = ropeWidth;
-            lr.endWidth = ropeWidth;
-            lr.material = new Material(Shader.Find("Sprites/Default"));
-            lr.startColor = Color.white;
-            lr.endColor = Color.white;
-            lr.positionCount = 2;
+            Rigidbody2D rb = seg.AddComponent<Rigidbody2D>();
+            rb.mass = ropeMass;
+            rb.linearDamping = drag;
+            rb.angularDamping = angularDrag;
+            rb.interpolation = RigidbodyInterpolation2D.Interpolate;
+            rb.sleepMode = RigidbodySleepMode2D.NeverSleep;
+            rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
 
-            // component setup
-            if (i > 0)
+            if (i == 0)
             {
-                Rigidbody2D rb = segment.AddComponent<Rigidbody2D>();
-                rb.mass = segmentMass;
-                rb.linearDamping = linearDamping;
-                rb.angularDamping = angularDamping;
-                rb.interpolation = RigidbodyInterpolation2D.Interpolate;
-
-                // hinge for rotation
-                HingeJoint2D hinge = segment.AddComponent<HingeJoint2D>();
-                hinge.connectedBody = ropeSegmentObjects[i - 1].GetComponent<Rigidbody2D>();
-                hinge.autoConfigureConnectedAnchor = false;
-                hinge.anchor = Vector2.up * (segmentLength / 2);
-                hinge.connectedAnchor = Vector2.down * (segmentLength / 2);
-
-                // distance to enforce length
-                DistanceJoint2D distJoint = segment.AddComponent<DistanceJoint2D>();
-                distJoint.connectedBody = ropeSegmentObjects[i - 1].GetComponent<Rigidbody2D>();
-                distJoint.autoConfigureDistance = false;
-                distJoint.distance = segmentLength;
-                distJoint.maxDistanceOnly = false;
+                // anchor segment that follows the mouse
+                rb.bodyType = RigidbodyType2D.Kinematic;
             }
             else
             {
-                // first segment (da anchor) follow mouse
-                Rigidbody2D rb = segment.AddComponent<Rigidbody2D>();
-                rb.bodyType = RigidbodyType2D.Kinematic;
+                DistanceJoint2D dist = seg.AddComponent<DistanceJoint2D>();
+                dist.connectedBody = prevBody;
+                dist.autoConfigureDistance = false;
+                dist.distance = segmentLength;
+                dist.maxDistanceOnly = false;
+                dist.enableCollision = false;
             }
 
-            ropeSegmentObjects[i] = segment;
+            prevBody = rb;
+            segments.Add(rb);
         }
 
-        // light
-        CreateLight();
-        // for line renderers
-        StartCoroutine(UpdateRopeVisuals());
+        CreateLantern(prevBody);
     }
 
-    private void CreateLight()
+    private void CreateLantern(Rigidbody2D bottomBody)
     {
         lantern = new GameObject("Lantern");
-        lantern.transform.position = transform.position + Vector3.down * (segmentLength * ropeSegments);
+        lantern.transform.position = bottomBody.transform.position + Vector3.down * segmentLength;
 
-        // spriterender
         SpriteRenderer sr = lantern.AddComponent<SpriteRenderer>();
-        sr.sprite = CreateSquareSprite();
-        sr.color = lightColor;
-        lantern.transform.localScale = Vector3.one * lightSize;
+        sr.sprite = lanternSprite != null ? lanternSprite : CreateSquareSprite();
+        sr.color = lanternColor;
+        // lantern above rope
+        sr.sortingOrder = 1;
+        lantern.transform.localScale = Vector3.one * lanternSize;
 
-        // physics
         Rigidbody2D rb = lantern.AddComponent<Rigidbody2D>();
-        rb.mass = lightMass;
-        rb.linearDamping = linearDamping;
-        rb.angularDamping = angularDamping;
+        rb.mass = lanternMass;
+        rb.linearDamping = drag;
+        rb.angularDamping = angularDrag;
         rb.interpolation = RigidbodyInterpolation2D.Interpolate;
+        rb.sleepMode = RigidbodySleepMode2D.NeverSleep;
+        rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
 
-        BoxCollider2D collider = lantern.AddComponent<BoxCollider2D>();
+        BoxCollider2D col = lantern.AddComponent<BoxCollider2D>();
+        col.size = new Vector2(lanternSize, lanternSize);
 
-        // hinge for rotation
-        HingeJoint2D hinge = lantern.AddComponent<HingeJoint2D>();
-        hinge.connectedBody = ropeSegmentObjects[ropeSegments - 1].GetComponent<Rigidbody2D>();
-        hinge.autoConfigureConnectedAnchor = false;
-        hinge.anchor = Vector2.up * (lightSize / 2.0f);
-        hinge.connectedAnchor = Vector2.down * (segmentLength / 2.0f);
+        DistanceJoint2D dist = lantern.AddComponent<DistanceJoint2D>();
+        dist.connectedBody = bottomBody;
+        dist.autoConfigureDistance = false;
+        dist.distance = segmentLength + (lanternSize * 0.4f);
+        dist.maxDistanceOnly = false;
+        dist.enableCollision = false;
+    }
 
-        // distance to enforce length
-        DistanceJoint2D distJoint = lantern.AddComponent<DistanceJoint2D>();
-        distJoint.connectedBody = ropeSegmentObjects[ropeSegments - 1].GetComponent<Rigidbody2D>();
-        distJoint.autoConfigureDistance = false;
-        distJoint.distance = (segmentLength / 2.0f) + (lightSize / 2.0f);
-        distJoint.maxDistanceOnly = false;
+    private void DrawRope()
+    {
+        ropeRenderer.positionCount = segments.Count + 1;
+        for (int i = 0; i < segments.Count; i++)
+        {
+            ropeRenderer.SetPosition(i, segments[i].transform.position);
+        }
+        ropeRenderer.SetPosition(segments.Count, lantern.transform.position);
     }
 
     private Sprite CreateSquareSprite()
@@ -144,30 +160,6 @@ public class RopeSwing : MonoBehaviour
         Texture2D texture = new Texture2D(1, 1);
         texture.SetPixel(0, 0, Color.white);
         texture.Apply();
-        return Sprite.Create(texture, new Rect(0, 0, 1, 1), new Vector2(0.5f, 0.5f), 1);
-    }
-
-    private IEnumerator UpdateRopeVisuals()
-    {
-        while (true)
-        {
-            // rope connection updates
-            for (int i = 0; i < ropeSegments; i++)
-            {
-                LineRenderer lr = ropeSegmentObjects[i].GetComponent<LineRenderer>();
-                lr.SetPosition(0, ropeSegmentObjects[i].transform.position);
-
-                if (i < ropeSegments - 1)
-                {
-                    lr.SetPosition(1, ropeSegmentObjects[i + 1].transform.position);
-                }
-                else
-                {
-                    lr.SetPosition(1, lantern.transform.position);
-                }
-            }
-
-            yield return null;
-        }
+        return Sprite.Create(texture, new Rect(0, 0, 1, 1), new Vector2(0.5f, 1f), 1);
     }
 }
