@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -44,12 +45,9 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         // im sorry
-        lantern = GameObject.Find("LanternPrefab(Clone)").transform.GetChild(1).GetComponent<LanternControls>();
 
-        if (lantern == null)
-        {
-            Debug.LogError("Bruh moment!");
-        }
+        if (SceneManager.GetActiveScene().name == "MainScene")
+            lantern = GameObject.Find("LanternPrefab(Clone)").transform.GetChild(1).GetComponent<LanternControls>();
     }
 
     private void Update()
