@@ -463,7 +463,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 62}
+  m_AnchoredPosition: {x: 0, y: 30}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &572487647
@@ -655,8 +655,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3751081970094016439, guid: 183ce7fdd1bc1f9459872013287b1c3e, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3751081970094016439, guid: 183ce7fdd1bc1f9459872013287b1c3e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3751081970094016439, guid: 183ce7fdd1bc1f9459872013287b1c3e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3751081970094016439, guid: 183ce7fdd1bc1f9459872013287b1c3e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3751081970094016439, guid: 183ce7fdd1bc1f9459872013287b1c3e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -170
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3751488520472017368, guid: 183ce7fdd1bc1f9459872013287b1c3e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -1118,8 +1134,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: PRESS ANY KEY
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8a96cebca6e89af40bc183af72f1b41a, type: 2}
-  m_sharedMaterial: {fileID: -8861731161328436591, guid: 8a96cebca6e89af40bc183af72f1b41a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d8bbbb9fd281f624384771cca2e9a351, type: 2}
+  m_sharedMaterial: {fileID: -8233879283070076169, guid: d8bbbb9fd281f624384771cca2e9a351, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
