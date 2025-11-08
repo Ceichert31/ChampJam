@@ -293,6 +293,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScrollingBGPlane
       objectReference: {fileID: 0}
+    - target: {fileID: 3763159127018958967, guid: a80ef715ffa92744c91e2cde70025b55, type: 3}
+      propertyPath: scrollSpeedX
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3763159127018958967, guid: a80ef715ffa92744c91e2cde70025b55, type: 3}
+      propertyPath: scrollSpeedY
+      value: 0.025
+      objectReference: {fileID: 0}
     - target: {fileID: 8453520300959249894, guid: a80ef715ffa92744c91e2cde70025b55, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

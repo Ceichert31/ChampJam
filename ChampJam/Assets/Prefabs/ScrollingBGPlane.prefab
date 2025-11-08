@@ -126,6 +126,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScrollUV
   scrollTypeX: 1
-  scrollTypeY: 2
-  scrollSpeedX: 0.75
+  scrollTypeY: 0
+  scrollSpeedX: 0.075
   scrollSpeedY: 0.05
