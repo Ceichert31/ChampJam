@@ -88,7 +88,7 @@ public class SoundManager : MonoBehaviour
         // play
         audioSource.PlayOneShot(clip, volume);
     }
-
+    //soundmanager.instance.whatever
     // temp usage functions
     public void PlaySpiderMove() => PlaySound(spiderMove, spiderMoveVolume, spiderMoveRandomPitch, spiderMoveLowerPitch, spiderMoveHigherPitch);
     public void PlaySpiderBite() => PlaySound(spiderBite, spiderBiteVolume, spiderBiteRandomPitch, spiderBiteLowerPitch, spiderBiteHigherPitch);

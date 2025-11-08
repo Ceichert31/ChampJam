@@ -1825,9 +1825,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameOver
   screen: {fileID: 493910715}
   canvasGroup: {fileID: 1453595316}
+  bugsLead: {fileID: 305712069}
   bugsLeadScoreTF: {fileID: 1488387763}
   bugsFreedScoreTF: {fileID: 1966534945}
+  bugsFreed: {fileID: 1338554913}
   bugsBattedScoreTF: {fileID: 26447613}
+  bugsBatted: {fileID: 1534744380}
   totalScoreTF: {fileID: 45692109}
 --- !u!1 &1488387761
 GameObject:
