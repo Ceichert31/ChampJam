@@ -157,4 +157,27 @@ public class GameManager : MonoBehaviour
     {
         return lantern.isLightOn;
     }
+
+    public bool HasFlyOnScreen()
+    {
+        foreach (GameObject bug in bugList)
+        {
+            if (IsInBounds(bug.transform.position) && bug.name == "Fly")
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    public bool HasMothOnScreen()
+    {
+        foreach (GameObject bug in bugList)
+        {
+            if (IsInBounds(bug.transform.position) && bug.name == "Moth")
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }
