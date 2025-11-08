@@ -47,6 +47,27 @@ public class BugSpawner : MonoBehaviour
         }
     }
 
+    public void SpawnMoth()
+    {
+        GameObject bug = Instantiate(spawnList[1], spawnPointList[0].position, Quaternion.identity, bugParent);
+        activeBugs.Add(bug);
+        GameManager.Instance.AddBug(bug);
+    }
+
+    public void SpawnFlea()
+    {
+        GameObject bug = Instantiate(spawnList[0], spawnPointList[0].position, Quaternion.identity, bugParent);
+        activeBugs.Add(bug);
+        GameManager.Instance.AddBug(bug);
+    }
+
+    public void SpawnBeetle()
+    {
+        GameObject bug = Instantiate(spawnList[2], spawnPointList[0].position, Quaternion.identity, bugParent);
+        activeBugs.Add(bug);
+        GameManager.Instance.AddBug(bug);
+    }
+
     [Button("Spawn Bugs")]
     public void DebugSpawnBug()
     {

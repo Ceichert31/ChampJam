@@ -14,6 +14,11 @@ public class UIController : MonoBehaviour
 
     public bool firstIgnite;
 
+    public GameObject spawner;
+    public SpiderString spiderDropDown;
+
+    public BugSpawner bugSpawner;
+
     private void Awake()
     {
         Instance = this;    
@@ -24,7 +29,9 @@ public class UIController : MonoBehaviour
         {
             return;
         }
-        Invoke(nameof(StartTutorial), 0.5f);
+        //Invoke(nameof(StartTutorial), 0.5f);
+        StartTutorial();
+        spawner.SetActive(false);
     }
 
     [Button("Advance Tutorial")]
@@ -43,21 +50,35 @@ public class UIController : MonoBehaviour
         if (index == tutorialList.Count - 1)
         {
             //Spawn spider
-
+            spawner.SetActive(true);
+            spiderDropDown.EnableSpider();
         }
 
-        tutorialList[index].transform.DOScaleY(0, 0.3f).SetEase(Ease.InBounce).OnComplete(() =>
+        switch (index)
+        {
+            case 1:
+                bugSpawner.SpawnMoth();
+                break;
+            case 2:
+                bugSpawner.SpawnFlea();
+                break;
+            case 3:
+                bugSpawner.SpawnBeetle();
+                break;
+        }
+
+        tutorialList[index].transform.DOMoveX(-230, 0.3f).SetEase(Ease.InOutBack).OnComplete(() =>
         {
             index++;
 
             if (index >= tutorialList.Count) return;
 
-            tutorialList[index].transform.DOScaleY(1, 0.3f).SetEase(Ease.InBounce);
+            tutorialList[index].transform.DOMoveX(275, 0.3f).SetEase(Ease.InOutBack);
         });
     }
 
     private void StartTutorial()
     {
-        tutorialList[0].transform.DOScaleY(1, 0.3f).SetEase(Ease.InBounce);
+        tutorialList[0].transform.DOMoveX(275, 0.3f).SetEase(Ease.InOutBack);
     }
 }
