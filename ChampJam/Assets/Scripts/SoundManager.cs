@@ -34,19 +34,40 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private float spiderSpitLowerPitch = 0.9f;
     [SerializeField] private float spiderSpitHigherPitch = 1.1f;
 
-    [Header("Moth Follow")]
-    [SerializeField] private AudioClip mothFollow;
-    [SerializeField] private float mothFollowVolume = 0.75f;
-    [SerializeField] private bool mothFollowRandomPitch = true;
-    [SerializeField] private float mothFollowLowerPitch = 0.9f;
-    [SerializeField] private float mothFollowHigherPitch = 1.1f;
+    [Header("Moth Follow 1")]
+    [SerializeField] private AudioClip mothFollow1;
+    [SerializeField] private float mothFollowVolume1 = 0.75f;
+    [SerializeField] private bool mothFollowRandomPitch1 = true;
+    [SerializeField] private float mothFollowLowerPitch1 = 0.9f;
+    [SerializeField] private float mothFollowHigherPitch1 = 1.1f;
 
-    [Header("Flea Flee")]
-    [SerializeField] private AudioClip fleaFlee;
-    [SerializeField] private float fleaFleeVolume = 0.75f;
-    [SerializeField] private bool fleaFleeRandomPitch = true;
-    [SerializeField] private float fleaFleeLowerPitch = 0.9f;
-    [SerializeField] private float fleaFleeHigherPitch = 1.1f;
+    [Header("Moth Follow 2")]
+    [SerializeField] private AudioClip mothFollow2;
+    [SerializeField] private float mothFollowVolume2 = 0.75f;
+    [SerializeField] private bool mothFollowRandomPitch2 = true;
+    [SerializeField] private float mothFollowLowerPitch2 = 0.9f;
+    [SerializeField] private float mothFollowHigherPitch2 = 1.1f;
+
+    [Header("Moth Follow 3")]
+    [SerializeField] private AudioClip mothFollow3;
+    [SerializeField] private float mothFollowVolume3 = 0.75f;
+    [SerializeField] private bool mothFollowRandomPitch3 = true;
+    [SerializeField] private float mothFollowLowerPitch3 = 0.9f;
+    [SerializeField] private float mothFollowHigherPitch3 = 1.1f;
+
+    [Header("Flea Flee 1")]
+    [SerializeField] private AudioClip fleaFlee1;
+    [SerializeField] private float fleaFleeVolume1 = 0.75f;
+    [SerializeField] private bool fleaFleeRandomPitch1 = true;
+    [SerializeField] private float fleaFleeLowerPitch1 = 0.9f;
+    [SerializeField] private float fleaFleeHigherPitch1 = 1.1f;
+
+    [Header("Flea Flee 2")]
+    [SerializeField] private AudioClip fleaFlee2;
+    [SerializeField] private float fleaFleeVolume2 = 0.75f;
+    [SerializeField] private bool fleaFleeRandomPitch2 = true;
+    [SerializeField] private float fleaFleeLowerPitch2 = 0.9f;
+    [SerializeField] private float fleaFleeHigherPitch2 = 1.1f;
 
     [Header("Weevil Spook")]
     [SerializeField] private AudioClip weevilSpook;
@@ -94,7 +115,32 @@ public class SoundManager : MonoBehaviour
     public void PlaySpiderBite() => PlaySound(spiderBite, spiderBiteVolume, spiderBiteRandomPitch, spiderBiteLowerPitch, spiderBiteHigherPitch);
     public void PlaySpiderEat() => PlaySound(spiderEat, spiderEatVolume, spiderEatRandomPitch, spiderEatLowerPitch, spiderEatHigherPitch);
     public void PlaySpiderSpit() => PlaySound(spiderSpit, spiderSpitVolume, spiderSpitRandomPitch, spiderSpitLowerPitch, spiderSpitHigherPitch);
-    public void PlayMothFollow() => PlaySound(mothFollow, mothFollowVolume, mothFollowRandomPitch, mothFollowLowerPitch, mothFollowHigherPitch);
-    public void PlayFleaFlee() => PlaySound(fleaFlee, fleaFleeVolume, fleaFleeRandomPitch, fleaFleeLowerPitch, fleaFleeHigherPitch);
+    public void PlayMothFollow()
+    {
+        switch(Random.Range(1, 4))
+        {
+            case 1:
+                PlaySound(mothFollow1, mothFollowVolume1, mothFollowRandomPitch1, mothFollowLowerPitch1, mothFollowHigherPitch1);
+                return;
+            case 2:
+                PlaySound(mothFollow2, mothFollowVolume2, mothFollowRandomPitch2, mothFollowLowerPitch2, mothFollowHigherPitch2);
+                return;
+            case 3:
+                PlaySound(mothFollow3, mothFollowVolume3, mothFollowRandomPitch3, mothFollowLowerPitch3, mothFollowHigherPitch3);
+                return;
+        }
+    }
+    public void PlayFleaFlee()
+    {
+        if(Random.Range(1,3) == 1)
+        {
+            PlaySound(fleaFlee1, fleaFleeVolume1, fleaFleeRandomPitch1, fleaFleeLowerPitch1, fleaFleeHigherPitch1);
+        }
+        else
+        {
+            PlaySound(fleaFlee2, fleaFleeVolume2, fleaFleeRandomPitch2, fleaFleeLowerPitch2, fleaFleeHigherPitch2);
+        }
+        
+    }
     public void PlayWeevilSpook() => PlaySound(weevilSpook, weevilSpookVolume, weevilSpookRandomPitch, weevilSpookLowerPitch, weevilSpookHigherPitch);
 }
