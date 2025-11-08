@@ -25,7 +25,12 @@ public class GameManager : MonoBehaviour
     private LanternControls lantern;
 
     [SerializeField] private Reputation repMeter;
+    [SerializeField] private GameOverScreen gameOver;
     [SerializeField] private float repGainOnDeath = 12f;
+
+    private bool notEnded = true;
+
+    private int totalBugsSaved = 0;
     private void Awake()
     {
         Instance = this;
@@ -50,31 +55,37 @@ public class GameManager : MonoBehaviour
     {
         if (Time.time > switchBugHotelTimer)
         {
-            ChangeActiveHotels(); 
+            ChangeActiveHotels();
         }
 
-        if (repMeter.reputationScore >= 60f)
+        if (repMeter != null)
         {
-            //end game here code ---------------------------------------------------------------
+            if (repMeter.reputationScore >= 60f && notEnded)
+            {
+                if (gameOver != null)
+                    gameOver.OpenGameOverMenu();
+                notEnded = false;
+            }
         }
+        
     }
 
     private void ChangeActiveHotels()
     {
         switchBugHotelTimer = Time.time + switchBugHotelTime;
 
-        if (bugHotels.Count < 0)
+        if (bugHotels.Count <= 0)
             return;
-        
+
         //Disable all hotels
         foreach (var hotel in bugHotels)
         {
-            hotel.ActivateHotel();
+            hotel.DeactivateHotel();
         }
         int index = Random.Range(0, bugHotels.Count);
         //Randomly enable one hotel
 
-        bugHotels[index].DeactivateHotel();
+        bugHotels[index].ActivateHotel();
     }
 
     public void AddScore(int scoreToAdd)
@@ -128,7 +139,7 @@ public class GameManager : MonoBehaviour
 
         float dist = 100;
         GameObject closest = null;
-        foreach(GameObject bug in bugList)
+        foreach (GameObject bug in bugList)
         {
             if (!IsInBounds(bug.transform.position))
             {
@@ -142,7 +153,7 @@ public class GameManager : MonoBehaviour
             {
                 dist = Vector2.Distance(pos, (Vector2)bug.transform.position);
                 closest = bug;
-            } 
+            }
         }
 
         //If no bugs are on screen, return random
@@ -226,6 +237,12 @@ public class GameManager : MonoBehaviour
 
     public void RepLossOnDeath()
     {
-        repMeter.reputationScore += repGainOnDeath;
+        if (repMeter != null)
+            repMeter.reputationScore += repGainOnDeath;
+    }
+
+    public void IncrementBugsSaved()
+    {
+        totalBugsSaved++;
     }
 }

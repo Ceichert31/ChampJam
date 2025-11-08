@@ -28,7 +28,7 @@ public class GameOverScreen : MonoBehaviour
     public void setTotalScoreTF(int value) {  totalScoreTF.text = value.ToString(); }
     void Start()
     {
-        OpenGameOverMenu();
+        //OpenGameOverMenu();
 
     }
     // Update is called once per frame
@@ -47,12 +47,12 @@ public class GameOverScreen : MonoBehaviour
 
         //Score Shake
         Transform bugLead = bugsLead.transform;
-        Transform bugFree = bugsFreed.transform;
-        Transform bugBat = bugsBatted.transform;
+        //Transform bugFree = bugsFreed.transform;
+        //Transform bugBat = bugsBatted.transform;
         Transform total = totalScoreTF.gameObject.transform;
         openSequence.Append(bugLead.DOPunchPosition(new Vector3(15.0f, 0.0f, 0.0f), .5f));
-        openSequence.Append(bugFree.DOPunchPosition(new Vector3(15.0f, 0.0f, 0.0f), .5f));
-        openSequence.Append(bugBat.DOPunchPosition(new Vector3(15.0f, 0.0f, 0.0f), .5f));
+        //openSequence.Append(bugFree.DOPunchPosition(new Vector3(15.0f, 0.0f, 0.0f), .5f));
+        //openSequence.Append(bugBat.DOPunchPosition(new Vector3(15.0f, 0.0f, 0.0f), .5f));
         openSequence.Append(total.DOPunchScale(new Vector3(0.5f, 0.5f, 0.0f), .5f));
 
     }
