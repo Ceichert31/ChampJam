@@ -84,12 +84,15 @@ public class SpiderAI : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (!canMove)
+        if (GameManager.Instance.notEnded == true)
         {
-            rb.linearVelocity = Vector2.zero;
-            return;
-        }
+            if (!canMove)
+            {
+                rb.linearVelocity = Vector2.zero;
+                return;
+            }
 
-        rb.linearVelocity = CalculateTarget() * agentSpeed;
+            rb.linearVelocity = CalculateTarget() * agentSpeed;
+        }
     }
 }
