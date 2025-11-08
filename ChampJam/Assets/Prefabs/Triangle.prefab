@@ -106,9 +106,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37b34c120716ce943abdc0ff8993493a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlyAgent
+  bugType: 2
+  inRadius: 0
+  litWhenInRadius: 0
+  latestLightPos: {fileID: 0}
   agentSpeed: 1
+  agentInLightMult: 1.5
   fleeDistance: 2.5
-  viewRange: 0.5
   targetChangeTimer: 5
 --- !u!50 &1723631577924641326
 Rigidbody2D:
