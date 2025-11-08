@@ -15,15 +15,18 @@ public class LanternControls : MonoBehaviour
 
     private GameObject mainLantern;
     private GameObject lanternLight;
+    private GameObject detection;
 
     private void Start()
     {
         // please dont kill me chris
         mainLantern = GameObject.Find("LanternPrefab(Clone)");
         lanternLight = mainLantern.transform.GetChild(0).gameObject;
+        detection = mainLantern.transform.GetChild(1).gameObject;
 
         // set light size
-        lanternLight.transform.localScale = Vector3.one * lightRadius;
+        lanternLight.transform.localScale = lanternLight.transform.localScale * lightRadius;
+        detection.transform.localScale = lanternLight.transform.localScale * lightRadius;
     }
 
     private void Update()
@@ -33,13 +36,14 @@ public class LanternControls : MonoBehaviour
             isLightOn = !isLightOn;
         }
 
-        UpdateLantern();
+        UpdateLanternState();
 
-        // keep light scale synced
-        lanternLight.transform.localScale = Vector3.one * lightRadius;
+        // keep scales syncsed
+        lanternLight.transform.localScale = lanternLight.transform.localScale * lightRadius;
+        detection.transform.localScale = lanternLight.transform.localScale * lightRadius;
     }
 
-    private void UpdateLantern()
+    private void UpdateLanternState()
     {
         if (isLightOn)
         {
@@ -57,6 +61,10 @@ public class LanternControls : MonoBehaviour
     {
         // draw light radius
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, lightRadius);
+
+        if (detection != null)
+        {
+            Gizmos.DrawWireSphere(detection.transform.position, lightRadius);
+        }
     }
 }

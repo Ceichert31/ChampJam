@@ -666,8 +666,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1831105533}
-  - component: {fileID: 1831105532}
   - component: {fileID: 1831105534}
+  - component: {fileID: 1831105532}
   m_Layer: 0
   m_Name: LanternParent
   m_TagString: Untagged
@@ -691,7 +691,7 @@ MonoBehaviour:
   ropeSegments: 30
   segmentLength: 0.02
   ropeWidth: 0.05
-  ropeColor: {r: 0.39245272, g: 0.39245272, b: 0.39245272, a: 1}
+  ropeColor: {r: 0, g: 0, b: 0, a: 1}
   lanternSize: 1.25
   lanternMass: 10
   lanternColor: {r: 1, g: 1, b: 1, a: 1}
@@ -730,7 +730,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   lanternOn: {fileID: 1586423465478716846, guid: ba04bb4a45814ff4da8a01bd1c8549b5, type: 3}
   lanternOff: {fileID: -833921912182962535, guid: fb1f17fff67bf83428e7289e50f05fe0, type: 3}
-  lightRadius: 2
+  lightRadius: 1
   isLightOn: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
