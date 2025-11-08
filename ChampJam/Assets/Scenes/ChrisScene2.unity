@@ -1144,6 +1144,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5402909740497004107, guid: dc42f1925983da84da3e3a2b173012f8, type: 3}
+      propertyPath: m_text
+      value: Guide the moth to their hotel destination!
+      objectReference: {fileID: 0}
+    - target: {fileID: 5402909740497004107, guid: dc42f1925983da84da3e3a2b173012f8, type: 3}
+      propertyPath: m_fontSize
+      value: 33.2
+      objectReference: {fileID: 0}
     - target: {fileID: 8392210814060582542, guid: dc42f1925983da84da3e3a2b173012f8, type: 3}
       propertyPath: m_Name
       value: Canvas (1)
