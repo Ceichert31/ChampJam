@@ -129,7 +129,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: Roachelle's Motel Title
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.50617284, y: -0.1904762}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -137,8 +137,8 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 96
-      height: 54
+      width: 81
+      height: 42
     spriteID: cfd653378f4c7e448ba446aef2b37d1e
     spriteBone: []
     spriteOutline: []
@@ -167,10 +167,10 @@ ScriptedImporter:
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 0
-        y: 0
-        width: 96
-        height: 54
+        x: 7
+        y: 8
+        width: 81
+        height: 42
       spriteId: cfd653378f4c7e448ba446aef2b37d1e
     linkedCells: []
     tileCells: []

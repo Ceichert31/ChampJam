@@ -555,17 +555,32 @@ MonoBehaviour:
   spiderSpitRandomPitch: 1
   spiderSpitLowerPitch: 0.9
   spiderSpitHigherPitch: 1.1
-  mothFollow: {fileID: 0}
-  mothFollowVolume: 0.75
-  mothFollowRandomPitch: 1
-  mothFollowLowerPitch: 0.9
-  mothFollowHigherPitch: 1.1
-  fleaFlee: {fileID: 0}
-  fleaFleeVolume: 0.75
-  fleaFleeRandomPitch: 1
-  fleaFleeLowerPitch: 0.9
-  fleaFleeHigherPitch: 1.1
-  weevilSpook: {fileID: 0}
+  mothFollow1: {fileID: 8300000, guid: 564f4ffd64c86974188724dd4a74d2e0, type: 3}
+  mothFollowVolume1: 0.75
+  mothFollowRandomPitch1: 1
+  mothFollowLowerPitch1: 0.9
+  mothFollowHigherPitch1: 1.1
+  mothFollow2: {fileID: 8300000, guid: ab1702288b5fd234297cdeec4ae2a6b8, type: 3}
+  mothFollowVolume2: 0.75
+  mothFollowRandomPitch2: 1
+  mothFollowLowerPitch2: 0.9
+  mothFollowHigherPitch2: 1.1
+  mothFollow3: {fileID: 8300000, guid: 7986dee24a21d1f428fe46d9bef3224b, type: 3}
+  mothFollowVolume3: 0.75
+  mothFollowRandomPitch3: 1
+  mothFollowLowerPitch3: 0.9
+  mothFollowHigherPitch3: 1.1
+  fleaFlee1: {fileID: 8300000, guid: ac133cd242f809b41b49fa2090a63bed, type: 3}
+  fleaFleeVolume1: 0.75
+  fleaFleeRandomPitch1: 1
+  fleaFleeLowerPitch1: 0.9
+  fleaFleeHigherPitch1: 1.1
+  fleaFlee2: {fileID: 8300000, guid: b24160117aa813541b5290c8c6d67f69, type: 3}
+  fleaFleeVolume2: 0.75
+  fleaFleeRandomPitch2: 1
+  fleaFleeLowerPitch2: 0.9
+  fleaFleeHigherPitch2: 1.1
+  weevilSpook: {fileID: 8300000, guid: b24160117aa813541b5290c8c6d67f69, type: 3}
   weevilSpookVolume: 0.75
   weevilSpookRandomPitch: 1
   weevilSpookLowerPitch: 0.9
