@@ -26,7 +26,7 @@ public class BugSpawner : MonoBehaviour
 
     public void Update()
     {
-        if (spawnTime < Time.time)
+        if (spawnTime < Time.time && GameManager.Instance.notEnded)
         {
             spawnTime = spawnRate.Evaluate(Time.time) + Time.time;
             SpawnBugs();
