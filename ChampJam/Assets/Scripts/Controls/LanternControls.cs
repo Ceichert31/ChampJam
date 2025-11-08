@@ -38,9 +38,8 @@ public class LanternControls : MonoBehaviour
 
         UpdateLanternState();
 
-        // keep scales syncsed
-        lanternLight.transform.localScale = lanternLight.transform.localScale * lightRadius;
-        detection.transform.localScale = lanternLight.transform.localScale * lightRadius;
+        //lanternLight.transform.localScale = lanternLight.transform.localScale * lightRadius;
+        //detection.transform.localScale = lanternLight.transform.localScale * lightRadius;
     }
 
     private void UpdateLanternState()
@@ -65,6 +64,33 @@ public class LanternControls : MonoBehaviour
         if (detection != null)
         {
             Gizmos.DrawWireSphere(detection.transform.position, lightRadius);
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Bug"))
+        {
+            GameObject bug = collision.gameObject;
+            FlyAgent bugAgent = bug.GetComponent<FlyAgent>();
+
+            bugAgent.inRadius = true;
+
+            bugAgent.litWhenInRadius = isLightOn;
+
+            bugAgent.latestLightPos = transform;
+        }
+    }
+
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Bug"))
+        {
+            GameObject bug = collision.gameObject;
+            FlyAgent bugAgent = bug.GetComponent<FlyAgent>();
+
+            bugAgent.inRadius = false;
         }
     }
 }
