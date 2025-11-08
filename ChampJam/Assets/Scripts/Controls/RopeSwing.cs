@@ -3,6 +3,10 @@ using System.Collections.Generic;
 
 public class RopeSwing : MonoBehaviour
 {
+    [Header("References")]
+
+    [SerializeField] private GameObject lanternPrefab;
+
     [Header("Rope Settings")]
 
     [SerializeField] private int ropeSegments = 5;
@@ -12,7 +16,6 @@ public class RopeSwing : MonoBehaviour
 
     [Header("Lantern Settings")]
 
-    [SerializeField] private Sprite lanternSprite;
     [SerializeField] private float lanternSize = 0.5f;
     [SerializeField] private float lanternMass = 2f;
     [SerializeField] private Color lanternColor = Color.white;
@@ -35,8 +38,9 @@ public class RopeSwing : MonoBehaviour
     private Camera mainCam;
     private Vector2 targetPosition;
     private Vector2 velocity = Vector2.zero;
+    private LanternControls input;
 
-    private void Start()
+    private void Awake()
     {
         mainCam = Camera.main;
         Physics2D.velocityIterations = Mathf.RoundToInt(60 * solverMultiplier);
@@ -56,10 +60,7 @@ public class RopeSwing : MonoBehaviour
         if (segments.Count > 0)
         {
             Vector2 currentPos = segments[0].position;
-
-            // move towards target with velocity cap
             Vector2 newPos = Vector2.SmoothDamp(currentPos, targetPosition, ref velocity, moveSmoothing, maxMoveSpeed);
-
             segments[0].MovePosition(newPos);
         }
         DrawRope();
@@ -94,7 +95,6 @@ public class RopeSwing : MonoBehaviour
 
             if (i == 0)
             {
-                // anchor segment that follows the mouse
                 rb.bodyType = RigidbodyType2D.Kinematic;
             }
             else
@@ -116,28 +116,39 @@ public class RopeSwing : MonoBehaviour
 
     private void CreateLantern(Rigidbody2D bottomBody)
     {
-        lantern = new GameObject("Lantern");
-        lantern.transform.position = bottomBody.transform.position + Vector3.down * segmentLength;
+        if (lanternPrefab == null)
+        {
+            Debug.LogError("assign yo shit bitch (lantern prefab)");
+            return;
+        }
 
-        SpriteRenderer sr = lantern.AddComponent<SpriteRenderer>();
-        sr.sprite = lanternSprite != null ? lanternSprite : CreateSquareSprite();
-        sr.color = lanternColor;
-        // lantern above rope
-        sr.sortingOrder = 1;
+        lantern = Instantiate(
+            lanternPrefab,
+            bottomBody.transform.position + Vector3.down * segmentLength,
+            Quaternion.identity
+        );
+
+        SpriteRenderer sr = lantern.GetComponent<SpriteRenderer>();
+        if (sr != null)
+        {
+            sr.color = lanternColor;
+            sr.sortingOrder = 1;
+        }
+
         lantern.transform.localScale = Vector3.one * lanternSize;
 
-        Rigidbody2D rb = lantern.AddComponent<Rigidbody2D>();
-        rb.mass = lanternMass;
-        rb.linearDamping = drag;
-        rb.angularDamping = angularDrag;
-        rb.interpolation = RigidbodyInterpolation2D.Interpolate;
-        rb.sleepMode = RigidbodySleepMode2D.NeverSleep;
-        rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+        Rigidbody2D rb = lantern.GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.mass = lanternMass;
+            rb.linearDamping = drag;
+            rb.angularDamping = angularDrag;
+        }
 
-        BoxCollider2D col = lantern.AddComponent<BoxCollider2D>();
-        col.size = new Vector2(lanternSize, lanternSize);
+        DistanceJoint2D dist = lantern.GetComponent<DistanceJoint2D>();
+        if (dist == null)
+            dist = lantern.AddComponent<DistanceJoint2D>();
 
-        DistanceJoint2D dist = lantern.AddComponent<DistanceJoint2D>();
         dist.connectedBody = bottomBody;
         dist.autoConfigureDistance = false;
         dist.distance = segmentLength + (lanternSize * 0.4f);
@@ -147,19 +158,14 @@ public class RopeSwing : MonoBehaviour
 
     private void DrawRope()
     {
+        if (ropeRenderer == null || segments.Count == 0 || lantern == null)
+            return;
+
         ropeRenderer.positionCount = segments.Count + 1;
         for (int i = 0; i < segments.Count; i++)
         {
             ropeRenderer.SetPosition(i, segments[i].transform.position);
         }
         ropeRenderer.SetPosition(segments.Count, lantern.transform.position);
-    }
-
-    private Sprite CreateSquareSprite()
-    {
-        Texture2D texture = new Texture2D(1, 1);
-        texture.SetPixel(0, 0, Color.white);
-        texture.Apply();
-        return Sprite.Create(texture, new Rect(0, 0, 1, 1), new Vector2(0.5f, 1f), 1);
     }
 }
