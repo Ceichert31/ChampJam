@@ -13,20 +13,6 @@ public class GoalKillbox : MonoBehaviour, IDestroy
     {
         shake = GetComponent<ObjectShake>();
 
-       /* // temp for visualizatoin
-        switch (goalType)
-        {
-            case BugType.MOTH:
-                transform.GetChild(0).GetComponent<SpriteRenderer>().color = Color.blue;
-                break;
-
-            case BugType.FLY:
-                transform.GetChild(0).GetComponent<SpriteRenderer>().color = Color.red;
-                break;
-
-            default:
-                break;
-        }*/
     }
 
     public void DestroyBug(GameObject bug)

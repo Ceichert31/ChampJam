@@ -47,7 +47,11 @@ public class GameManager : MonoBehaviour
         // im sorry
 
         if (SceneManager.GetActiveScene().name == "MainScene")
+        {
             lantern = GameObject.Find("LanternPrefab(Clone)").transform.GetChild(1).GetComponent<LanternControls>();
+            gameOver.setTotalScoreTF(0);
+            gameOver.setBugsLeadTF(0);
+        }
     }
 
     private void Update()
