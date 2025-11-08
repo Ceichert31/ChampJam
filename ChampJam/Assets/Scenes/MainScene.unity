@@ -2515,6 +2515,16 @@ MonoBehaviour:
   gainScoreRandomPitch: 1
   gainScoreLowerPitch: 0.9
   gainScoreHigherPitch: 1.1
+  gameOver: {fileID: 0}
+  gameOverVolume: 0.75
+  gameOverRandomPitch: 1
+  gameOverLowerPitch: 0.9
+  gameOverHigherPitch: 1.1
+  menuQuit: {fileID: 0}
+  menuQuitVolume: 0.75
+  menuQuitRandomPitch: 1
+  menuQuitLowerPitch: 0.9
+  menuQuitHigherPitch: 1.1
 --- !u!82 &969350382
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4952,6 +4962,18 @@ PrefabInstance:
     - target: {fileID: 8368474698844260448, guid: da657c90ab7684a44adc49083ff9452d, type: 3}
       propertyPath: spawnRate.m_Curve.Array.data[0].value
       value: 7.010212
+      objectReference: {fileID: 0}
+    - target: {fileID: 8368474698844260448, guid: da657c90ab7684a44adc49083ff9452d, type: 3}
+      propertyPath: spawnRate.m_Curve.Array.data[0].inSlope
+      value: -0.009447928
+      objectReference: {fileID: 0}
+    - target: {fileID: 8368474698844260448, guid: da657c90ab7684a44adc49083ff9452d, type: 3}
+      propertyPath: spawnRate.m_Curve.Array.data[0].outSlope
+      value: -0.009447928
+      objectReference: {fileID: 0}
+    - target: {fileID: 8368474698844260448, guid: da657c90ab7684a44adc49083ff9452d, type: 3}
+      propertyPath: spawnRate.m_Curve.Array.data[0].outWeight
+      value: 0.15500002
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
