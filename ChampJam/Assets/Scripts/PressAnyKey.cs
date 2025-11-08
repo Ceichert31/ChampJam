@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class StartGameOnKeyPress : MonoBehaviour
+public class PressAnyKey : MonoBehaviour
 {
-    [SerializeField] private string sceneToLoad = "GameScene";
+    [SerializeField] private string sceneToLoad = "MainScene";
 
     private void Update()
     {

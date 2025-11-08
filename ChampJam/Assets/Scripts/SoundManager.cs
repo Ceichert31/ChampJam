@@ -6,6 +6,20 @@ public class SoundManager : MonoBehaviour
 
     [Header("References")]
 
+    [Header("Lamp On")]
+    [SerializeField] private AudioClip lampOn;
+    [SerializeField] private float lampOnVolume = 0.75f;
+    [SerializeField] private bool lampOnRandomPitch = true;
+    [SerializeField] private float lampOnLowerPitch = 0.9f;
+    [SerializeField] private float lampOnHigherPitch = 1.1f;
+
+    [Header("Lamp Off")]
+    [SerializeField] private AudioClip lampOff;
+    [SerializeField] private float lampOffVolume = 0.75f;
+    [SerializeField] private bool lampOffRandomPitch = true;
+    [SerializeField] private float lampOffLowerPitch = 0.9f;
+    [SerializeField] private float lampOffHigherPitch = 1.1f;
+
     [Header("Spider Move")]
     [SerializeField] private AudioClip spiderMove;
     [SerializeField] private float spiderMoveVolume = 0.75f;
@@ -69,12 +83,40 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private float fleaFleeLowerPitch2 = 0.9f;
     [SerializeField] private float fleaFleeHigherPitch2 = 1.1f;
 
+    [Header("Rhino Hit 1")]
+    [SerializeField] private AudioClip rhinoHit1;
+    [SerializeField] private float rhinoHitVolume1 = 0.75f;
+    [SerializeField] private bool rhinoHitRandomPitch1 = true;
+    [SerializeField] private float rhinoHitLowerPitch1 = 0.9f;
+    [SerializeField] private float rhinoHitHigherPitch1 = 1.1f;
+
+    [Header("Rhino Hit 2")]
+    [SerializeField] private AudioClip rhinoHit2;
+    [SerializeField] private float rhinoHitVolume2 = 0.75f;
+    [SerializeField] private bool rhinoHitRandomPitch2 = true;
+    [SerializeField] private float rhinoHitLowerPitch2 = 0.9f;
+    [SerializeField] private float rhinoHitHigherPitch2 = 1.1f;
+
     [Header("Weevil Spook")]
     [SerializeField] private AudioClip weevilSpook;
     [SerializeField] private float weevilSpookVolume = 0.75f;
     [SerializeField] private bool weevilSpookRandomPitch = true;
     [SerializeField] private float weevilSpookLowerPitch = 0.9f;
     [SerializeField] private float weevilSpookHigherPitch = 1.1f;
+
+    [Header("Menu Click")]
+    [SerializeField] private AudioClip menuClick;
+    [SerializeField] private float menuClickVolume = 0.75f;
+    [SerializeField] private bool menuClickRandomPitch = true;
+    [SerializeField] private float menuClickLowerPitch = 0.9f;
+    [SerializeField] private float menuClickHigherPitch = 1.1f;
+
+    [Header("Gain Score")]
+    [SerializeField] private AudioClip gainScore;
+    [SerializeField] private float gainScoreVolume = 0.75f;
+    [SerializeField] private bool gainScoreRandomPitch = true;
+    [SerializeField] private float gainScoreLowerPitch = 0.9f;
+    [SerializeField] private float gainScoreHigherPitch = 1.1f;
 
     private AudioSource audioSource;
 
@@ -87,7 +129,6 @@ public class SoundManager : MonoBehaviour
             return;
         }
         Instance = this;
-        DontDestroyOnLoad(gameObject);
 
         audioSource = gameObject.AddComponent<AudioSource>();
     }
@@ -111,7 +152,20 @@ public class SoundManager : MonoBehaviour
     }
     //soundmanager.instance.whatever
     // temp usage functions
+    public void PlayLampOn() => PlaySound(lampOn, lampOnVolume, lampOnRandomPitch, lampOnLowerPitch, lampOnHigherPitch);
+    public void PlayLampOff() => PlaySound(lampOff, lampOffVolume, lampOffRandomPitch, lampOffLowerPitch, lampOffHigherPitch);
     public void PlaySpiderMove() => PlaySound(spiderMove, spiderMoveVolume, spiderMoveRandomPitch, spiderMoveLowerPitch, spiderMoveHigherPitch);
+    public void PlayRhinoHit()
+    {
+        if (Random.Range(1, 3) == 1)
+        {
+            PlaySound(rhinoHit1, rhinoHitVolume1, rhinoHitRandomPitch1, rhinoHitLowerPitch1, rhinoHitHigherPitch1);
+        }
+        else
+        {
+            PlaySound(rhinoHit2, rhinoHitVolume2, rhinoHitRandomPitch2, rhinoHitLowerPitch2, rhinoHitHigherPitch2);
+        }
+    }
     public void PlaySpiderBite() => PlaySound(spiderBite, spiderBiteVolume, spiderBiteRandomPitch, spiderBiteLowerPitch, spiderBiteHigherPitch);
     public void PlaySpiderEat() => PlaySound(spiderEat, spiderEatVolume, spiderEatRandomPitch, spiderEatLowerPitch, spiderEatHigherPitch);
     public void PlaySpiderSpit() => PlaySound(spiderSpit, spiderSpitVolume, spiderSpitRandomPitch, spiderSpitLowerPitch, spiderSpitHigherPitch);
@@ -143,4 +197,5 @@ public class SoundManager : MonoBehaviour
         
     }
     public void PlayWeevilSpook() => PlaySound(weevilSpook, weevilSpookVolume, weevilSpookRandomPitch, weevilSpookLowerPitch, weevilSpookHigherPitch);
+    public void PlayMenuClick() => PlaySound(menuClick, menuClickVolume, menuClickRandomPitch, menuClickLowerPitch, menuClickHigherPitch);
 }
