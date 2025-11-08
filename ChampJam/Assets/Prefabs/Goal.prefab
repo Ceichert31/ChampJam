@@ -136,6 +136,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: roachelle's motel
       objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: 69f59123b555d6d44bf8cee0e71b2d00, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 69f59123b555d6d44bf8cee0e71b2d00, type: 3}
       propertyPath: m_LocalScale.x
       value: 6
