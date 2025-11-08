@@ -91,6 +91,7 @@ public class GameManager : MonoBehaviour
             } 
         }
 
+        //If no bugs are on screen, return random
         if (closest == null)
         {
             return GetRandomPointInBounds();
