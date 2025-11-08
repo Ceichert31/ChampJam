@@ -23,8 +23,6 @@ public class FlyAgent : MonoBehaviour
     [SerializeField]
     private float agentSpeed = 1.0f;
     [SerializeField]
-    private float agentInLightMult = 1.5f;
-    [SerializeField]
     private float fleeDistance = 0.5f;
     [SerializeField]
 
@@ -32,37 +30,24 @@ public class FlyAgent : MonoBehaviour
     private float changeTimer;
 
     private IPathfinder pathfinder;
+    private IDirection direction;
     private Rigidbody2D rb;
     private Vector2 target;
-
-    private Vector3 SpiderPos => GameManager.Instance.SpiderPos.position;
 
     private void Start()
     {
         latestLightPos = transform;
         pathfinder = GetComponent<IPathfinder>();
+        direction = GetComponent<IDirection>();
         rb = GetComponent<Rigidbody2D>();
         target = GameManager.Instance.GetRandomPointInBounds();
 
         changeTimer = Time.time + targetChangeTimer;
-
-        // temporary 50/50 for bug decisions
-        if (Random.value > 0.5f)
-        {
-            bugType = BugType.MOTH;
-            GetComponent<SpriteRenderer>().color = Color.blue;
-        }
-        else
-        {
-            bugType = BugType.FLY;
-            GetComponent<SpriteRenderer>().color = Color.red;
-        }
     }
 
     private void Update()
     {
         CalculateTarget();
-        Debug.Log("inRadius: " + inRadius);
     }
 
     private void FixedUpdate()
@@ -81,40 +66,10 @@ public class FlyAgent : MonoBehaviour
             return;
         }
 
-        switch (bugType)
-        {
-            case BugType.MOTH:
-                MothLightPathing();
-                Debug.Log("moth pathfding");
-                break;
-
-            case BugType.FLY:
-                FlyLightPathing();
-                Debug.Log("fly pathfding");
-                break;
-
-            case BugType.DEFAULT:
-                Debug.Log("this shouldn't happen");
-                break;
-        }
-    }
-
-    private void MothLightPathing()
-    {
         // move towards light
-        Vector2 toLightDir = ((Vector2)latestLightPos.position - (Vector2)transform.position).normalized;
-        rb.linearVelocity = pathfinder.GetPathVelocity(toLightDir) * agentSpeed * agentInLightMult;
+        rb.linearVelocity = pathfinder.GetPathVelocity(direction.GetTargetDirection(transform.position, latestLightPos.position)) * agentSpeed;
         transform.up = Vector2.Lerp(transform.up, rb.linearVelocity, Time.fixedDeltaTime * 3f);
     }
-
-    private void FlyLightPathing()
-    {
-        // flee from light
-        Vector2 awayFromLightDir = ((Vector2)transform.position - (Vector2)latestLightPos.position).normalized;
-        rb.linearVelocity = pathfinder.GetPathVelocity(awayFromLightDir) * agentSpeed * agentInLightMult;
-        transform.up = Vector2.Lerp(transform.up, rb.linearVelocity, Time.fixedDeltaTime * 3f);
-    }
-
     private void CalculateTarget()
     {
         if (Vector2.Distance(transform.position, target) < 0.1f || changeTimer < Time.time)
@@ -122,16 +77,6 @@ public class FlyAgent : MonoBehaviour
             changeTimer = Time.time + targetChangeTimer;
             target = GameManager.Instance.GetRandomPointInBounds();
         }
-
-        var toSpider = (SpiderPos - transform.position).normalized;
-
-        Debug.DrawRay(transform.position, toSpider, Color.red);
-        //Debug.DrawRay(transform.position, target, Color.blue);
         Debug.DrawLine(transform.position, target, Color.blue);
-
-        if (Vector3.Distance(transform.position, SpiderPos) < fleeDistance)
-        {
-            target = -toSpider;
-        }
     }
 }
