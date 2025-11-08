@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: de463437ff6fef648822b1af079a0ebb
+guid: 14079f6c22f522f409d88ee4a86ccac4
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -36,7 +36,7 @@ ScriptedImporter:
     spriteMeshType: 0
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 100
+    spritePixelsToUnits: 15
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -76,7 +76,7 @@ ScriptedImporter:
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
-    defaultPivotAlignment: 0
+    defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
     mosaicPadding: 4
     spritePadding: 0
@@ -91,7 +91,7 @@ ScriptedImporter:
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
-    defaultPivotAlignment: 0
+    defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
     mosaicPadding: 4
     spritePadding: 0
@@ -102,7 +102,7 @@ ScriptedImporter:
     generateIndividualEvents: 1
     generateSpriteAtlas: 1
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638981469049600699
+  platformSettingsDirtyTick: 638981476403999339
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -127,9 +127,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Beetle!
+  - name: lantern1
     originalName: 
-    pivot: {x: 0.7777778, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -137,9 +137,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 9
-      height: 14
-    spriteID: e7c2e045abb869b41b3e286436a29fb6
+      width: 11
+      height: 15
+    spriteID: 180d43373a3a0274bb85cc3049e82eeb
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -153,25 +153,25 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 1382147940
+      value0: 230146763
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: Beetle!
+    name: lantern1
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Beetle!
+    - name: lantern1
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 1
-        y: 1
-        width: 9
-        height: 14
-      spriteId: e7c2e045abb869b41b3e286436a29fb6
+        x: 0
+        y: 0
+        width: 11
+        height: 15
+      spriteId: 180d43373a3a0274bb85cc3049e82eeb
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
@@ -217,5 +217,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 16, y: 16}
+  canvasSize: {x: 11, y: 15}
   previousTextureSize: {x: 32, y: 32}
