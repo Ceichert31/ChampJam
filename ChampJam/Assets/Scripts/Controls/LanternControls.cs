@@ -50,11 +50,13 @@ public class LanternControls : MonoBehaviour
         {
             lanternLight.SetActive(true);
             mainLantern.GetComponent<SpriteRenderer>().sprite = lanternOn;
+            SoundManager.Instance.PlayLampOff();
         }
         else
         {
             lanternLight.SetActive(false);
             mainLantern.GetComponent<SpriteRenderer>().sprite = lanternOff;
+            SoundManager.Instance.PlayLampOn();
         }
     }
 
@@ -66,6 +68,20 @@ public class LanternControls : MonoBehaviour
         if (detection != null)
         {
             Gizmos.DrawWireSphere(detection.transform.position, lightRadius);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        GameObject bug = collision.gameObject;
+
+        if (bug.GetComponent<MothMovement>())
+        {
+            SoundManager.Instance.PlayMothFollow();
+        }
+        else if (bug.GetComponent<FlyMovement>())
+        {
+            SoundManager.Instance.PlayFleaFlee();
         }
     }
 
@@ -81,6 +97,7 @@ public class LanternControls : MonoBehaviour
             bugAgent.litWhenInRadius = isLightOn;
 
             bugAgent.latestLightPos = transform;
+
         }
     }
 
