@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
     private int score = 0;
 
     private LanternControls lantern;
+
+    [SerializeField] private Reputation repMeter;
+    [SerializeField] private float repGainOnDeath = 12f;
     private void Awake()
     {
         Instance = this;
@@ -48,6 +51,11 @@ public class GameManager : MonoBehaviour
         if (Time.time > switchBugHotelTimer)
         {
             ChangeActiveHotels(); 
+        }
+
+        if (repMeter.reputationScore >= 60f)
+        {
+            //end game here code ---------------------------------------------------------------
         }
     }
 
@@ -214,5 +222,10 @@ public class GameManager : MonoBehaviour
             }
         }
         return false;
+    }
+
+    public void RepLossOnDeath()
+    {
+        repMeter.reputationScore += repGainOnDeath;
     }
 }

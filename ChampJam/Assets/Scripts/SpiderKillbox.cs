@@ -16,8 +16,12 @@ public class SpiderKillbox : MonoBehaviour, IDestroy
         bug.transform.DOMove(eatPoint.position, 0.3f).OnComplete(() => {  //Add points
 
             //minus points text
-            GameManager.Instance.AddScore(-100);
+            GameManager.Instance.AddScore(-50);
+            DamageNumbers.Create(-50, transform.position, Color.red);
             GameManager.Instance.RemoveBug(bug);
+
+            GameManager.Instance.RepLossOnDeath();
+
             Destroy(bug);
         });
         

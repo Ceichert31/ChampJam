@@ -6,7 +6,8 @@ using TMPro;
 
 public class Reputation : MonoBehaviour
 {
-    [SerializeField] float reputationScore;
+    [SerializeField] public float reputationScore;
+    [SerializeField] private float normalRateOfDecrease = 0.01f;
     public float getReputation() { return reputationScore; }
     public void setReputation(float value)
     {
@@ -144,9 +145,11 @@ public class Reputation : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        reputationScore += 0.005f;
+        reputationScore -= normalRateOfDecrease;
+        if (reputationScore <= 0)
+            reputationScore = 0;
         setReputation(reputationScore);
     }
 }
