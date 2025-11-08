@@ -26,7 +26,7 @@ public class LanternControls : MonoBehaviour
 
         // set light size
         lanternLight.transform.localScale = lanternLight.transform.localScale * lightRadius;
-        detection.transform.localScale = lanternLight.transform.localScale * lightRadius;
+        detection.transform.localScale = detection.transform.localScale * lightRadius;
     }
 
     private void Update()
@@ -37,9 +37,6 @@ public class LanternControls : MonoBehaviour
         }
 
         UpdateLanternState();
-
-        //lanternLight.transform.localScale = lanternLight.transform.localScale * lightRadius;
-        //detection.transform.localScale = lanternLight.transform.localScale * lightRadius;
     }
 
     private void UpdateLanternState()
