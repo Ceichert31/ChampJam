@@ -40,6 +40,8 @@ public class AIAgent : MonoBehaviour
 
     private bool dontGetRandomTarget;
 
+    private bool canMove = true;
+
     private void Start()
     {
         latestLightPos = transform;
@@ -54,11 +56,13 @@ public class AIAgent : MonoBehaviour
 
     private void Update()
     {
+        if (!canMove) return;
         CalculateTarget();
     }
 
     private void FixedUpdate()
     {
+        if (!canMove) return;
         PerformPathing();
     }
 
@@ -117,4 +121,13 @@ public class AIAgent : MonoBehaviour
             target = GameManager.Instance.GetRandomPointInBounds();
         }
     }
+
+    public void StunBug(Vector2 pos)
+    {
+        canMove = false;
+        rb.linearVelocity = ((Vector2)transform.position - pos).normalized * agentSpeed;
+        Invoke(nameof(ResetStun), 0.8f);
+    }
+
+    private void ResetStun() => canMove = true;
 }
