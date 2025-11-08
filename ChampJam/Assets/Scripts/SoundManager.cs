@@ -118,6 +118,20 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private float gainScoreLowerPitch = 0.9f;
     [SerializeField] private float gainScoreHigherPitch = 1.1f;
 
+    [Header("Game Over")]
+    [SerializeField] private AudioClip gameOver;
+    [SerializeField] private float gameOverVolume = 0.75f;
+    [SerializeField] private bool gameOverRandomPitch = true;
+    [SerializeField] private float gameOverLowerPitch = 0.9f;
+    [SerializeField] private float gameOverHigherPitch = 1.1f;
+
+    [Header("Menu Quit")]
+    [SerializeField] private AudioClip menuQuit;
+    [SerializeField] private float menuQuitVolume = 0.75f;
+    [SerializeField] private bool menuQuitRandomPitch = true;
+    [SerializeField] private float menuQuitLowerPitch = 0.9f;
+    [SerializeField] private float menuQuitHigherPitch = 1.1f;
+
     private AudioSource audioSource;
 
     private void Awake()
@@ -198,4 +212,6 @@ public class SoundManager : MonoBehaviour
     }
     public void PlayWeevilSpook() => PlaySound(weevilSpook, weevilSpookVolume, weevilSpookRandomPitch, weevilSpookLowerPitch, weevilSpookHigherPitch);
     public void PlayMenuClick() => PlaySound(menuClick, menuClickVolume, menuClickRandomPitch, menuClickLowerPitch, menuClickHigherPitch);
+    public void PlayGameOver() => PlaySound(gameOver, gameOverVolume, gameOverRandomPitch, gameOverLowerPitch, gameOverHigherPitch);
+    public void PlayMenuQuit() => PlaySound(menuQuit, menuQuitVolume, menuQuitRandomPitch, menuQuitLowerPitch, menuQuitHigherPitch);
 }
