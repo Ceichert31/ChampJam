@@ -38,6 +38,8 @@ public class AIAgent : MonoBehaviour
 
     private Animator animator;
 
+    private bool dontGetRandomTarget;
+
     private void Start()
     {
         latestLightPos = transform;
@@ -70,22 +72,49 @@ public class AIAgent : MonoBehaviour
         {
             rb.linearVelocity = pathfinder.GetPathVelocity((target - new Vector2(transform.position.x, transform.position.y)).normalized) * agentSpeed;
             transform.up = Vector2.Lerp(transform.up, rb.linearVelocity, Time.fixedDeltaTime * rotationSpeed);
-            //end early
+            //end 
             return;
         }
 
-        // Light movement logic
-        target = direction.GetTargetDirection(transform.position, latestLightPos.position);
-        rb.linearVelocity = pathfinder.GetPathVelocity(target) * agentSpeed;
-        transform.up = Vector2.Lerp(transform.up, rb.linearVelocity, Time.fixedDeltaTime * rotationSpeed);
+        dontGetRandomTarget = true;
+
+        switch (bugType)
+        {
+            case BugType.MOTH:
+                // Light movement logic
+                target = direction.GetTargetDirection(transform.position, latestLightPos.position);
+                rb.linearVelocity = pathfinder.GetPathVelocity(target) * agentSpeed;
+                transform.up = Vector2.Lerp(transform.up, rb.linearVelocity, Time.fixedDeltaTime * rotationSpeed);
+                break;
+
+            case BugType.FLY:
+                // Light movement logic
+
+                target = direction.GetTargetDirection(transform.position, latestLightPos.position);
+                rb.linearVelocity = pathfinder.GetPathVelocity(target) * agentSpeed;
+                transform.up = Vector2.Lerp(transform.up, rb.linearVelocity, Time.fixedDeltaTime * rotationSpeed);
+                break;
+
+            case BugType.DEFAULT: // Light movement logic
+                rb.linearVelocity = pathfinder.GetPathVelocity((target - new Vector2(transform.position.x, transform.position.y)).normalized) * agentSpeed;
+                transform.up = Vector2.Lerp(transform.up, rb.linearVelocity, Time.fixedDeltaTime * rotationSpeed);
+                break;
+        }
+
+        Invoke(nameof(ResetRandom), 1f);
+
+        Debug.DrawLine(transform.position, target, Color.blue);
     }
+
+    void ResetRandom() => dontGetRandomTarget = false;
     private void CalculateTarget()
     {
+        if (dontGetRandomTarget) return;
+
         if (Vector2.Distance(transform.position, target) < 0.1f || changeTimer < Time.time)
         {
             changeTimer = Time.time + targetChangeTimer;
             target = GameManager.Instance.GetRandomPointInBounds();
         }
-        Debug.DrawLine(transform.position, target, Color.blue);
     }
 }
