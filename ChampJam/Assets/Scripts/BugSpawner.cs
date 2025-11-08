@@ -24,6 +24,7 @@ public class BugSpawner : MonoBehaviour
     private void Start()
     {
         spawnTime = spawnRate.Evaluate(Time.time) + Time.time;
+        SpawnBugs();
     }
 
     public void Update()
