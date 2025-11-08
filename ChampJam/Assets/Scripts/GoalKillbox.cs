@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class GoalKillbox : MonoBehaviour, IDestroy
 {
-    [SerializeField] public BugType goalType;
+    //[SerializeField] public BugType goalType;
 
     [SerializeField] private GameObject damageNumber;
 
@@ -13,7 +13,7 @@ public class GoalKillbox : MonoBehaviour, IDestroy
     {
         shake = GetComponent<ObjectShake>();
 
-        // temp for visualizatoin
+       /* // temp for visualizatoin
         switch (goalType)
         {
             case BugType.MOTH:
@@ -26,7 +26,7 @@ public class GoalKillbox : MonoBehaviour, IDestroy
 
             default:
                 break;
-        }
+        }*/
     }
 
     public void DestroyBug(GameObject bug)
@@ -50,7 +50,9 @@ public class GoalKillbox : MonoBehaviour, IDestroy
 
     public bool CheckGoalType(BugType type)
     {
-        if (goalType == type) return true;
-        return false;
+        /* if (goalType == type) return true;
+         return false;*/
+
+        return true;
     }
 }

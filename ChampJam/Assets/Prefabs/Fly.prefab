@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3087d39e6cb41594c859dcc5310f4580, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AIAgent
-  bugType: 2
+  bugType: 1
   inRadius: 0
   litWhenInRadius: 0
   latestLightPos: {fileID: 0}

@@ -244,6 +244,19 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
+    public bool HasBeetleOnScreen()
+    {
+        foreach (GameObject bug in bugList)
+        {
+            if (IsInBounds(bug.transform.position) && bug.TryGetComponent(out AIAgent agent))
+            {
+                if (agent.bugType == BugType.DEFAULT)
+                    return true;
+            }
+        }
+        return false;
+    }
+
     public void RepLossOnDeath()
     {
         if (repMeter != null)
