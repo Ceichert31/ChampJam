@@ -19,6 +19,8 @@ public class SpiderAI : MonoBehaviour
 
     private bool canMove = true;
 
+    private Animator animator;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -27,6 +29,8 @@ public class SpiderAI : MonoBehaviour
         wanderTimer = wanderDelay;
 
         GetComponent<BugColliderDetector>().bugEaten += FreezeMovement;
+
+        animator = GetComponent<Animator>();
     }
 
     //Spider logic 
@@ -69,10 +73,15 @@ public class SpiderAI : MonoBehaviour
     private void FreezeMovement(object sender, EventArgs e)
     {
         canMove = false;
+        animator.SetTrigger("Eat");
+        animator.SetBool("IsChewing", true);
         Invoke(nameof(ResetMovement), eatDelay);
     }
-    private void ResetMovement() => canMove = true;
-
+    private void ResetMovement()
+    {
+        canMove = true;
+        animator.SetBool("IsChewing", false);
+    }
     private void FixedUpdate()
     {
         if (!canMove)
