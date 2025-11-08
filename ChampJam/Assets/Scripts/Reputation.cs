@@ -30,54 +30,92 @@ public class Reputation : MonoBehaviour
         }
     }
 
-    [SerializeField] int rating;
-    public int getRating() { return rating; }
+    [SerializeField] float rating;
+    public float getRating() { return rating; }
     public void setRating()
     {
 
-        if (reputationScore <= ratingThresholds[4])
+        if (reputationScore <= ratingThresholds[9]) //5 STARS
         {
             rating = 5;
+            ratingTF.text = ratingPhrases[9];
+        }
+
+        else if (reputationScore <= ratingThresholds[8]) //4.5 STARS
+        {
+            rating = 4.5f;
+            ratingTF.text = ratingPhrases[8];
+        }
+
+        else if (reputationScore <= ratingThresholds[7]) //4 STARS
+        {
+            rating = 4;
+            ratingTF.text = ratingPhrases[7];
+        }
+
+        else if (reputationScore <= ratingThresholds[6]) //3.5 STARS
+        {
+            rating = 3.5f;
+            ratingTF.text = ratingPhrases[6];
+        }
+
+        else if (reputationScore <= ratingThresholds[5]) //3 STARS
+        {
+            rating = 3;
+            ratingTF.text = ratingPhrases[5];
+        }
+
+        else if (reputationScore <= ratingThresholds[4]) //2.5 STARS
+        {
+            rating = 2.5f;
             ratingTF.text = ratingPhrases[4];
         }
 
-        else if (reputationScore <= ratingThresholds[3])
+        else if (reputationScore <= ratingThresholds[3]) //2 STARS
         {
-            rating = 4;
+            rating = 2;
             ratingTF.text = ratingPhrases[3];
         }
 
-        else if (reputationScore <= ratingThresholds[2])
+        else if (reputationScore <= ratingThresholds[2]) //1.5 STARS
         {
-            rating = 3;
+            rating = 1.5f;
             ratingTF.text = ratingPhrases[2];
         }
 
-        else if (reputationScore <= ratingThresholds[1])
+        else if (reputationScore <= ratingThresholds[1]) //1 STAR
         {
-            rating = 2;
+            rating = 1;
             ratingTF.text = ratingPhrases[1];
         }
 
-        else if (reputationScore <= ratingThresholds[0])
+        else if (reputationScore <= ratingThresholds[0]) //0.5 STARS
         {
-            rating = 1;
+            rating = 0.5f;
             ratingTF.text = ratingPhrases[0];
         }
 
-        else
+        else //0 STAR
         {
             rating = 0;
         }
 
         for (int i = 0; i < ratingStars.Count; i++)
         {
-            if(i <= rating - 1) //Light up Stars for Rating
+            if (i == rating - 0.5)
             {
-                Debug.Log("setting white " + ratingStars[i]);
+                Debug.Log("rating is " + rating + " and this star is " + i);
+                ratingStars[i].sprite = ratingStarHalf;
+            }
+
+            else if (i <= rating - 1) //Light up Stars for Rating
+            {
+                //Debug.Log("setting white " + ratingStars[i]);
                 ratingStars[i].color = new Color(255, 255, 255, 255);
                 ratingStars[i].sprite = ratingStarOn;
             }
+
+            
 
             else //Toggle off missing rating stars
             {
@@ -108,7 +146,7 @@ public class Reputation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        reputationScore += 0.01f;
+        reputationScore += 0.005f;
         setReputation(reputationScore);
     }
 }
