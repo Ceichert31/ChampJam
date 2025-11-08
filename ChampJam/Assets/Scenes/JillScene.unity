@@ -896,6 +896,9 @@ MonoBehaviour:
   - {fileID: 1034162965}
   - {fileID: 1244532669}
   - {fileID: 411031386}
+  ratingStarOn: {fileID: 4832890150950600096, guid: 0f04324052bf72b419b5f7943e55344f, type: 3}
+  ratingStarHalf: {fileID: -480757808101508337, guid: 0f04324052bf72b419b5f7943e55344f, type: 3}
+  ratingStarOff: {fileID: -3364155269543512259, guid: 0f04324052bf72b419b5f7943e55344f, type: 3}
   ratingThresholds:
   - 60
   - 48
@@ -1068,7 +1071,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1758885964675949841, guid: ecf5f095bc2a88a4cad4436d824673f9, type: 3}
+  m_Sprite: {fileID: 4832890150950600096, guid: 0f04324052bf72b419b5f7943e55344f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1884,7 +1887,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1758885964675949841, guid: ecf5f095bc2a88a4cad4436d824673f9, type: 3}
+  m_Sprite: {fileID: 4832890150950600096, guid: 0f04324052bf72b419b5f7943e55344f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1959,7 +1962,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1758885964675949841, guid: ecf5f095bc2a88a4cad4436d824673f9, type: 3}
+  m_Sprite: {fileID: 4832890150950600096, guid: 0f04324052bf72b419b5f7943e55344f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2376,7 +2379,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1758885964675949841, guid: ecf5f095bc2a88a4cad4436d824673f9, type: 3}
+  m_Sprite: {fileID: 4832890150950600096, guid: 0f04324052bf72b419b5f7943e55344f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3135,7 +3138,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1758885964675949841, guid: ecf5f095bc2a88a4cad4436d824673f9, type: 3}
+  m_Sprite: {fileID: 4832890150950600096, guid: 0f04324052bf72b419b5f7943e55344f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

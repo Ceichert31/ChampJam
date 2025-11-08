@@ -76,12 +76,14 @@ public class Reputation : MonoBehaviour
             {
                 Debug.Log("setting white " + ratingStars[i]);
                 ratingStars[i].color = new Color(255, 255, 255, 255);
+                ratingStars[i].sprite = ratingStarOn;
             }
 
             else //Toggle off missing rating stars
             {
                 Debug.Log("toggle off " + ratingStars[i]);
                 ratingStars[i].color = new Color(80, 80, 80, 255);
+                ratingStars[i].sprite = ratingStarOff;
             }
         }
     }
@@ -89,6 +91,9 @@ public class Reputation : MonoBehaviour
 
     [SerializeField] List<Slider> reputationBars;
     [SerializeField] List<Image> ratingStars;
+    [SerializeField] Sprite ratingStarOn;
+    [SerializeField] Sprite ratingStarHalf;
+    [SerializeField] Sprite ratingStarOff;
     [SerializeField] List<float> ratingThresholds;
     [SerializeField] TextMeshProUGUI ratingTF;
     [SerializeField] List<string> ratingPhrases;
