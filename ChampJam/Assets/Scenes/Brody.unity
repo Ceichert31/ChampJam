@@ -548,14 +548,14 @@ RectTransform:
   m_GameObject: {fileID: 1448689451}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.46621, y: 0.46621, z: 0.46621}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1401780120}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 26, y: 163}
+  m_AnchoredPosition: {x: 350, y: -184}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1448689453
@@ -729,7 +729,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   lanternOn: {fileID: 1586423465478716846, guid: ba04bb4a45814ff4da8a01bd1c8549b5, type: 3}
-  lanternOff: {fileID: 8767833287921318173, guid: 715063aa4f23d7a45bcc9457eb09b1c5, type: 3}
+  lanternOff: {fileID: -833921912182962535, guid: fb1f17fff67bf83428e7289e50f05fe0, type: 3}
+  lightRadius: 2
   isLightOn: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

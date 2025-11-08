@@ -7,6 +7,10 @@ public class LanternControls : MonoBehaviour
     [SerializeField] private Sprite lanternOn;
     [SerializeField] private Sprite lanternOff;
 
+    [Header("Lantern Settings")]
+
+    [SerializeField] private float lightRadius = 2f;
+
     public bool isLightOn = true;
 
     private GameObject mainLantern;
@@ -16,31 +20,43 @@ public class LanternControls : MonoBehaviour
     {
         // please dont kill me chris
         mainLantern = GameObject.Find("LanternPrefab(Clone)");
-        //lanternLight = lanternLight.transform.GetChild(0).gameObject;
+        lanternLight = mainLantern.transform.GetChild(0).gameObject;
+
+        // set light size
+        lanternLight.transform.localScale = Vector3.one * lightRadius;
     }
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-
             isLightOn = !isLightOn;
         }
 
         UpdateLantern();
+
+        // keep light scale synced
+        lanternLight.transform.localScale = Vector3.one * lightRadius;
     }
 
     private void UpdateLantern()
     {
         if (isLightOn)
         {
-            //lanternLight.SetActive(true);
+            lanternLight.SetActive(true);
             mainLantern.GetComponent<SpriteRenderer>().sprite = lanternOn;
         }
         else
         {
-            //lanternLight.SetActive(false);
+            lanternLight.SetActive(false);
             mainLantern.GetComponent<SpriteRenderer>().sprite = lanternOff;
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        // draw light radius
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, lightRadius);
     }
 }
