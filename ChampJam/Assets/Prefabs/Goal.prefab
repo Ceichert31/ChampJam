@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6401353022500877799}
   - component: {fileID: 1121711785058270852}
   - component: {fileID: -7563018216671845239}
+  - component: {fileID: 1000911291309083662}
   m_Layer: 0
   m_Name: Goal
   m_TagString: Untagged
@@ -124,6 +125,18 @@ MonoBehaviour:
   intensity: 15
   speed: 40
   duration: 0.25
+--- !u!114 &1000911291309083662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5888235614684027319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b60b53e8c0216d54eae4c9fc7a88d2bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BugHotel
 --- !u!1001 &504793072114902419
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -158,7 +171,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 69f59123b555d6d44bf8cee0e71b2d00, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: -0.834
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 69f59123b555d6d44bf8cee0e71b2d00, type: 3}
       propertyPath: m_LocalPosition.z

@@ -180,6 +180,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f8719f26692d1f4c8dbf7bd180a63e4, type: 3}
+--- !u!114 &223960932 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1000911291309083662, guid: 9f8719f26692d1f4c8dbf7bd180a63e4, type: 3}
+  m_PrefabInstance: {fileID: 223960931}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b60b53e8c0216d54eae4c9fc7a88d2bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BugHotel
 --- !u!1 &902195873
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,8 +486,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca20440de881b4143a8f262f1fff9678, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  BugGoal: {fileID: 0}
+  bugHotels:
+  - {fileID: 2041933435}
+  - {fileID: 223960932}
   SpiderPos: {fileID: 919784951}
+  switchBugHotelTime: 15
 --- !u!61 &969350380
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -996,6 +1010,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f8719f26692d1f4c8dbf7bd180a63e4, type: 3}
+--- !u!114 &2041933435 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1000911291309083662, guid: 9f8719f26692d1f4c8dbf7bd180a63e4, type: 3}
+  m_PrefabInstance: {fileID: 2041933434}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b60b53e8c0216d54eae4c9fc7a88d2bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BugHotel
 --- !u!1001 &7767833210566619523
 PrefabInstance:
   m_ObjectHideFlags: 0

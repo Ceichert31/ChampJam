@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    [SerializeField]
     List<BugHotel> bugHotels = new();
 
     public Transform SpiderPos;
