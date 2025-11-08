@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class BugColliderDetector : MonoBehaviour
@@ -6,6 +7,8 @@ public class BugColliderDetector : MonoBehaviour
     private int bugLayer;
 
     private IDestroy destroyLogic;
+
+    public EventHandler bugEaten;
     private void Start()
     {
         destroyLogic = GetComponent<IDestroy>();
@@ -17,6 +20,7 @@ public class BugColliderDetector : MonoBehaviour
         if (collision.transform.gameObject.layer == bugLayer)
         {
             destroyLogic.DestroyBug(collision.gameObject);
+            bugEaten.Invoke(gameObject, null);
         }
     }
 }

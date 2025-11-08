@@ -43,4 +43,10 @@ public class BugSpawner : MonoBehaviour
             GameManager.Instance.AddBug(Instantiate(spawnList[spawnIndex], bugParent));
         }
     }
+
+    [ContextMenu("Spawn Bug")]
+    public void DebugSpawnBug()
+    {
+        SpawnBugs();
+    }
 }
