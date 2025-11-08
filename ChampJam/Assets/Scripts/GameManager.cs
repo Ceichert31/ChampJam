@@ -26,9 +26,10 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Reputation repMeter;
     [SerializeField] private GameOverScreen gameOver;
+    [SerializeField] private BugSpawner bugSpawner;
     [SerializeField] private float repGainOnDeath = 12f;
 
-    private bool notEnded = true;
+    public bool notEnded = true;
 
     private int totalBugsSaved = 0;
     private void Awake()
@@ -63,7 +64,15 @@ public class GameManager : MonoBehaviour
             if (repMeter.reputationScore >= 60f && notEnded)
             {
                 if (gameOver != null)
+                {
                     gameOver.OpenGameOverMenu();
+                }
+                
+                if (bugSpawner != null)
+                {
+                    bugSpawner.DestroyAllBugs();
+                }
+
                 notEnded = false;
             }
         }
@@ -244,5 +253,7 @@ public class GameManager : MonoBehaviour
     public void IncrementBugsSaved()
     {
         totalBugsSaved++;
+        gameOver.setTotalScoreTF(totalBugsSaved * 100);
+        gameOver.setBugsLeadTF(totalBugsSaved);
     }
 }

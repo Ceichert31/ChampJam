@@ -6,20 +6,17 @@ public class BugSpawner : MonoBehaviour
 {
     [SerializeField]
     private AnimationCurve spawnRate;
-
     [SerializeField]
     private List<GameObject> spawnList;
-
     [SerializeField]
     private List<Transform> spawnPointList;
-
     [SerializeField]
     private Transform bugParent;
-
     [SerializeField]
     private int maxSpawnAmount = 5;
 
     private float spawnTime;
+    private List<GameObject> activeBugs = new List<GameObject>();
 
     private void Start()
     {
@@ -39,15 +36,14 @@ public class BugSpawner : MonoBehaviour
     private void SpawnBugs()
     {
         int bugNum = Random.Range(0, maxSpawnAmount);
-
         for (int i = 0; i < bugNum; i++)
         {
-            //Spawn
             int spawnIndex = Random.Range(0, spawnList.Count);
-
             int spawnPointIndex = Random.Range(0, spawnPointList.Count);
 
-            GameManager.Instance.AddBug(Instantiate(spawnList[spawnIndex], spawnPointList[spawnPointIndex].position, Quaternion.identity, bugParent));
+            GameObject bug = Instantiate(spawnList[spawnIndex], spawnPointList[spawnPointIndex].position, Quaternion.identity, bugParent);
+            activeBugs.Add(bug);
+            GameManager.Instance.AddBug(bug);
         }
     }
 
@@ -55,5 +51,36 @@ public class BugSpawner : MonoBehaviour
     public void DebugSpawnBug()
     {
         SpawnBugs();
+    }
+
+    [Button("Destroy All Bugs")]
+    public void DestroyAllBugs()
+    {
+        activeBugs.RemoveAll(bug => bug == null);
+
+        // destroy all active bugs
+        foreach (GameObject bug in activeBugs)
+        {
+            if (bug != null)
+            {
+                GameManager.Instance.RemoveBug(bug);
+                Destroy(bug);
+            }
+        }
+
+        activeBugs.Clear();
+    }
+
+ 
+    public void OnBugDestroyed(GameObject bug)
+    {
+        activeBugs.Remove(bug);
+    }
+
+    // get current bug count
+    public int GetActiveBugCount()
+    {
+        activeBugs.RemoveAll(bug => bug == null);
+        return activeBugs.Count;
     }
 }

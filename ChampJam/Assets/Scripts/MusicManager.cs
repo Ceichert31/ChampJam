@@ -5,6 +5,7 @@ public class MusicManager : MonoBehaviour
     [SerializeField] private AudioSource baseMusic;
     [SerializeField] private AudioSource mothMusic;
     [SerializeField] private AudioSource fleaMusic;
+    [SerializeField] private AudioSource beetleMusic;
 
     void Start()
     {
@@ -21,6 +22,7 @@ public class MusicManager : MonoBehaviour
         baseMusic.Play();
         mothMusic.Play();
         fleaMusic.Play();
+        beetleMusic.Play();
     }
     
     void GetActiveBugs()
@@ -41,6 +43,15 @@ public class MusicManager : MonoBehaviour
         else
         {
             fleaMusic.volume = 0;
+        }
+
+        if (GameManager.Instance.HasFlyOnScreen())
+        {
+            beetleMusic.volume = 1;
+        }
+        else
+        {
+            beetleMusic.volume = 0;
         }
     }
 }
