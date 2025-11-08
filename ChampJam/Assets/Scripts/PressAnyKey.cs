@@ -10,6 +10,7 @@ public class PressAnyKey : MonoBehaviour
         if (Input.anyKeyDown)
         {
             // Load the specified scene
+            SoundManager.Instance.PlayMenuClick();
             SceneManager.LoadScene(sceneToLoad);
         }
     }
