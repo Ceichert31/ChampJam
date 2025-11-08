@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using TMPro;
+using DG.Tweening;
 
 public class Reputation : MonoBehaviour
 {
@@ -107,6 +108,8 @@ public class Reputation : MonoBehaviour
             {
                 Debug.Log("rating is " + rating + " and this star is " + i);
                 ratingStars[i].sprite = ratingStarHalf;
+
+                ratingStars[i].transform.DOShakePosition(0.5f, 0.5f);
             }
 
             else if (i <= rating - 1) //Light up Stars for Rating
@@ -114,6 +117,7 @@ public class Reputation : MonoBehaviour
                 //Debug.Log("setting white " + ratingStars[i]);
                 ratingStars[i].color = new Color(255, 255, 255, 255);
                 ratingStars[i].sprite = ratingStarOn;
+                
             }
 
             
@@ -123,6 +127,7 @@ public class Reputation : MonoBehaviour
                 Debug.Log("toggle off " + ratingStars[i]);
                 ratingStars[i].color = new Color(80, 80, 80, 255);
                 ratingStars[i].sprite = ratingStarOff;
+                ratingStars[i].transform.DOShakePosition(0.5f,0.5f);
             }
         }
     }
@@ -144,12 +149,18 @@ public class Reputation : MonoBehaviour
         
     }
 
+    private void Update()
+    {
+        reputationScore += .05f;
+        setReputation(reputationScore);
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
-        reputationScore -= normalRateOfDecrease;
+        /*reputationScore -= normalRateOfDecrease;
         if (reputationScore <= 0)
             reputationScore = 0;
-        setReputation(reputationScore);
+        setReputation(reputationScore);*/
     }
 }
