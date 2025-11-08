@@ -32,7 +32,7 @@ public class SpiderString : MonoBehaviour
         {
             spider.GetComponent<SpiderAI>().enabled = true;
             spiderStringChild.parent = null;
-            spiderStringChild.DOMoveY(10, 2f).SetEase(Ease.InBack);
+            spiderStringChild.DOMoveY(10, 2f).SetEase(Ease.InOutElastic);
             hasBeenDeployed = true;
         });
     }
