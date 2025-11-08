@@ -225,7 +225,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb63af0012011d94ca548380b30eaa4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GoalKillbox
-  goalType: 0
   damageNumber: {fileID: 0}
 --- !u!1 &39625727
 GameObject:
@@ -700,6 +699,96 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7878350319992209165, guid: 958098f5fdb70544b90ed66f16ac84b0, type: 3}
   m_PrefabInstance: {fileID: 689300250}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &724143075
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 724143077}
+  - component: {fileID: 724143076}
+  m_Layer: 0
+  m_Name: Square
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &724143076
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724143075}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -5450842732950680624, guid: 9eec316f0fc3d654eb688920bae686d8, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &724143077
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724143075}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.98696, y: 0.94003, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &902195873
 GameObject:
   m_ObjectHideFlags: 0
@@ -1025,7 +1114,9 @@ MonoBehaviour:
   switchBugHotelTime: 15
   repMeter: {fileID: 0}
   gameOver: {fileID: 0}
+  bugSpawner: {fileID: 0}
   repGainOnDeath: 12
+  notEnded: 1
 --- !u!61 &969350380
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1084,6 +1175,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cd2969db0148ec45a0ad8d917dbe463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundManager
+  lampOn: {fileID: 0}
+  lampOnVolume: 0.75
+  lampOnRandomPitch: 1
+  lampOnLowerPitch: 0.9
+  lampOnHigherPitch: 1.1
+  lampOff: {fileID: 0}
+  lampOffVolume: 0.75
+  lampOffRandomPitch: 1
+  lampOffLowerPitch: 0.9
+  lampOffHigherPitch: 1.1
   spiderMove: {fileID: 0}
   spiderMoveVolume: 0.75
   spiderMoveRandomPitch: 1
@@ -1129,11 +1230,41 @@ MonoBehaviour:
   fleaFleeRandomPitch2: 1
   fleaFleeLowerPitch2: 0.9
   fleaFleeHigherPitch2: 1.1
+  rhinoHit1: {fileID: 0}
+  rhinoHitVolume1: 0.75
+  rhinoHitRandomPitch1: 1
+  rhinoHitLowerPitch1: 0.9
+  rhinoHitHigherPitch1: 1.1
+  rhinoHit2: {fileID: 0}
+  rhinoHitVolume2: 0.75
+  rhinoHitRandomPitch2: 1
+  rhinoHitLowerPitch2: 0.9
+  rhinoHitHigherPitch2: 1.1
   weevilSpook: {fileID: 0}
   weevilSpookVolume: 0.75
   weevilSpookRandomPitch: 1
   weevilSpookLowerPitch: 0.9
   weevilSpookHigherPitch: 1.1
+  menuClick: {fileID: 0}
+  menuClickVolume: 0.75
+  menuClickRandomPitch: 1
+  menuClickLowerPitch: 0.9
+  menuClickHigherPitch: 1.1
+  gainScore: {fileID: 0}
+  gainScoreVolume: 0.75
+  gainScoreRandomPitch: 1
+  gainScoreLowerPitch: 0.9
+  gainScoreHigherPitch: 1.1
+  gameOver: {fileID: 0}
+  gameOverVolume: 0.75
+  gameOverRandomPitch: 1
+  gameOverLowerPitch: 0.9
+  gameOverHigherPitch: 1.1
+  menuQuit: {fileID: 0}
+  menuQuitVolume: 0.75
+  menuQuitRandomPitch: 1
+  menuQuitLowerPitch: 0.9
+  menuQuitHigherPitch: 1.1
 --- !u!82 &969350382
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2211,3 +2342,4 @@ SceneRoots:
   - {fileID: 8695148066883513019}
   - {fileID: 39625729}
   - {fileID: 442105366}
+  - {fileID: 724143077}
