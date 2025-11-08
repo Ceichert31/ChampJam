@@ -4,10 +4,10 @@ public class SpiderAnimatorMethods : MonoBehaviour
 {
     public void PlayEatSound()
     {
-        SoundManager.Instance.PlayEat();
+        SoundManager.Instance.PlaySpiderBite();
     }
     public void PlayChewSound()
     {
-        SoundManager.Instance.PlayChew();
+        SoundManager.Instance.PlaySpiderEat();
     }
 }

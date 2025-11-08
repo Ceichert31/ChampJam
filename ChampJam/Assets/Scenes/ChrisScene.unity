@@ -658,9 +658,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cd2969db0148ec45a0ad8d917dbe463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundManager
-  eatSound: {fileID: 8300000, guid: 2e860cdfaa2be2f4f8f967cbf81cb183, type: 3}
-  chewSound: {fileID: 8300000, guid: cfb9f7fb1461e274dad08a83f79f59bc, type: 3}
-  bugDieSound: {fileID: 8300000, guid: 7a338785e324b6245896960423157f37, type: 3}
+  spiderMove: {fileID: 0}
+  spiderMoveVolume: 0.75
+  spiderMoveRandomPitch: 1
+  spiderMoveLowerPitch: 0.9
+  spiderMoveHigherPitch: 1.1
+  spiderBite: {fileID: 8300000, guid: 2e860cdfaa2be2f4f8f967cbf81cb183, type: 3}
+  spiderBiteVolume: 0.75
+  spiderBiteRandomPitch: 1
+  spiderBiteLowerPitch: 0.9
+  spiderBiteHigherPitch: 1.1
+  spiderEat: {fileID: 8300000, guid: cfb9f7fb1461e274dad08a83f79f59bc, type: 3}
+  spiderEatVolume: 0.75
+  spiderEatRandomPitch: 1
+  spiderEatLowerPitch: 0.9
+  spiderEatHigherPitch: 1.1
+  spiderSpit: {fileID: 0}
+  spiderSpitVolume: 0.75
+  spiderSpitRandomPitch: 1
+  spiderSpitLowerPitch: 0.9
+  spiderSpitHigherPitch: 1.1
+  mothFollow: {fileID: 0}
+  mothFollowVolume: 0.75
+  mothFollowRandomPitch: 1
+  mothFollowLowerPitch: 0.9
+  mothFollowHigherPitch: 1.1
+  fleaFlee: {fileID: 0}
+  fleaFleeVolume: 0.75
+  fleaFleeRandomPitch: 1
+  fleaFleeLowerPitch: 0.9
+  fleaFleeHigherPitch: 1.1
+  weevilSpook: {fileID: 0}
+  weevilSpookVolume: 0.75
+  weevilSpookRandomPitch: 1
+  weevilSpookLowerPitch: 0.9
+  weevilSpookHigherPitch: 1.1
 --- !u!82 &969350382
 AudioSource:
   m_ObjectHideFlags: 0
