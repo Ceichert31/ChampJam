@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     private List<GameObject> bugList = new();
 
     private int score = 0;
+
+    private Vector2 noBugsPos = new Vector2(-99, -99);
     private void Awake()
     {
         Instance = this;
@@ -42,6 +44,11 @@ public class GameManager : MonoBehaviour
         return bounds.transform.TransformPoint(localPoint);
     }
 
+    public bool IsInBounds(Vector2 pos)
+    {
+        return bounds.bounds.Contains(pos);
+    }
+
     public void AddBug(GameObject bug)
     {
         bugList.Add(bug);
@@ -52,17 +59,23 @@ public class GameManager : MonoBehaviour
         bugList.Remove(bug);
     }
 
-    public Transform GetNextTarget(Vector2 pos)
+    public Vector2 GetNextTarget(Vector2 pos)
     {
+        //If no bugs are nearby or on-screen, wander
         if (bugList.Count <= 0)
         {
-            return null;
+            return GetRandomPointInBounds();
         }
 
         float dist = 100;
         GameObject closest = null;
         foreach(GameObject bug in bugList)
         {
+            if (!IsInBounds(bug.transform.position))
+            {
+                continue;
+            }
+
             if (Vector2.Distance(pos, (Vector2)bug.transform.position) < dist)
             {
                 dist = Vector2.Distance(pos, (Vector2)bug.transform.position);
@@ -70,6 +83,6 @@ public class GameManager : MonoBehaviour
             } 
         }
 
-        return closest.transform;
+        return closest.transform.position;
     }
 }

@@ -16,10 +16,7 @@ public class SpiderAI : MonoBehaviour
 
     private void Update()
     {
-        target = GameManager.Instance.GetNextTarget(transform.position).position;
-
-        if (target == null)
-            return;
+        target = GameManager.Instance.GetNextTarget(transform.position);
 
         target = (target - new Vector2(transform.position.x, transform.position.y)).normalized;
 

@@ -1,19 +1,22 @@
 using UnityEngine;
 
-public class GoalBehavior : MonoBehaviour
+public class BugColliderDetector : MonoBehaviour
 {
     [SerializeField]
     private int bugLayer;
+
+    private IDestroy destroyLogic;
+    private void Start()
+    {
+        destroyLogic = GetComponent<IDestroy>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //if bug type add points and destroy bug
         if (collision.transform.gameObject.layer == bugLayer)
         {
-            Destroy(collision.gameObject);
-
-            //Add points
-            GameManager.Instance.AddScore(100);
+            destroyLogic.DestroyBug(collision.gameObject);
         }
     }
 }

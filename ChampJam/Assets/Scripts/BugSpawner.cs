@@ -12,6 +12,9 @@ public class BugSpawner : MonoBehaviour
     [SerializeField]
     private Transform bugParent;
 
+    [SerializeField]
+    private int maxSpawnAmount = 5;
+
     private float spawnTime;
 
     private void Start()
@@ -30,7 +33,7 @@ public class BugSpawner : MonoBehaviour
 
     private void SpawnBugs()
     {
-        int bugNum = Random.Range(0, 3);
+        int bugNum = Random.Range(0, maxSpawnAmount);
 
         for (int i = 0; i < bugNum; i++)
         {
