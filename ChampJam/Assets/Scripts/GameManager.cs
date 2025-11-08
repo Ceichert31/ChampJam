@@ -16,11 +16,24 @@ public class GameManager : MonoBehaviour
     private int score = 0;
 
     private Vector2 noBugsPos = new Vector2(-99, -99);
+
+    private LanternControls lantern;
     private void Awake()
     {
         Instance = this;
 
         bounds = GetComponent<BoxCollider2D>();
+    }
+
+    private void Start()
+    {
+        // im sorry
+        lantern = GameObject.Find("LanternPrefab(Clone)").transform.GetChild(1).GetComponent<LanternControls>();
+
+        if (GetComponent<Light>() == null)
+        {
+            Debug.LogError("Bruh moment!");
+        }
     }
 
     public void AddScore(int scoreToAdd)
@@ -138,5 +151,10 @@ public class GameManager : MonoBehaviour
         }
 
         return true;
+    }
+
+    public bool GetLightState()
+    {
+        return lantern.isLightOn;
     }
 }

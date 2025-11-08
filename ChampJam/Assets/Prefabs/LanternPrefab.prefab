@@ -474,7 +474,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   lanternOn: {fileID: 1586423465478716846, guid: ba04bb4a45814ff4da8a01bd1c8549b5, type: 3}
   lanternOff: {fileID: -833921912182962535, guid: fb1f17fff67bf83428e7289e50f05fe0, type: 3}
-  lightRadius: 1.5
+  lightRadius: 3
   isLightOn: 1
 --- !u!58 &2953146590361957963
 CircleCollider2D:

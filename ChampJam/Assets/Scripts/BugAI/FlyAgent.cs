@@ -37,6 +37,7 @@ public class FlyAgent : MonoBehaviour
 
     private void Start()
     {
+        latestLightPos = transform;
         pathfinder = GetComponent<IPathfinder>();
         rb = GetComponent<Rigidbody2D>();
         target = GameManager.Instance.GetRandomPointInBounds();
@@ -67,7 +68,7 @@ public class FlyAgent : MonoBehaviour
 
     private void PerformPathing()
     {
-        if (!inRadius)
+        if (!inRadius || !GameManager.Instance.GetLightState())
         {
             Debug.Log("normal pathfding");
             rb.linearVelocity = pathfinder.GetPathVelocity((target - new Vector2(transform.position.x, transform.position.y)).normalized) * agentSpeed;

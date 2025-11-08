@@ -215,6 +215,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpiderAI
   agentSpeed: 1
+  wanderDelay: 5
+  eatDelay: 5
 --- !u!50 &439798083
 Rigidbody2D:
   serializedVersion: 5
@@ -309,7 +311,7 @@ Transform:
   m_GameObject: {fileID: 439798078}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -45.3, y: -14.4, z: 0}
+  m_LocalPosition: {x: -100, y: -17.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1002,7 +1004,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RopeSwing
   lanternPrefab: {fileID: 5332319996697353706, guid: 5b5c2187e51f3f94b8ac5dcfe5812445, type: 3}
-  ropeSegments: 30
+  ropeSegments: 5
   segmentLength: 0.02
   ropeWidth: 0.05
   ropeColor: {r: 0, g: 0, b: 0, a: 1}
