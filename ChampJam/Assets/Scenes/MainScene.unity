@@ -2447,12 +2447,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cd2969db0148ec45a0ad8d917dbe463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundManager
-  lampOn: {fileID: 0}
+  lampOn: {fileID: 8300000, guid: a43db7521d04d5f4bb4ebf89847e3cc0, type: 3}
   lampOnVolume: 0.75
   lampOnRandomPitch: 1
   lampOnLowerPitch: 0.9
   lampOnHigherPitch: 1.1
-  lampOff: {fileID: 0}
+  lampOff: {fileID: 8300000, guid: 0cf0b32ecdfdae74bb558d6c56298a77, type: 3}
   lampOffVolume: 0.75
   lampOffRandomPitch: 1
   lampOffLowerPitch: 0.9
@@ -2477,62 +2477,62 @@ MonoBehaviour:
   spiderSpitRandomPitch: 1
   spiderSpitLowerPitch: 0.9
   spiderSpitHigherPitch: 1.1
-  mothFollow1: {fileID: 0}
+  mothFollow1: {fileID: 8300000, guid: 564f4ffd64c86974188724dd4a74d2e0, type: 3}
   mothFollowVolume1: 0.75
   mothFollowRandomPitch1: 1
   mothFollowLowerPitch1: 0.9
   mothFollowHigherPitch1: 1.1
-  mothFollow2: {fileID: 0}
+  mothFollow2: {fileID: 8300000, guid: ab1702288b5fd234297cdeec4ae2a6b8, type: 3}
   mothFollowVolume2: 0.75
   mothFollowRandomPitch2: 1
   mothFollowLowerPitch2: 0.9
   mothFollowHigherPitch2: 1.1
-  mothFollow3: {fileID: 0}
+  mothFollow3: {fileID: 8300000, guid: 7986dee24a21d1f428fe46d9bef3224b, type: 3}
   mothFollowVolume3: 0.75
   mothFollowRandomPitch3: 1
   mothFollowLowerPitch3: 0.9
   mothFollowHigherPitch3: 1.1
-  fleaFlee1: {fileID: 0}
+  fleaFlee1: {fileID: 8300000, guid: ac133cd242f809b41b49fa2090a63bed, type: 3}
   fleaFleeVolume1: 0.75
   fleaFleeRandomPitch1: 1
   fleaFleeLowerPitch1: 0.9
   fleaFleeHigherPitch1: 1.1
-  fleaFlee2: {fileID: 0}
+  fleaFlee2: {fileID: 8300000, guid: b24160117aa813541b5290c8c6d67f69, type: 3}
   fleaFleeVolume2: 0.75
   fleaFleeRandomPitch2: 1
   fleaFleeLowerPitch2: 0.9
   fleaFleeHigherPitch2: 1.1
-  rhinoHit1: {fileID: 0}
+  rhinoHit1: {fileID: 8300000, guid: 7f4c7c04608f8f844bf671fda72a7904, type: 3}
   rhinoHitVolume1: 0.75
   rhinoHitRandomPitch1: 1
   rhinoHitLowerPitch1: 0.9
   rhinoHitHigherPitch1: 1.1
-  rhinoHit2: {fileID: 0}
+  rhinoHit2: {fileID: 8300000, guid: 0f11d170c31bd4c4b86995b4720ccea4, type: 3}
   rhinoHitVolume2: 0.75
   rhinoHitRandomPitch2: 1
   rhinoHitLowerPitch2: 0.9
   rhinoHitHigherPitch2: 1.1
-  weevilSpook: {fileID: 0}
+  weevilSpook: {fileID: 8300000, guid: b24160117aa813541b5290c8c6d67f69, type: 3}
   weevilSpookVolume: 0.75
   weevilSpookRandomPitch: 1
   weevilSpookLowerPitch: 0.9
   weevilSpookHigherPitch: 1.1
-  menuClick: {fileID: 0}
+  menuClick: {fileID: 8300000, guid: f0044d8dbf52965458fc92e3a9962bfb, type: 3}
   menuClickVolume: 0.75
   menuClickRandomPitch: 1
   menuClickLowerPitch: 0.9
   menuClickHigherPitch: 1.1
-  gainScore: {fileID: 0}
+  gainScore: {fileID: 8300000, guid: 8517d7eb5e764ab40bdf6ad2912a6666, type: 3}
   gainScoreVolume: 0.75
   gainScoreRandomPitch: 1
   gainScoreLowerPitch: 0.9
   gainScoreHigherPitch: 1.1
-  gameOver: {fileID: 0}
+  gameOver: {fileID: 8300000, guid: 80ed3566374fc224c85317f7bebd9b65, type: 3}
   gameOverVolume: 0.75
   gameOverRandomPitch: 1
   gameOverLowerPitch: 0.9
   gameOverHigherPitch: 1.1
-  menuQuit: {fileID: 0}
+  menuQuit: {fileID: 8300000, guid: b2ae914719f1df7419e8e35cd7817507, type: 3}
   menuQuitVolume: 0.75
   menuQuitRandomPitch: 1
   menuQuitLowerPitch: 0.9
