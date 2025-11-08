@@ -10,7 +10,7 @@ public enum BugType
 }
 
 
-public class FlyAgent : MonoBehaviour
+public class AIAgent : MonoBehaviour
 {
     [Header("Fly Data")]
     // improtant

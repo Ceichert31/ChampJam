@@ -137,8 +137,8 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 25
-      height: 24
+      width: 27
+      height: 26
     spriteID: 21401689f012bad4599772197c2e31ab
     spriteBone: []
     spriteOutline: []
@@ -148,6 +148,27 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
+  - name: Frame_1
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 38
+      width: 27
+      height: 26
+    spriteID: 8f772702190d61744870c89eec2ddd8a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 38}
   spriteSheetImportData: []
   tileSetImportData: []
   asepriteLayers:
@@ -163,15 +184,24 @@ ScriptedImporter:
     layerType: 0
     blendMode: 0
     cells:
-    - name: rhinobeetle1
+    - name: Frame_0
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
-        width: 25
-        height: 24
+        width: 27
+        height: 26
       spriteId: 21401689f012bad4599772197c2e31ab
+    - name: Frame_1
+      frameIndex: 1
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 0
+        width: 27
+        height: 26
+      spriteId: 8f772702190d61744870c89eec2ddd8a
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
@@ -181,5 +211,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 25, y: 24}
-  previousTextureSize: {x: 64, y: 32}
+  canvasSize: {x: 27, y: 26}
+  previousTextureSize: {x: 64, y: 128}

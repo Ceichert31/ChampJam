@@ -21,7 +21,7 @@ public class BugColliderDetector : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //if bug type add points and destroy bug
-        if ((collision.transform.gameObject.layer == bugLayer) && (collision.transform.gameObject.GetComponent<FlyAgent>().bugType == goal.goalType))
+        if ((collision.transform.gameObject.layer == bugLayer) && (collision.transform.gameObject.GetComponent<AIAgent>().bugType == goal.goalType))
         {
             destroyLogic.DestroyBug(collision.gameObject);
             bugEaten?.Invoke(gameObject, null);

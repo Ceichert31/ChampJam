@@ -69,7 +69,7 @@ public class LanternControls : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Bug"))
         {
             GameObject bug = collision.gameObject;
-            FlyAgent bugAgent = bug.GetComponent<FlyAgent>();
+            AIAgent bugAgent = bug.GetComponent<AIAgent>();
 
             bugAgent.inRadius = true;
 
@@ -85,7 +85,7 @@ public class LanternControls : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Bug"))
         {
             GameObject bug = collision.gameObject;
-            FlyAgent bugAgent = bug.GetComponent<FlyAgent>();
+            AIAgent bugAgent = bug.GetComponent<AIAgent>();
 
             bugAgent.inRadius = false;
         }

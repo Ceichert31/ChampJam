@@ -162,9 +162,10 @@ public class GameManager : MonoBehaviour
     {
         foreach (GameObject bug in bugList)
         {
-            if (IsInBounds(bug.transform.position) && bug.name == "Fly")
+            if (IsInBounds(bug.transform.position) && bug.TryGetComponent(out AIAgent agent))
             {
-                return true;
+                if (agent.bugType == BugType.FLY)
+                    return true;
             }
         }
         return false;
@@ -173,9 +174,10 @@ public class GameManager : MonoBehaviour
     {
         foreach (GameObject bug in bugList)
         {
-            if (IsInBounds(bug.transform.position) && bug.name == "Moth")
+            if (IsInBounds(bug.transform.position) && bug.TryGetComponent(out AIAgent agent))
             {
-                return true;
+                if (agent.bugType == BugType.MOTH)
+                    return true;
             }
         }
         return false;
