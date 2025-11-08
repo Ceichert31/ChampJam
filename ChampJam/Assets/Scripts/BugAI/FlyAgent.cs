@@ -15,10 +15,14 @@ public class FlyAgent : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
     }
-
     private void FixedUpdate()
     {
-        rb.linearVelocity = pathfinder.GetPathVelocity(transform.position) * agentSpeed;
+        rb.linearVelocity = pathfinder.GetPathVelocity(CalculateTarget()) * agentSpeed;
         transform.up = Vector2.Lerp(transform.up, rb.linearVelocity, Time.deltaTime);
+    }
+
+    Vector2 CalculateTarget()
+    {
+        return (GameManager.Instance.bugGoal.position - transform.position).normalized;
     }
 }
