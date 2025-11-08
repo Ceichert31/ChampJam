@@ -2113,7 +2113,7 @@ MonoBehaviour:
   drag: 0.7
   angularDrag: 0.7
   solverMultiplier: 2
-  maxMoveSpeed: 24
+  maxMoveSpeed: 12
   moveSmoothing: 0.05
 --- !u!4 &926603189
 Transform:
