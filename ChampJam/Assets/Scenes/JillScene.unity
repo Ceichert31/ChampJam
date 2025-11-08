@@ -1190,6 +1190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2ba892d6153cb040b9064db7e40b646, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameOver
+  screen: {fileID: 0}
   bugsLeadScoreTF: {fileID: 0}
   bugsFreedScoreTF: {fileID: 0}
   bugsBattedScoreTF: {fileID: 0}
