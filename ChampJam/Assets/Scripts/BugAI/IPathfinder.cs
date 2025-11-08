@@ -6,5 +6,5 @@ using UnityEngine;
 
 public interface IPathfinder
 {
-    Vector3 getPathVelocity(Vector3 position);
+    Vector2 GetPathVelocity(Vector2 position);
 }
