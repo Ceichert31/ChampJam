@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using NaughtyAttributes;
 
 public class BugSpawner : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class BugSpawner : MonoBehaviour
 
     [SerializeField]
     private List<GameObject> spawnList;
+
+    [SerializeField]
+    private List<Transform> spawnPointList;
 
     [SerializeField]
     private Transform bugParent;
@@ -38,13 +42,15 @@ public class BugSpawner : MonoBehaviour
         for (int i = 0; i < bugNum; i++)
         {
             //Spawn
-            int spawnIndex = Random.Range(0, spawnList.Count - 1);
+            int spawnIndex = Random.Range(0, spawnList.Count);
 
-            GameManager.Instance.AddBug(Instantiate(spawnList[spawnIndex], bugParent));
+            int spawnPointIndex = Random.Range(0, spawnPointList.Count);
+
+            GameManager.Instance.AddBug(Instantiate(spawnList[spawnIndex], spawnPointList[spawnPointIndex].position, Quaternion.identity, bugParent));
         }
     }
 
-    [ContextMenu("Spawn Bug")]
+    [Button("Spawn Bugs")]
     public void DebugSpawnBug()
     {
         SpawnBugs();
