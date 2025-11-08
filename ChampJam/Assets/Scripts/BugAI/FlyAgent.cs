@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FlyAgent : MonoBehaviour
@@ -23,6 +24,18 @@ public class FlyAgent : MonoBehaviour
 
     Vector2 CalculateTarget()
     {
-        return (GameManager.Instance.bugGoal.position - transform.position).normalized;
+        var target = (GameManager.Instance.BugGoal.position - transform.position).normalized;
+
+        var toSpider = (GameManager.Instance.SpiderPos.position - transform.position).normalized;
+
+        Debug.DrawRay(transform.position, toSpider, Color.red);
+        Debug.DrawRay(transform.position, target, Color.blue);
+
+        if (Vector2.Dot(target, toSpider) > 0.6f)
+        {
+            return target + toSpider;
+        }
+
+        return target - toSpider;
     }
 }
