@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
         // im sorry
         lantern = GameObject.Find("LanternPrefab(Clone)").transform.GetChild(1).GetComponent<LanternControls>();
 
-        if (GetComponent<Light>() == null)
+        if (lantern == null)
         {
             Debug.LogError("Bruh moment!");
         }

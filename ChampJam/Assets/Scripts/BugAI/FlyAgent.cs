@@ -23,6 +23,8 @@ public class FlyAgent : MonoBehaviour
     [SerializeField]
     private float agentSpeed = 1.0f;
     [SerializeField]
+    private float agentInLightMult = 1.5f;
+    [SerializeField]
     private float fleeDistance = 0.5f;
     [SerializeField]
 
@@ -48,10 +50,12 @@ public class FlyAgent : MonoBehaviour
         if (Random.value > 0.5f)
         {
             bugType = BugType.MOTH;
+            GetComponent<SpriteRenderer>().color = Color.blue;
         }
         else
         {
             bugType = BugType.FLY;
+            GetComponent<SpriteRenderer>().color = Color.red;
         }
     }
 
@@ -99,7 +103,7 @@ public class FlyAgent : MonoBehaviour
     {
         // move towards light
         Vector2 toLightDir = ((Vector2)latestLightPos.position - (Vector2)transform.position).normalized;
-        rb.linearVelocity = pathfinder.GetPathVelocity(toLightDir) * agentSpeed;
+        rb.linearVelocity = pathfinder.GetPathVelocity(toLightDir) * agentSpeed * agentInLightMult;
         transform.up = Vector2.Lerp(transform.up, rb.linearVelocity, Time.fixedDeltaTime * 3f);
     }
 
@@ -107,7 +111,7 @@ public class FlyAgent : MonoBehaviour
     {
         // flee from light
         Vector2 awayFromLightDir = ((Vector2)transform.position - (Vector2)latestLightPos.position).normalized;
-        rb.linearVelocity = pathfinder.GetPathVelocity(awayFromLightDir) * agentSpeed;
+        rb.linearVelocity = pathfinder.GetPathVelocity(awayFromLightDir) * agentSpeed * agentInLightMult;
         transform.up = Vector2.Lerp(transform.up, rb.linearVelocity, Time.fixedDeltaTime * 3f);
     }
 
