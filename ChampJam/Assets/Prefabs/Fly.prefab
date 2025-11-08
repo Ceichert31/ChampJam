@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b4bd3792212ab041aa9171efa659411, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlyMovement
-  agentInLightMult: 1
+  agentInLightMult: 2.5
 --- !u!114 &7333653864272480819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,7 +158,7 @@ MonoBehaviour:
   latestLightPos: {fileID: 0}
   agentSpeed: 1
   targetChangeTimer: 5
-  rotationSpeed: 1
+  rotationSpeed: 5
 --- !u!1001 &7898932433532853292
 PrefabInstance:
   m_ObjectHideFlags: 0
