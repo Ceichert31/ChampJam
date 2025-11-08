@@ -14,7 +14,10 @@ public class UIController : MonoBehaviour
 
     public bool firstIgnite;
 
-    public GameObject spawner;
+    public bool firstMoth;
+    public bool firstFlea;
+    public bool firstBeetle;
+
     public SpiderString spiderDropDown;
 
     public BugSpawner bugSpawner;
@@ -31,7 +34,7 @@ public class UIController : MonoBehaviour
         }
         //Invoke(nameof(StartTutorial), 0.5f);
         StartTutorial();
-        spawner.SetActive(false);
+        bugSpawner.dontSpawn = true;
     }
 
     [Button("Advance Tutorial")]
@@ -50,19 +53,19 @@ public class UIController : MonoBehaviour
         if (index == tutorialList.Count - 1)
         {
             //Spawn spider
-            spawner.SetActive(true);
+            bugSpawner.dontSpawn = false;
             spiderDropDown.EnableSpider();
         }
 
         switch (index)
         {
-            case 1:
+            case 0:
                 bugSpawner.SpawnMoth();
                 break;
-            case 2:
+            case 1:
                 bugSpawner.SpawnFlea();
                 break;
-            case 3:
+            case 2:
                 bugSpawner.SpawnBeetle();
                 break;
         }

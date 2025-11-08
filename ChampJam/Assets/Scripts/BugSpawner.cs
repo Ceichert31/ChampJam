@@ -15,17 +15,20 @@ public class BugSpawner : MonoBehaviour
     [SerializeField]
     private int maxSpawnAmount = 5;
 
+    public bool dontSpawn;
+
     private float spawnTime;
     private List<GameObject> activeBugs = new List<GameObject>();
 
     private void Start()
     {
         spawnTime = spawnRate.Evaluate(Time.time) + Time.time;
-        SpawnBugs();
+        //SpawnBugs();
     }
 
     public void Update()
     {
+        if (dontSpawn) return;
         if (spawnTime < Time.time && GameManager.Instance.notEnded)
         {
             spawnTime = spawnRate.Evaluate(Time.time) + Time.time;
