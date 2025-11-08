@@ -13,7 +13,6 @@ public class BugColliderDetector : MonoBehaviour
     private void Start()
     {
         destroyLogic = GetComponent<IDestroy>();
-        goal = GetComponent<GoalKillbox>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
