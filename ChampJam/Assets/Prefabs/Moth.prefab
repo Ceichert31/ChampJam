@@ -172,6 +172,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpriteRenderer
       objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: 2767653d3a5d9d34092cbb540a203601, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 2767653d3a5d9d34092cbb540a203601, type: 3}
       propertyPath: m_LocalScale.x
       value: 8.6898
