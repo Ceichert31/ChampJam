@@ -126,7 +126,7 @@ public class AIAgent : MonoBehaviour
     {
         canMove = false;
         rb.linearVelocity = ((Vector2)transform.position - pos).normalized * agentSpeed;
-        Invoke(nameof(ResetStun), 0.8f);
+        Invoke(nameof(ResetStun), 0.4f);
     }
 
     private void ResetStun() => canMove = true;
