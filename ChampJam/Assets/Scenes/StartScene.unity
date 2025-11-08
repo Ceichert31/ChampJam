@@ -575,23 +575,55 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8368474698844260448, guid: da657c90ab7684a44adc49083ff9452d, type: 3}
       propertyPath: maxSpawnAmount
-      value: 10
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8368474698844260448, guid: da657c90ab7684a44adc49083ff9452d, type: 3}
       propertyPath: spawnRate.m_Curve.Array.data[0].time
-      value: 2.9999962
+      value: 2.8272247
       objectReference: {fileID: 0}
     - target: {fileID: 8368474698844260448, guid: da657c90ab7684a44adc49083ff9452d, type: 3}
       propertyPath: spawnRate.m_Curve.Array.data[1].time
-      value: 293
+      value: 491.53064
       objectReference: {fileID: 0}
     - target: {fileID: 8368474698844260448, guid: da657c90ab7684a44adc49083ff9452d, type: 3}
       propertyPath: spawnRate.m_Curve.Array.data[0].value
-      value: 6.9631805
+      value: 2.000183
       objectReference: {fileID: 0}
     - target: {fileID: 8368474698844260448, guid: da657c90ab7684a44adc49083ff9452d, type: 3}
       propertyPath: spawnRate.m_Curve.Array.data[1].value
-      value: 6.8027344
+      value: 1.9918213
+      objectReference: {fileID: 0}
+    - target: {fileID: 8368474698844260448, guid: da657c90ab7684a44adc49083ff9452d, type: 3}
+      propertyPath: spawnRate.m_Curve.Array.data[0].inSlope
+      value: -0.000017110206
+      objectReference: {fileID: 0}
+    - target: {fileID: 8368474698844260448, guid: da657c90ab7684a44adc49083ff9452d, type: 3}
+      propertyPath: spawnRate.m_Curve.Array.data[1].inSlope
+      value: -0.000017110206
+      objectReference: {fileID: 0}
+    - target: {fileID: 8368474698844260448, guid: da657c90ab7684a44adc49083ff9452d, type: 3}
+      propertyPath: spawnRate.m_Curve.Array.data[0].outSlope
+      value: -0.000017110206
+      objectReference: {fileID: 0}
+    - target: {fileID: 8368474698844260448, guid: da657c90ab7684a44adc49083ff9452d, type: 3}
+      propertyPath: spawnRate.m_Curve.Array.data[1].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 8368474698844260448, guid: da657c90ab7684a44adc49083ff9452d, type: 3}
+      propertyPath: spawnRate.m_Curve.Array.data[1].outSlope
+      value: -0.000017110206
+      objectReference: {fileID: 0}
+    - target: {fileID: 8368474698844260448, guid: da657c90ab7684a44adc49083ff9452d, type: 3}
+      propertyPath: spawnRate.m_Curve.Array.data[0].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 8368474698844260448, guid: da657c90ab7684a44adc49083ff9452d, type: 3}
+      propertyPath: spawnRate.m_Curve.Array.data[0].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 8368474698844260448, guid: da657c90ab7684a44adc49083ff9452d, type: 3}
+      propertyPath: spawnRate.m_Curve.Array.data[1].tangentMode
+      value: 34
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

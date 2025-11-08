@@ -22,7 +22,7 @@ public class BugColliderDetector : MonoBehaviour
         {
             if (!destroyLogic.CheckGoalType(agent.bugType))
                 return;
-                
+
             destroyLogic.DestroyBug(collision.gameObject);
             bugEaten?.Invoke(gameObject, null);
         }

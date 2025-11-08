@@ -73,6 +73,8 @@ public class SpiderAI : MonoBehaviour
     private void FreezeMovement(object sender, EventArgs e)
     {
         canMove = false;
+        SoundManager.Instance.PlaySpiderBite();
+        SoundManager.Instance.PlaySpiderEat();
         animator.SetTrigger("Eat");
         animator.SetBool("IsChewing", true);
         Invoke(nameof(ResetMovement), eatDelay);

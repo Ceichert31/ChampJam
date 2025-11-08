@@ -479,7 +479,10 @@ MonoBehaviour:
   SpiderPos: {fileID: 919784951}
   switchBugHotelTime: 15
   repMeter: {fileID: 0}
+  gameOver: {fileID: 0}
+  bugSpawner: {fileID: 0}
   repGainOnDeath: 12
+  notEnded: 1
 --- !u!61 &969350380
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -608,16 +611,26 @@ MonoBehaviour:
   weevilSpookRandomPitch: 1
   weevilSpookLowerPitch: 0.9
   weevilSpookHigherPitch: 1.1
-  menuClick: {fileID: 0}
+  menuClick: {fileID: 8300000, guid: f0044d8dbf52965458fc92e3a9962bfb, type: 3}
   menuClickVolume: 0.75
   menuClickRandomPitch: 1
   menuClickLowerPitch: 0.9
   menuClickHigherPitch: 1.1
-  gainScore: {fileID: 0}
+  gainScore: {fileID: 8300000, guid: 8517d7eb5e764ab40bdf6ad2912a6666, type: 3}
   gainScoreVolume: 0.75
   gainScoreRandomPitch: 1
   gainScoreLowerPitch: 0.9
   gainScoreHigherPitch: 1.1
+  gameOver: {fileID: 8300000, guid: 80ed3566374fc224c85317f7bebd9b65, type: 3}
+  gameOverVolume: 0.75
+  gameOverRandomPitch: 1
+  gameOverLowerPitch: 0.9
+  gameOverHigherPitch: 1.1
+  menuQuit: {fileID: 8300000, guid: b2ae914719f1df7419e8e35cd7817507, type: 3}
+  menuQuitVolume: 0.75
+  menuQuitRandomPitch: 1
+  menuQuitLowerPitch: 0.9
+  menuQuitHigherPitch: 1.1
 --- !u!82 &969350382
 AudioSource:
   m_ObjectHideFlags: 0

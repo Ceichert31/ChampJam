@@ -67,6 +67,7 @@ public class GameManager : MonoBehaviour
             {
                 if (gameOver != null)
                 {
+                    SoundManager.Instance.PlayGameOver();
                     gameOver.OpenGameOverMenu();
                 }
                 
