@@ -9,7 +9,7 @@ public class ScrollUV : MonoBehaviour
 
     void Start()
     {
-        //material = GetComponent<MeshRenderer>().GetComponent<Material>();
+        material = GetComponent<MeshRenderer>().material;
     }
 
     void Update()
@@ -17,6 +17,6 @@ public class ScrollUV : MonoBehaviour
         float offsetX = scrollSpeedX * Time.deltaTime;
         float offsetY = scrollSpeedY * Time.deltaTime;
 
-        material.mainTextureOffset = new Vector2(offsetX, offsetY);
+        material.mainTextureOffset += new Vector2(offsetX, offsetY);
     }
 }
