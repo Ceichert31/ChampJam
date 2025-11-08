@@ -53,6 +53,23 @@ public class GoalKillbox : MonoBehaviour, IDestroy
         /* if (goalType == type) return true;
          return false;*/
 
+        switch (type)
+        {
+            case BugType.MOTH:
+                UIController.Instance.firstMoth = true;
+                UIController.Instance.AdvanceTutorial();
+                break;
+            case BugType.FLY:
+                UIController.Instance.firstFlea = true;
+                UIController.Instance.AdvanceTutorial();
+                break;
+
+            case BugType.DEFAULT:
+                UIController.Instance.firstBeetle = true;
+                UIController.Instance.AdvanceTutorial();
+                break;
+        }
+
         return true;
     }
 }
