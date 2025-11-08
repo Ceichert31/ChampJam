@@ -212,6 +212,7 @@ public class SoundManager : MonoBehaviour
     }
     public void PlayWeevilSpook() => PlaySound(weevilSpook, weevilSpookVolume, weevilSpookRandomPitch, weevilSpookLowerPitch, weevilSpookHigherPitch);
     public void PlayMenuClick() => PlaySound(menuClick, menuClickVolume, menuClickRandomPitch, menuClickLowerPitch, menuClickHigherPitch);
+    public void PlayGainScore() => PlaySound(gainScore, gainScoreVolume, gainScoreRandomPitch, gainScoreLowerPitch, gainScoreHigherPitch);
     public void PlayGameOver() => PlaySound(gameOver, gameOverVolume, gameOverRandomPitch, gameOverLowerPitch, gameOverHigherPitch);
     public void PlayMenuQuit() => PlaySound(menuQuit, menuQuitVolume, menuQuitRandomPitch, menuQuitLowerPitch, menuQuitHigherPitch);
 }
