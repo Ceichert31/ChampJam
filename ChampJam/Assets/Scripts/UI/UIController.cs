@@ -55,6 +55,7 @@ public class UIController : MonoBehaviour
             //Spawn spider
             bugSpawner.dontSpawn = false;
             spiderDropDown.EnableSpider();
+            return;
         }
 
         switch (index)
