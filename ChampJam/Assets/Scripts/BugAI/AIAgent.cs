@@ -68,7 +68,6 @@ public class AIAgent : MonoBehaviour
 
         if (!inRadius || !GameManager.Instance.GetLightState())
         {
-            Debug.Log("normal pathfding");
             rb.linearVelocity = pathfinder.GetPathVelocity((target - new Vector2(transform.position.x, transform.position.y)).normalized) * agentSpeed;
             transform.up = Vector2.Lerp(transform.up, rb.linearVelocity, Time.fixedDeltaTime * rotationSpeed);
             //end early

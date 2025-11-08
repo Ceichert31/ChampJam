@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
 
         bounds = GetComponent<BoxCollider2D>();
 
-        switchBugHotelTimer = Time.time + switchBugHotelTime;
+        ChangeActiveHotels();
     }
 
     private void Start()
@@ -47,16 +47,26 @@ public class GameManager : MonoBehaviour
     {
         if (Time.time > switchBugHotelTimer)
         {
-            //Disable all hotels
-            foreach (var hotel in bugHotels)
-            {
-                hotel.ActivateHotel();
-            }
-            int index = Random.Range(0, bugHotels.Count);
-            //Randomly enable one hotel
-
-            bugHotels[index].DeactivateHotel();
+            ChangeActiveHotels(); 
         }
+    }
+
+    private void ChangeActiveHotels()
+    {
+        switchBugHotelTimer = Time.time + switchBugHotelTime;
+
+        if (bugHotels.Count < 0)
+            return;
+        
+        //Disable all hotels
+        foreach (var hotel in bugHotels)
+        {
+            hotel.ActivateHotel();
+        }
+        int index = Random.Range(0, bugHotels.Count);
+        //Randomly enable one hotel
+
+        bugHotels[index].DeactivateHotel();
     }
 
     public void AddScore(int scoreToAdd)
