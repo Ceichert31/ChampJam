@@ -28,10 +28,15 @@ public class AIAgent : MonoBehaviour
     private float targetChangeTimer = 5f;
     private float changeTimer;
 
+    [SerializeField]
+    private float rotationSpeed = 5f;
+
     private IPathfinder pathfinder;
     private IDirection direction;
     private Rigidbody2D rb;
     private Vector2 target;
+
+    private Animator animator;
 
     private void Start()
     {
@@ -39,6 +44,7 @@ public class AIAgent : MonoBehaviour
         pathfinder = GetComponent<IPathfinder>();
         direction = GetComponent<IDirection>();
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponentInChildren<Animator>();
         target = GameManager.Instance.GetRandomPointInBounds();
 
         changeTimer = Time.time + targetChangeTimer;
@@ -56,18 +62,22 @@ public class AIAgent : MonoBehaviour
 
     private void PerformPathing()
     {
+        float animSpeed = (agentSpeed * rb.linearVelocity.magnitude);
+        animSpeed = Mathf.Clamp(animSpeed, 0.5f, 1.5f);
+        animator.speed = animSpeed;
+
         if (!inRadius || !GameManager.Instance.GetLightState())
         {
             Debug.Log("normal pathfding");
             rb.linearVelocity = pathfinder.GetPathVelocity((target - new Vector2(transform.position.x, transform.position.y)).normalized) * agentSpeed;
-            transform.up = Vector2.Lerp(transform.up, rb.linearVelocity, Time.deltaTime);
+            transform.up = Vector2.Lerp(transform.up, rb.linearVelocity, Time.fixedDeltaTime * rotationSpeed);
             //end early
             return;
         }
 
         // move towards light
         rb.linearVelocity = pathfinder.GetPathVelocity(direction.GetTargetDirection(transform.position, latestLightPos.position)) * agentSpeed;
-        transform.up = Vector2.Lerp(transform.up, rb.linearVelocity, Time.fixedDeltaTime * 3f);
+        transform.up = Vector2.Lerp(transform.up, rb.linearVelocity, Time.fixedDeltaTime * rotationSpeed);
     }
     private void CalculateTarget()
     {

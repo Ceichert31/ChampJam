@@ -80,7 +80,7 @@ PolygonCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 72
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -159,6 +159,7 @@ MonoBehaviour:
   latestLightPos: {fileID: 0}
   agentSpeed: 1
   targetChangeTimer: 5
+  rotationSpeed: 5
 --- !u!1001 &8526935422812679963
 PrefabInstance:
   m_ObjectHideFlags: 0
