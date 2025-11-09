@@ -55,7 +55,7 @@ public class UIController : MonoBehaviour
             //Spawn spider
             bugSpawner.dontSpawn = false;
             spiderDropDown.EnableSpider();
-            tutorialList[tutorialList.Count - 1].transform.DOMoveX(-230, 0.3f).SetEase(Ease.InOutBack);
+            tutorialList[tutorialList.Count - 1].transform.DOMoveX(-700, 0.3f).SetEase(Ease.InOutBack);
             return;
         }
 
@@ -72,7 +72,7 @@ public class UIController : MonoBehaviour
                 break;
         }
 
-        tutorialList[index].transform.DOMoveX(-230, 0.3f).SetEase(Ease.InOutBack).OnComplete(() =>
+        tutorialList[index].transform.DOMoveX(-700, 0.3f).SetEase(Ease.InOutBack).OnComplete(() =>
         {
             index++;
 
