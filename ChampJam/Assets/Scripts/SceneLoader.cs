@@ -17,7 +17,7 @@ public class SceneLoader : MonoBehaviour
         Invoke(nameof(QuitApp), 2.0f);
     }
 
-    private void QuitApp() => Application.Quit();
+    private void QuitApp() => LoadThisScene();
 
     public void ReloadScene()
     {
