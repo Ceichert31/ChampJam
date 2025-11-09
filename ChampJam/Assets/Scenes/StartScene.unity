@@ -1920,8 +1920,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: PRESS ANY KEY
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ed0fcf5cf22272f4ea97e32c8529b929, type: 2}
-  m_sharedMaterial: {fileID: -8233879283070076169, guid: ed0fcf5cf22272f4ea97e32c8529b929, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cad3b3b449685ab41a9276cc87a3f1d7, type: 2}
+  m_sharedMaterial: {fileID: 5524167159778967540, guid: cad3b3b449685ab41a9276cc87a3f1d7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3043,6 +3043,11 @@ MonoBehaviour:
   menuQuitRandomPitch: 1
   menuQuitLowerPitch: 0.9
   menuQuitHigherPitch: 1.1
+  bugDie: {fileID: 0}
+  bugDieVolume: 1.1
+  bugDieRandomPitch: 1
+  bugDieLowerPitch: 0.9
+  bugDieHigherPitch: 1.1
 --- !u!114 &1646296732
 MonoBehaviour:
   m_ObjectHideFlags: 0
