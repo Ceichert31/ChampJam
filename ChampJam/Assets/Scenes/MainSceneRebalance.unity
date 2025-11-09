@@ -1038,7 +1038,7 @@ PrefabInstance:
     - target: {fileID: 4883989077768990282, guid: 4399a935fab92e7438cb65eeb8a1ceac, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: ed0fcf5cf22272f4ea97e32c8529b929, type: 2}
+      objectReference: {fileID: 11400000, guid: cad3b3b449685ab41a9276cc87a3f1d7, type: 2}
     - target: {fileID: 4883989077768990282, guid: 4399a935fab92e7438cb65eeb8a1ceac, type: 3}
       propertyPath: m_fontStyle
       value: 32
@@ -1046,7 +1046,7 @@ PrefabInstance:
     - target: {fileID: 4883989077768990282, guid: 4399a935fab92e7438cb65eeb8a1ceac, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: -8233879283070076169, guid: ed0fcf5cf22272f4ea97e32c8529b929, type: 2}
+      objectReference: {fileID: 5524167159778967540, guid: cad3b3b449685ab41a9276cc87a3f1d7, type: 2}
     - target: {fileID: 4883989077768990282, guid: 4399a935fab92e7438cb65eeb8a1ceac, type: 3}
       propertyPath: m_enableAutoSizing
       value: 1
@@ -2537,6 +2537,11 @@ MonoBehaviour:
   menuQuitRandomPitch: 1
   menuQuitLowerPitch: 0.9
   menuQuitHigherPitch: 1.1
+  bugDie: {fileID: 0}
+  bugDieVolume: 1.1
+  bugDieRandomPitch: 1
+  bugDieLowerPitch: 0.9
+  bugDieHigherPitch: 1.1
 --- !u!82 &969350382
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3806,16 +3811,16 @@ PrefabInstance:
       objectReference: {fileID: 1182010247}
     - target: {fileID: 3056102578388843641, guid: d2f2c6cced41b624a8ac827253b9c995, type: 3}
       propertyPath: m_fontSize
-      value: 45.85
+      value: 29.25
       objectReference: {fileID: 0}
     - target: {fileID: 3056102578388843641, guid: d2f2c6cced41b624a8ac827253b9c995, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: ed0fcf5cf22272f4ea97e32c8529b929, type: 2}
+      objectReference: {fileID: 11400000, guid: cad3b3b449685ab41a9276cc87a3f1d7, type: 2}
     - target: {fileID: 3056102578388843641, guid: d2f2c6cced41b624a8ac827253b9c995, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: -8233879283070076169, guid: ed0fcf5cf22272f4ea97e32c8529b929, type: 2}
+      objectReference: {fileID: 5524167159778967540, guid: cad3b3b449685ab41a9276cc87a3f1d7, type: 2}
     - target: {fileID: 3056102578388843641, guid: d2f2c6cced41b624a8ac827253b9c995, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
