@@ -2448,12 +2448,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundManager
   lampOn: {fileID: 8300000, guid: a43db7521d04d5f4bb4ebf89847e3cc0, type: 3}
-  lampOnVolume: 0.75
+  lampOnVolume: 1.2
   lampOnRandomPitch: 1
   lampOnLowerPitch: 0.9
   lampOnHigherPitch: 1.1
   lampOff: {fileID: 8300000, guid: 0cf0b32ecdfdae74bb558d6c56298a77, type: 3}
-  lampOffVolume: 0.75
+  lampOffVolume: 1.2
   lampOffRandomPitch: 1
   lampOffLowerPitch: 0.9
   lampOffHigherPitch: 1.1
@@ -2463,77 +2463,77 @@ MonoBehaviour:
   spiderMoveLowerPitch: 0.9
   spiderMoveHigherPitch: 1.1
   spiderBite: {fileID: 8300000, guid: 2e860cdfaa2be2f4f8f967cbf81cb183, type: 3}
-  spiderBiteVolume: 0.75
+  spiderBiteVolume: 1.2
   spiderBiteRandomPitch: 1
   spiderBiteLowerPitch: 0.9
   spiderBiteHigherPitch: 1.1
   spiderEat: {fileID: 8300000, guid: cfb9f7fb1461e274dad08a83f79f59bc, type: 3}
-  spiderEatVolume: 0.75
+  spiderEatVolume: 1.2
   spiderEatRandomPitch: 1
   spiderEatLowerPitch: 0.9
   spiderEatHigherPitch: 1.1
   spiderSpit: {fileID: 0}
-  spiderSpitVolume: 0.75
+  spiderSpitVolume: 1.2
   spiderSpitRandomPitch: 1
   spiderSpitLowerPitch: 0.9
   spiderSpitHigherPitch: 1.1
   mothFollow1: {fileID: 8300000, guid: 564f4ffd64c86974188724dd4a74d2e0, type: 3}
-  mothFollowVolume1: 0.75
+  mothFollowVolume1: 1.2
   mothFollowRandomPitch1: 1
   mothFollowLowerPitch1: 0.9
   mothFollowHigherPitch1: 1.1
   mothFollow2: {fileID: 8300000, guid: ab1702288b5fd234297cdeec4ae2a6b8, type: 3}
-  mothFollowVolume2: 0.75
+  mothFollowVolume2: 1.2
   mothFollowRandomPitch2: 1
   mothFollowLowerPitch2: 0.9
   mothFollowHigherPitch2: 1.1
   mothFollow3: {fileID: 8300000, guid: 7986dee24a21d1f428fe46d9bef3224b, type: 3}
-  mothFollowVolume3: 0.75
+  mothFollowVolume3: 1.2
   mothFollowRandomPitch3: 1
   mothFollowLowerPitch3: 0.9
   mothFollowHigherPitch3: 1.1
   fleaFlee1: {fileID: 8300000, guid: ac133cd242f809b41b49fa2090a63bed, type: 3}
-  fleaFleeVolume1: 0.75
+  fleaFleeVolume1: 1.2
   fleaFleeRandomPitch1: 1
   fleaFleeLowerPitch1: 0.9
   fleaFleeHigherPitch1: 1.1
   fleaFlee2: {fileID: 8300000, guid: b24160117aa813541b5290c8c6d67f69, type: 3}
-  fleaFleeVolume2: 0.75
+  fleaFleeVolume2: 1.2
   fleaFleeRandomPitch2: 1
   fleaFleeLowerPitch2: 0.9
   fleaFleeHigherPitch2: 1.1
   rhinoHit1: {fileID: 8300000, guid: 7f4c7c04608f8f844bf671fda72a7904, type: 3}
-  rhinoHitVolume1: 0.75
+  rhinoHitVolume1: 1.2
   rhinoHitRandomPitch1: 1
   rhinoHitLowerPitch1: 0.9
   rhinoHitHigherPitch1: 1.1
   rhinoHit2: {fileID: 8300000, guid: 0f11d170c31bd4c4b86995b4720ccea4, type: 3}
-  rhinoHitVolume2: 0.75
+  rhinoHitVolume2: 1.2
   rhinoHitRandomPitch2: 1
   rhinoHitLowerPitch2: 0.9
   rhinoHitHigherPitch2: 1.1
   weevilSpook: {fileID: 8300000, guid: b24160117aa813541b5290c8c6d67f69, type: 3}
-  weevilSpookVolume: 0.75
+  weevilSpookVolume: 1.2
   weevilSpookRandomPitch: 1
   weevilSpookLowerPitch: 0.9
   weevilSpookHigherPitch: 1.1
   menuClick: {fileID: 8300000, guid: f0044d8dbf52965458fc92e3a9962bfb, type: 3}
-  menuClickVolume: 0.75
+  menuClickVolume: 1.2
   menuClickRandomPitch: 1
   menuClickLowerPitch: 0.9
   menuClickHigherPitch: 1.1
   gainScore: {fileID: 8300000, guid: 8517d7eb5e764ab40bdf6ad2912a6666, type: 3}
-  gainScoreVolume: 0.75
+  gainScoreVolume: 1.2
   gainScoreRandomPitch: 1
   gainScoreLowerPitch: 0.9
   gainScoreHigherPitch: 1.1
   gameOver: {fileID: 8300000, guid: 80ed3566374fc224c85317f7bebd9b65, type: 3}
-  gameOverVolume: 0.75
+  gameOverVolume: 1.2
   gameOverRandomPitch: 1
   gameOverLowerPitch: 0.9
   gameOverHigherPitch: 1.1
   menuQuit: {fileID: 8300000, guid: b2ae914719f1df7419e8e35cd7817507, type: 3}
-  menuQuitVolume: 0.75
+  menuQuitVolume: 1.2
   menuQuitRandomPitch: 1
   menuQuitLowerPitch: 0.9
   menuQuitHigherPitch: 1.1
@@ -2556,7 +2556,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 64
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -2594,7 +2594,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -5008,6 +5008,14 @@ PrefabInstance:
     - target: {fileID: 2380548212561662100, guid: 24bf4a8fa1350704d850218d641ce158, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4440125544720810589, guid: 24bf4a8fa1350704d850218d641ce158, type: 3}
+      propertyPath: Priority
+      value: 179
+      objectReference: {fileID: 0}
+    - target: {fileID: 4440125544720810589, guid: 24bf4a8fa1350704d850218d641ce158, type: 3}
+      propertyPath: m_Volume
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 7757554088106570525, guid: 24bf4a8fa1350704d850218d641ce158, type: 3}
       propertyPath: m_Name
