@@ -21,37 +21,40 @@ public class MusicManager : MonoBehaviour
     {
         baseMusic.Play();
         mothMusic.Play();
+        mothMusic.volume = 0;
         fleaMusic.Play();
+        fleaMusic.volume = 0;
         beetleMusic.Play();
+        beetleMusic.volume = 0;
     }
     
     void GetActiveBugs()
     {
         if (GameManager.Instance.HasMothOnScreen())
         {
-            mothMusic.volume = 1;
+            mothMusic.volume = Mathf.Lerp(mothMusic.volume, 1, 5 * Time.deltaTime);
         }
         else
         {
-            mothMusic.volume = 0;
+            mothMusic.volume = Mathf.Lerp(mothMusic.volume, 0, 5 * Time.deltaTime);
         }
 
         if (GameManager.Instance.HasFlyOnScreen())
         {
-            fleaMusic.volume = 1;
+            fleaMusic.volume = Mathf.Lerp(fleaMusic.volume, 1, 5 * Time.deltaTime);
         }
         else
         {
-            fleaMusic.volume = 0;
+            fleaMusic.volume = Mathf.Lerp(fleaMusic.volume, 0, 5 * Time.deltaTime);
         }
 
         if (GameManager.Instance.HasBeetleOnScreen())
         {
-            beetleMusic.volume = 1;
+            beetleMusic.volume = Mathf.Lerp(beetleMusic.volume, 1, 5 * Time.deltaTime);
         }
         else
         {
-            beetleMusic.volume = 0;
+            beetleMusic.volume = Mathf.Lerp(beetleMusic.volume, 0, 5 * Time.deltaTime);
         }
     }
 }
