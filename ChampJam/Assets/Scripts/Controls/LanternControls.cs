@@ -77,20 +77,27 @@ public class LanternControls : MonoBehaviour
             Gizmos.DrawWireSphere(detection.transform.position, lightRadius);
         }
     }
-
+    private bool dontPlaySFX;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         GameObject bug = collision.gameObject;
-
-        if (bug.GetComponent<MothMovement>())
+        if(isLightOn == true)
         {
-            SoundManager.Instance.PlayMothFollow();
-        }
-        else if (bug.GetComponent<FlyMovement>())
-        {
-            SoundManager.Instance.PlayFleaFlee();
+            if (bug.GetComponent<MothMovement>())
+            {
+                SoundManager.Instance.PlayMothFollow();
+            }
+            else if (bug.GetComponent<FlyMovement>())
+            {
+                if (dontPlaySFX) return;
+                SoundManager.Instance.PlayFleaFlee();
+                dontPlaySFX = true;
+                Invoke(nameof(ResetSFX), 0.5f);
+            }
         }
     }
+
+    private void ResetSFX() => dontPlaySFX = false;
 
     private void OnTriggerStay2D(Collider2D collision)
     {
