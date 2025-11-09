@@ -1988,7 +1988,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6.9296875
+  orthographic size: 5.625
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2125,7 +2125,7 @@ MonoBehaviour:
   ropeSegments: 30
   segmentLength: 0.02
   ropeWidth: 0.05
-  ropeColor: {r: 0, g: 0, b: 0, a: 1}
+  ropeColor: {r: 0.0830189, g: 0.0830189, b: 0.0830189, a: 1}
   lanternSize: 1.25
   lanternMass: 25
   lanternColor: {r: 1, g: 1, b: 1, a: 1}
@@ -5236,11 +5236,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8368474698844260448, guid: da657c90ab7684a44adc49083ff9452d, type: 3}
       propertyPath: spawnRate.m_Curve.Array.data[0].time
-      value: -0.49999714
+      value: 0.5016737
       objectReference: {fileID: 0}
     - target: {fileID: 8368474698844260448, guid: da657c90ab7684a44adc49083ff9452d, type: 3}
       propertyPath: spawnRate.m_Curve.Array.data[0].value
-      value: 5.4977894
+      value: 4.998232
       objectReference: {fileID: 0}
     - target: {fileID: 8368474698844260448, guid: da657c90ab7684a44adc49083ff9452d, type: 3}
       propertyPath: spawnRate.m_Curve.Array.data[0].inSlope
