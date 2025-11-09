@@ -16,6 +16,7 @@ public class BeetleStun : MonoBehaviour
             //Stop ai from moving 
             //Launch in direction
             agent.StunBug(collision.gameObject.transform.position);
+            SoundManager.Instance.PlayRhinoHit();
         }
 
     }
