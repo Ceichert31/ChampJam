@@ -13,8 +13,11 @@ public class SceneLoader : MonoBehaviour
     public void Quit()
     {
         SoundManager.Instance.PlayMenuQuit();
-        Application.Quit();
+
+        Invoke(nameof(QuitApp), 4);
     }
+
+    private void QuitApp() => Application.Quit();
 
     public void ReloadScene()
     {
