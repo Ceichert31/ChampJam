@@ -92,7 +92,7 @@ public class LanternControls : MonoBehaviour
                 if (dontPlaySFX) return;
                 SoundManager.Instance.PlayFleaFlee();
                 dontPlaySFX = true;
-                Invoke(nameof(ResetSFX), 0.5f);
+                Invoke(nameof(ResetSFX), 1.5f);
             }
         }
     }
