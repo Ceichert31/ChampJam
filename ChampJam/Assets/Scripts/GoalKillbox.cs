@@ -21,6 +21,7 @@ public class GoalKillbox : MonoBehaviour, IDestroy
         //Play particles
         //Play sfx
         shake.StartShake();
+        SoundManager.Instance.PlayGainScore();
 
         Instantiate(damageNumber, transform.position, Quaternion.identity);
         shake.StartShake();
