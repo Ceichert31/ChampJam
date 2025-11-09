@@ -14,7 +14,7 @@ public class SceneLoader : MonoBehaviour
     {
         SoundManager.Instance.PlayMenuQuit();
 
-        Invoke(nameof(QuitApp), 4);
+        Invoke(nameof(QuitApp), 2.0f);
     }
 
     private void QuitApp() => Application.Quit();
