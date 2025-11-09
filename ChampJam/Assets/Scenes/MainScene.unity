@@ -5050,6 +5050,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4440930902435177555, guid: 912c8b72b3d8d2d468373ea49bbfbdbf, type: 3}
+      propertyPath: agentSpeed
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 5925908170558472184, guid: 912c8b72b3d8d2d468373ea49bbfbdbf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
