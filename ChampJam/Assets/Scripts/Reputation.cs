@@ -108,7 +108,9 @@ public class Reputation : MonoBehaviour
             {
                 Debug.Log("rating is " + rating + " and this star is " + i);
                 ratingStars[i].sprite = ratingStarHalf;
+             
                 ratingStars[i].DOComplete();
+                ratingStars[i].transform.position = getRatingStarPosAt(i);
                 ratingStars[i].transform.DOShakePosition(0.5f, 0.5f);
             }
 
@@ -117,6 +119,7 @@ public class Reputation : MonoBehaviour
                 //Debug.Log("setting white " + ratingStars[i]);
                 ratingStars[i].color = new Color(255, 255, 255, 255);
                 ratingStars[i].DOComplete();
+                ratingStars[i].transform.position = getRatingStarPosAt(i);
                 ratingStars[i].sprite = ratingStarOn;
                 
             }
@@ -129,6 +132,7 @@ public class Reputation : MonoBehaviour
                 ratingStars[i].color = new Color(80, 80, 80, 255);
                 ratingStars[i].sprite = ratingStarOff;
                 ratingStars[i].DOComplete();
+                ratingStars[i].transform.position = getRatingStarPosAt(i);
                 ratingStars[i].transform.DOShakePosition(0.5f,0.5f);
             }
         }
@@ -143,12 +147,33 @@ public class Reputation : MonoBehaviour
     [SerializeField] List<float> ratingThresholds;
     [SerializeField] TextMeshProUGUI ratingTF;
     [SerializeField] List<string> ratingPhrases;
+    [SerializeField] List<Vector3> ratingStarPositions;
+    public Vector3 getRatingStarPosAt(int index)
+    {
+        for(int i = 0; i < ratingStarPositions.Count; i++)
+        {
+            if (i == index)
+                return ratingStarPositions[i];
+        }
+        return Vector3.zero;
+    }
+
+    public void setRatingStarPoses()
+    {
+        for(int i = 0; i < ratingStarPositions.Count; i++)
+        {
+            for(int j = 0; j < ratingStars.Count; j++)
+            {
+                ratingStarPositions[i] = ratingStars[j].gameObject.transform.position;
+            }
+        }
+    }
     //[SerializeField] Color ratingOffColor;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        setRatingStarPoses();
     }
 
     private void Update()
