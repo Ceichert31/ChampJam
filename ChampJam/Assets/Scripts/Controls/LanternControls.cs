@@ -39,6 +39,15 @@ public class LanternControls : MonoBehaviour
             }
             UIController.Instance.firstIgnite = true;
             isLightOn = !isLightOn;
+
+            if (isLightOn)
+            {
+                SoundManager.Instance.PlayLampOn();
+            }
+            else
+            {
+                SoundManager.Instance.PlayLampOff();
+            }
         }
 
         UpdateLanternState();
@@ -50,13 +59,11 @@ public class LanternControls : MonoBehaviour
         {
             lanternLight.SetActive(true);
             mainLantern.GetComponent<SpriteRenderer>().sprite = lanternOn;
-            SoundManager.Instance.PlayLampOff();
         }
         else
         {
             lanternLight.SetActive(false);
             mainLantern.GetComponent<SpriteRenderer>().sprite = lanternOff;
-            SoundManager.Instance.PlayLampOn();
         }
     }
 
