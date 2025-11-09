@@ -19,6 +19,9 @@ public class SpiderKillbox : MonoBehaviour, IDestroy
             GameManager.Instance.AddScore(-50);
             DamageNumbers.Create(-50, transform.position, Color.red);
             GameManager.Instance.RemoveBug(bug);
+            SoundManager.Instance.PlaySpiderBite();
+            SoundManager.Instance.PlayBugDie();
+
 
             GameManager.Instance.RepLossOnDeath();
 

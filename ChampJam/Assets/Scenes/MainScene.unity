@@ -1992,7 +1992,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.625
+  orthographic size: 6.9296875
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2461,7 +2461,7 @@ MonoBehaviour:
   lampOffRandomPitch: 1
   lampOffLowerPitch: 0.9
   lampOffHigherPitch: 1.1
-  spiderMove: {fileID: 0}
+  spiderMove: {fileID: 8300000, guid: 7a338785e324b6245896960423157f37, type: 3}
   spiderMoveVolume: 0.75
   spiderMoveRandomPitch: 1
   spiderMoveLowerPitch: 0.9
@@ -2541,6 +2541,11 @@ MonoBehaviour:
   menuQuitRandomPitch: 1
   menuQuitLowerPitch: 0.9
   menuQuitHigherPitch: 1.1
+  bugDie: {fileID: 0}
+  bugDieVolume: 1.1
+  bugDieRandomPitch: 1
+  bugDieLowerPitch: 0.9
+  bugDieHigherPitch: 1.1
 --- !u!82 &969350382
 AudioSource:
   m_ObjectHideFlags: 0

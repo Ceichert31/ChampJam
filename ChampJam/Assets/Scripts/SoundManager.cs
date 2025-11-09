@@ -132,6 +132,13 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private float menuQuitLowerPitch = 0.9f;
     [SerializeField] private float menuQuitHigherPitch = 1.1f;
 
+    [Header("Menu Quit")]
+    [SerializeField] private AudioClip bugDie;
+    [SerializeField] private float bugDieVolume = 1.1f;
+    [SerializeField] private bool bugDieRandomPitch = true;
+    [SerializeField] private float bugDieLowerPitch = 0.9f;
+    [SerializeField] private float bugDieHigherPitch = 1.1f;
+
     private AudioSource audioSource;
 
     private void Awake()
@@ -215,4 +222,5 @@ public class SoundManager : MonoBehaviour
     public void PlayGainScore() => PlaySound(gainScore, gainScoreVolume, gainScoreRandomPitch, gainScoreLowerPitch, gainScoreHigherPitch);
     public void PlayGameOver() => PlaySound(gameOver, gameOverVolume, gameOverRandomPitch, gameOverLowerPitch, gameOverHigherPitch);
     public void PlayMenuQuit() => PlaySound(menuQuit, menuQuitVolume, menuQuitRandomPitch, menuQuitLowerPitch, menuQuitHigherPitch);
+    public void PlayBugDie() => PlaySound(bugDie, bugDieVolume, bugDieRandomPitch, bugDieLowerPitch, bugDieHigherPitch);
 }
