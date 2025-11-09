@@ -108,7 +108,7 @@ public class Reputation : MonoBehaviour
             {
                 Debug.Log("rating is " + rating + " and this star is " + i);
                 ratingStars[i].sprite = ratingStarHalf;
-
+                ratingStars[i].DOComplete();
                 ratingStars[i].transform.DOShakePosition(0.5f, 0.5f);
             }
 
@@ -116,6 +116,7 @@ public class Reputation : MonoBehaviour
             {
                 //Debug.Log("setting white " + ratingStars[i]);
                 ratingStars[i].color = new Color(255, 255, 255, 255);
+                ratingStars[i].DOComplete();
                 ratingStars[i].sprite = ratingStarOn;
                 
             }
@@ -127,6 +128,7 @@ public class Reputation : MonoBehaviour
                 Debug.Log("toggle off " + ratingStars[i]);
                 ratingStars[i].color = new Color(80, 80, 80, 255);
                 ratingStars[i].sprite = ratingStarOff;
+                ratingStars[i].DOComplete();
                 ratingStars[i].transform.DOShakePosition(0.5f,0.5f);
             }
         }
