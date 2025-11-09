@@ -78,12 +78,12 @@ public class UIController : MonoBehaviour
 
             if (index >= tutorialList.Count) return;
 
-            tutorialList[index].transform.DOMoveX(315, 0.3f).SetEase(Ease.InOutBack);
+            tutorialList[index].transform.DOMoveX(275, 0.3f).SetEase(Ease.InOutBack);
         });
     }
 
     private void StartTutorial()
     {
-        tutorialList[0].transform.DOMoveX(315, 0.3f).SetEase(Ease.InOutBack);
+        tutorialList[0].transform.DOMoveX(275, 0.3f).SetEase(Ease.InOutBack);
     }
 }
